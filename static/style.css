@@ -1,0 +1,402 @@
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+table{
+    caption-side: bottom;
+    border-collapse: collapse;
+    overflow-y: scroll;
+    display: inline-block;
+    height: 40rem;
+}
+
+th{
+    width: 10rem;
+    text-align: center;
+    height: 3.9rem;
+    text-transform: uppercase;
+}
+
+td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+legend{
+    font-size: 2rem;
+    font-weight: lighter;
+    padding-top: 1.5rem;
+}
+
+iframe{
+    margin: 0 auto;
+    width: 100%;
+    display: inherit;
+}
+
+select{
+    font-family: Arial !important;
+    font-size: 1.5rem !important;
+    font-weight: 2000 !important;
+    text-transform: capitalize !important;
+}
+
+.entrada{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.entrada_radio{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+
+.btn{
+    background-color: #0bb4de;
+    border: none;
+    color: rgb(255, 255, 255);
+    width: 17rem;
+    margin: 0rem 2rem 1rem 3.5rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    transition: background-color 360ms ease-in-out;
+}
+
+.btn-escoger{
+    background-color: rgb(201, 201, 13);
+    width: 43%;
+    margin: 0.1rem;
+    font-size: 1.5rem;
+}
+
+.btn:hover{
+    background-color: #a3d40a;
+    color:rgb(255, 255, 255);
+}
+
+/* --- imagen --- */
+.cabecera .bg-image{
+    background-image: url(../static/img/home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 17rem;
+}
+
+.cabecera .bg-image .cabecera_heading{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    letter-spacing: .2rem;
+    font-size: 5rem;
+    padding-left: 44rem;
+    top: 5rem;
+}
+
+.cabecera .bg-image .cabecera_heading .cabecera_texto{
+    font-weight: lighter;
+    font-size: 2.5rem;
+    font-style: normal;
+}
+
+.cabecera .bg-image .sombreado{
+    background-color: rgb(0 0 0 / .4);
+    height: 100%;
+}
+
+.cabecera .cabecera_titulo .cabecera_titulo--home{
+    width: 6rem;
+    position: absolute;
+    top: 13rem;
+    left: 2rem;
+}
+
+
+/* Posicion campos */
+div#campo-2{
+    grid-column:1 / 2;
+}
+
+div#campo-3{
+    grid-column: 2 /3;
+}
+
+div#campo-4{
+    grid-column: 3 / 4;
+}
+
+
+/* ----- Formulario Final ----- */
+.body-form{
+    margin:1.5rem;
+    border: 1px solid #00000061;
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria{
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria #campo-1,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-2,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-3,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-4{
+    display: flex;
+    flex-direction: row;
+    gap:2rem;
+    align-items: center;
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria #campo-1,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-2,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-3,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-4{
+    border: 1px solid rgb(154 196 206);
+    padding: 1.5rem;
+    border-radius: 0.9rem;
+    box-shadow: 1px 2px 10px rgb(0 0 0 / .3);
+    transition: border 360ms ease-in-out;
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria #campo-1:hover,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-2:hover,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-3:hover,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-4:hover{
+    border:1px solid rgb(0 0 0);
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria #campo-1 .icono{
+    background-color: rgb(214 193 221);
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria #campo-2 .icono{
+    background-color: rgb(222 129 58 / 33%);
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria #campo-3 .icono{
+    background-color: rgb(131 213 133 / 41%);
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria #campo-4 .icono{
+    background-color:  rgb(4 87 230 / 27%);
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria #campo-1 .icono,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-2 .icono,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-3 .icono,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-4 .icono{
+    padding: 0.9rem;
+    border-radius: 100%;
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria #campo-1 .entrada,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-2 .entrada,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-3 .entrada,
+.body-form .formulario .secciones .datos_inmobiliaria #campo-4 .entrada{
+    width: 100%;
+}
+
+
+.body-form .formulario .secciones .datos_inmobiliaria .estilo_form{
+    display:flex;
+    flex-direction: column;
+    padding-top: 1.5rem;
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria .estilo_form label{
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin:0rem;
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria .estilo_form input[type="number"], select{
+    height: 3.5rem;
+    padding: 0rem 0.9rem;
+    border-radius: 0.2rem;
+    font-size: 1.2rem;
+    border:1px solid rgb(0 0 0);
+}
+
+/* Estilos para nuestros inputs[type=radio] */
+.seccion_radios{
+    grid-column: 1 / 4;
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria .listado-sectores{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(154 196 206);
+    border-radius: 0.9rem;
+    box-shadow: 1px 2px 10px rgb(0 0 0 / .3);
+    margin-top: 8rem;
+    height: 9rem;;
+}
+
+input[type="radio"]{
+    appearance: none;
+    border-radius: 100%;
+    padding: .8rem;
+}
+
+input[type="radio"]#sector1{
+    background-color: #ffffff;
+    border: 2px solid #105e89;
+}
+
+input[type="radio"]#sector1:checked{
+    background-color: #68aed575;
+}
+
+input[type="radio"]#sector2{
+    background-color: #ffffff;
+    border: 2px solid #108938;
+}
+
+input[type="radio"]#sector2:checked{
+    background-color: #10893857;
+}
+
+input[type="radio"]#sector3{
+    background-color: #ffffff;
+    border: 2px solid #891053;
+}
+
+input[type="radio"]#sector3:checked{
+    background-color: #89105361;
+}
+
+input[type="radio"]#sector4{
+    background-color: #ffffff;
+    border: 2px solid #896310;
+}
+input[type="radio"]#sector4:checked{
+    background-color: #89631075;
+}
+
+.body-form .formulario .secciones .datos_inmobiliaria .listado-sectores .l-sector{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem;
+}
+
+div#accordionFlushExample{
+    border:1px solid rgba(0 0 0 / .3);
+    margin:1.8rem;
+}
+
+.desplegador{
+    background-color: #0250d447;
+    height: 5rem;
+    font-size: 2rem;
+    font-weight: 100;
+    text-transform: capitalize;
+}
+
+/* ALERTAS  */
+.input-error{
+    border:2px solid rgb(201, 19, 19) !important;
+}
+
+.mensaje{
+    color:rgb(201, 19, 19);
+    font-weight:500;
+    font-size:1.2rem;
+    display: none;
+}
+
+.mensaje-imprimir{
+    display: block;
+}
+
+.mapa-sectores{
+    padding-top: 3rem;
+    grid-column: 2 /4;
+}
+
+
+/* estilos para pie de pagina */
+footer{
+    background-color: rgb(0 0 0);
+    padding: 2rem;
+    margin-top: 7rem;
+}
+
+footer .secciones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .secciones .seccion_1{
+    padding-top:2rem;
+}
+
+footer .secciones .seccion_1 h2{
+    font-size:3.5rem;
+}
+
+footer .secciones .seccion_1 p{
+    font-weight: lighter;
+}
+
+footer .secciones .seccion_1 h2,
+footer .secciones .seccion_1 p{
+    color:rgb(255, 255, 255);
+}
+
+footer .secciones .seccion_2{
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    vertical-align: baseline;
+    align-items: end;
+    padding-right: .9rem;
+}
+
+footer .secciones .seccion_2 h2{
+    color:rgb(255, 255, 255);
+    text-align: center;
+    width: 26rem;
+}
+
+footer .secciones .seccion_2 ul{
+    padding-top: .9rem;
+    list-style-type: none;
+    display: flex;
+    margin:0rem;
+    gap:2rem;
+    justify-content: space-around;
+}
+
+footer .secciones .seccion_2 ul > li{
+    background-color: white;
+    border-radius: 1.9rem;
+}
+
+
+
+/* Estilso a nuestra tabla de barrios */
+a#boton_barrio{
+    background-color: #05660533;
+    padding: 0.3rem;
+    border-radius: 100%;
+    font-size: 1.9rem;
+    display: inline-block;
+}

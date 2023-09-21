@@ -1,0 +1,101 @@
+button{
+    border-radius: .5rem;
+    width: 3.5rem;
+}
+
+td{
+    height: 5rem;
+}
+
+
+.inmobiliarias_busqueda h2.h2-1{
+    padding:4rem 0rem .9rem 1rem !important;
+    font-size: 3.5rem;
+}
+
+.inmobiliarias_busqueda h2.tl{
+    font-size:3.5rem;
+    padding:3rem 0rem 1rem 0rem;
+}
+
+.inmobiliarias_busqueda .secciones{
+    display:flex;
+    gap:1rem;
+}
+
+.inmobiliarias_busqueda .secciones .seccion-1{
+    flex:1;
+    padding: 1rem 0rem 0rem 1rem;
+}
+
+.inmobiliarias_busqueda .secciones .seccion-1 .maps iframe{
+    margin: 0 auto;
+    width: 108rem;
+    display: inherit;
+    height: 41rem;
+}
+
+.inmobiliarias_busqueda .secciones .seccion-2{
+    flex: 0;
+    margin: 1rem;
+    border-radius: 1rem;
+    padding: 0rem;
+}
+
+.inmobiliarias_busqueda .secciones .seccion-2 p{
+    margin-top: 0.9rem !important;
+    margin-bottom: 2rem !important;
+}
+
+#resumen-caja{
+    height: 41rem;
+    background-color: #ffbf00;
+    padding: 3rem 0.9rem 0rem 0.9rem;
+    width: 40rem;
+}
+
+.d-resumen{
+    display: flex;
+    justify-content: space-between;
+}
+
+.seccion_tabla{
+    margin:1.5rem;
+}
+
+
+.seccion_tabla .contenedor-inmobiliaria{
+    border: 1px solid rgb(0 0 0 / .2);
+    padding: 0.9rem;
+    margin:0rem !important;
+}
+
+.seccion_tabla .listado-inmobiliarias{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3rem;
+    margin:1rem 0rem 0rem 0rem;
+}
+
+.seccion_tabla .listado-inmobiliarias li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.seccion_tabla .listado-inmobiliarias li > p{
+    font-weight: bold;
+    font-size:1.5rem;
+}
+
+
+.seccion_tabla .listado-inmobiliarias li > p > span{
+    font-weight: lighter;
+}
+
+/* Estilos para nuestra tabla */
+.barrios-listado table{
+    display: none;
+}
+
