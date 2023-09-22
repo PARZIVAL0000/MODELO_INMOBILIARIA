@@ -182,19 +182,20 @@ function MostrarBarrios(s = null){
         document.querySelector("#desplegar-listado button").classList.remove("collapsed");
         document.querySelector("#desplegar-listado #panelsStayOpen-collapseOne").classList.remove("collapse");
         document.querySelector("#desplegar-listado #panelsStayOpen-collapseOne").classList.add("show");
-        
-        for(let i = 0; i < Object.keys(barrios).length; i++){
+
+        if(s !== null){
             limpiarHTML(s);
 
-            let contenedor = document.createElement('TR');
-            let identificador = document.createElement('TD');
-            let barrio = document.createElement('TD');
-            let sector = document.createElement('TD');
-            let accion = document.createElement('TD');
-
-            identificador.textContent = i + 1;
-            barrio.textContent = barrios[i.toString()];
-            if(s !== null){
+            for(let i = 0; i < Object.keys(barrios).length; i++){
+                let contenedor = document.createElement('TR');
+                let identificador = document.createElement('TD');
+                let barrio = document.createElement('TD');
+                let sector = document.createElement('TD');
+                let accion = document.createElement('TD');
+    
+                identificador.textContent = i + 1;
+                barrio.textContent = barrios[i.toString()];
+                
                 if(s === "centroNorte-quito"){
                     contenedor.classList.add(s);
                     sector.textContent = 'Centro Norte de Quito';
@@ -202,24 +203,24 @@ function MostrarBarrios(s = null){
                     contenedor.classList.add(s);
                     sector.textContent = 'Norte de Quito';
                 }
-            }
             
-            accion.innerHTML = `
-                <a id="boton_barrio" href="#">
-                    <i class='bx bx-check' style='color:#469c07'>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAbFJREFUSEvt1L1Kw2AUBuD3pCURXBQHdx0cvAP/qTTqBbg4tmnBRUQRvAMdCm6CthHURbwAf6KCIoiDg4uCIoKDgqKIOGgiyZGksdTSmjRWHWzG5HznyXm/LyH80UV/5KIK/1ry1airUQdLgEFRVVwE08pWQl8r1qTyh4tBsipmAIqB8WJBiGwnXg4L8crC+agj0SNbZmQr+Xb8o7CcEVVnUhcly+rcTBonPxq1nJFmAQz7QZ0sgp2ez6vyUQLuYXFPqUk/Vn4Jy0uohSGOaHFjGgQu9pJyWpoBYTT7jB9CArrWY8ap10Al4cFVhJ6eJQ2MCIC0pujJwmb5qD0pETo24vqZF/pl1ANzUrMZwhGAOrfRjKboYx9No6qUIsZ49hzhzjTRuZPUz/2gnnvcNy+2siDsA1zvNkxpij4hqzVTYJ50792aArXtxF4v/aKesF2QxbEHUIOzi8AuAT0uckNA96aiX5SD+oLton5VarHYxtGYAxjXYaL2NeX1qlzUN2wX9i7UNIUsPnDwb6JlwTmcreUwC0NBJ/X1HQeJ0O+aivy5/GL5dVU4SGqB1vy/qN8B84aPH569eLAAAAAASUVORK5CYII="/>
-                    </i>
-                </a>
-            `;
-
-            contenedor.appendChild(identificador);
-            contenedor.appendChild(barrio);
-            contenedor.appendChild(sector);
-            contenedor.appendChild(accion);
-
-            document.querySelector("#cuerpo_contenido").appendChild(contenedor);
+                
+                accion.innerHTML = `
+                    <a id="boton_barrio" href="#">
+                        <i class='bx bx-check' style='color:#469c07'>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAbFJREFUSEvt1L1Kw2AUBuD3pCURXBQHdx0cvAP/qTTqBbg4tmnBRUQRvAMdCm6CthHURbwAf6KCIoiDg4uCIoKDgqKIOGgiyZGksdTSmjRWHWzG5HznyXm/LyH80UV/5KIK/1ry1airUQdLgEFRVVwE08pWQl8r1qTyh4tBsipmAIqB8WJBiGwnXg4L8crC+agj0SNbZmQr+Xb8o7CcEVVnUhcly+rcTBonPxq1nJFmAQz7QZ0sgp2ez6vyUQLuYXFPqUk/Vn4Jy0uohSGOaHFjGgQu9pJyWpoBYTT7jB9CArrWY8ap10Al4cFVhJ6eJQ2MCIC0pujJwmb5qD0pETo24vqZF/pl1ANzUrMZwhGAOrfRjKboYx9No6qUIsZ49hzhzjTRuZPUz/2gnnvcNy+2siDsA1zvNkxpij4hqzVTYJ50792aArXtxF4v/aKesF2QxbEHUIOzi8AuAT0uckNA96aiX5SD+oLton5VarHYxtGYAxjXYaL2NeX1qlzUN2wX9i7UNIUsPnDwb6JlwTmcreUwC0NBJ/X1HQeJ0O+aivy5/GL5dVU4SGqB1vy/qN8B84aPH569eLAAAAAASUVORK5CYII="/>
+                        </i>
+                    </a>
+                `;
+    
+                contenedor.appendChild(identificador);
+                contenedor.appendChild(barrio);
+                contenedor.appendChild(sector);
+                contenedor.appendChild(accion);
+    
+                document.querySelector("#cuerpo_contenido").appendChild(contenedor);
+            }
         }
-
     }else{
         document.querySelector("#accordionPanelsStayOpenExample button").classList.add("collapsed");
         document.querySelector("#accordionPanelsStayOpenExample #panelsStayOpen-collapseOne").classList.add("collapse");
@@ -228,22 +229,30 @@ function MostrarBarrios(s = null){
 }
 
 
-function limpiarHTML(sector){
-    if(sector !== null){
-        if(sector === "centroNorte-quito"){
-            if(document.querySelectorAll(".norte-quito").length !== 0){
-                document.querySelectorAll(".norte-quito").forEach(elemento => {
-                    elemento.remove();
-                });
-            }
-        }else if(sector === "norte-quito"){
-            if(document.querySelectorAll(".centroNorte-quito").length !== 0){
-                document.querySelectorAll(".centroNorte-quito").forEach(elemento => {
-                    elemento.remove();
-                });
-            }
-        
+function limpiarHTML(s){
+    if(s === "norte-quito"){
+        if(document.querySelectorAll(".centroNorte-quito").length !== 0){
+            document.querySelectorAll(".centroNorte-quito").forEach(tr => {
+                tr.remove();
+            });
+        }
+
+        if(document.querySelectorAll(".norte-quito").length !== 0){
+            document.querySelectorAll(".norte-quito").forEach(tr => {
+                tr.remove();
+            });
+        }
+    }else{
+        if(document.querySelectorAll(".norte-quito").length !== 0){
+            document.querySelectorAll(".norte-quito").forEach(tr => {
+                tr.remove();
+            });
+        }
+
+        if(document.querySelectorAll(".centroNorte-quito").length !== 0){
+            document.querySelectorAll(".centroNorte-quito").forEach(tr => {
+                tr.remove();
+            });
         }
     }
-    
 }
