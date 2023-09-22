@@ -114,12 +114,12 @@ function ValidarFormulario(){
                     if(value.trim() === "centroNorte-quito" || value.trim() === "norte-quito"){
                         const identificador = "desplegar-listado";
                         document.getElementsByClassName("listado_barrios")[0].id = identificador;
+
+                        this.MostrarBarrios(value.trim());
                     }
 
                    campos.sector = false;
                 }
-
-                MostrarBarrios();
             }else{
                 campos.sector = false;
             }
@@ -175,38 +175,73 @@ function ejecutarCarga(campo, id){
 }
 
 
-function MostrarBarrios(){
+function MostrarBarrios(s = null){
     if(document.getElementById("desplegar-listado")){
         document.querySelector("#desplegar-listado button").classList.remove("collapsed");
         document.querySelector("#desplegar-listado #panelsStayOpen-collapseOne").classList.remove("collapse");
         document.querySelector("#desplegar-listado #panelsStayOpen-collapseOne").classList.add("show");
         
-        // for(let i = 0; i < Object.keys(barrios).length; i++){
-        //     let contenedor = document.createElement('TR');
-        //     let texto = document.createElement('TD');
-        //     let texto_2 = document.createElement('TD');
-        //     let button = document.createElement('TD');
+        for(let i = 0; i < Object.keys(barrios).length; i++){
+            limpiarHTML(s);
+
+            let contenedor = document.createElement('TR');
+            let identificador = document.createElement('TD');
+            let barrio = document.createElement('TD');
+            let sector = document.createElement('TD');
+            let accion = document.createElement('TD');
+
+            identificador.textContent = i + 1;
+            barrio.textContent = barrios[i.toString()];
+            if(s !== null){
+                if(s === "centroNorte-quito"){
+                    contenedor.classList.add(s);
+                    sector.textContent = 'Centro Norte de Quito';
+                }else if(s === "norte-quito"){
+                    contenedor.classList.add(s);
+                    sector.textContent = 'Norte de Quito';
+                }
+            }
             
+            accion.innerHTML = `
+                <a id="boton_barrio" href="#">
+                    <i class='bx bx-check' style='color:#469c07'>
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAbFJREFUSEvt1L1Kw2AUBuD3pCURXBQHdx0cvAP/qTTqBbg4tmnBRUQRvAMdCm6CthHURbwAf6KCIoiDg4uCIoKDgqKIOGgiyZGksdTSmjRWHWzG5HznyXm/LyH80UV/5KIK/1ry1airUQdLgEFRVVwE08pWQl8r1qTyh4tBsipmAIqB8WJBiGwnXg4L8crC+agj0SNbZmQr+Xb8o7CcEVVnUhcly+rcTBonPxq1nJFmAQz7QZ0sgp2ez6vyUQLuYXFPqUk/Vn4Jy0uohSGOaHFjGgQu9pJyWpoBYTT7jB9CArrWY8ap10Al4cFVhJ6eJQ2MCIC0pujJwmb5qD0pETo24vqZF/pl1ANzUrMZwhGAOrfRjKboYx9No6qUIsZ49hzhzjTRuZPUz/2gnnvcNy+2siDsA1zvNkxpij4hqzVTYJ50792aArXtxF4v/aKesF2QxbEHUIOzi8AuAT0uckNA96aiX5SD+oLton5VarHYxtGYAxjXYaL2NeX1qlzUN2wX9i7UNIUsPnDwb6JlwTmcreUwC0NBJ/X1HQeJ0O+aivy5/GL5dVU4SGqB1vy/qN8B84aPH569eLAAAAAASUVORK5CYII="/>
+                    </i>
+                </a>
+            `;
 
-        //     texto.textContent = i.toString();
-        //     texto_2.textContent = barrios[i.toString()];
-        //     button.innerHTML = `
-        //         <button type="button" class="btn btn-escoger" id="${i+1}">
-        //         <img width="23" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAnZJREFUSEudlqGu1UAQhr/JtSjINVfgLwmKBASqCoflCZAoFArCC+DgDRA3KLgJAkiOIYEEQQgKCwEDAgQOlmy73c7uzmx7aHJOtu3uzPz//DNTQV0ChHTvrfX+Zq0PdTdC3Dr9zx6NB97r5XlardipQeZ7z9D4fHp5VeBKEN4SeL3Fj0eCg9jgSbhH4K56E9f3LUabNBneleOSrgY9fAfOKUfx/nBvx4m+PmLFMUKIOqiCn86vyaSRgCCl7Upj2qjnWBvtJr18mSM2oy55HHVfpSCdl5mQZcdKogvHTU2XFFWOxyCkqMKV2nXKqQmxTuiY4ZHxJaDS8QrVy9loZ8OV7DXgGsRaMJ7o1HPfdYmgcjyiT4h1jjf0ysidQbAtEFvwt4Ev6fcZ+Ar80QJMxWC29ZzLbhDasb0xGv8LfNPBCLwKcFr35b1z3KSxEZRJ9TPguu40bR03XSYbssSVhppHQa6CWAqHEH7kTrdCrw6/qWMzcY0E5xzJIISdnvfGPDbp2twrqu42F9AAYTe3vjrHR8Ad4CzwAjgBfqeTLpY6ciftg8CCWG2KyzfAZdWTfwGPgYfAh16F2s6KHu4iviTwrvjmMoS2TcRmiAOwy+JSWyLN763hbuesbPl2oyjCLKmuYjsPPAe50JnMG7rwIgflekKsWKwNnQGeCgzuh6ffuRYc7Z4u4vnggcCjINzMM3BL0erWVA/fwCbHMyO3gAfAgRaFW9CG8tSji8DHUlzGHF2Cl2sQngAxBdNlUL2i9k/A8ThEki/VQPyZKnAc4Eavjp2AIjkR5UvgZ81+CaQb+n9WcXNs/vTJ8MdP546M9nVcsqgz+g90yxEzwwR0JAAAAABJRU5ErkJggg=="/>
-        //         Escoger Barrio</button>
-        //         <input type="hidden" name="barrio-escogido" value="${barrios[i.toString()]}">
-        //     `;
+            contenedor.appendChild(identificador);
+            contenedor.appendChild(barrio);
+            contenedor.appendChild(sector);
+            contenedor.appendChild(accion);
 
- 
-        //     contenedor.appendChild(texto);
-        //     contenedor.appendChild(texto_2);
-        //     contenedor.appendChild(button);
+            document.querySelector("#cuerpo_contenido").appendChild(contenedor);
+        }
 
-        //     // document.querySelector("#cuerpo_contenido").appendChild(contenedor);
-        // }
     }else{
         document.querySelector("#accordionPanelsStayOpenExample button").classList.add("collapsed");
         document.querySelector("#accordionPanelsStayOpenExample #panelsStayOpen-collapseOne").classList.add("collapse");
         document.querySelector("#accordionPanelsStayOpenExample #panelsStayOpen-collapseOne").classList.remove("show");
     }
+}
+
+
+function limpiarHTML(sector){
+    if(sector !== null){
+        if(sector === "centroNorte-quito"){
+            if(document.querySelectorAll(".norte-quito").length !== 0){
+                document.querySelectorAll(".norte-quito").forEach(elemento => {
+                    elemento.remove();
+                });
+            }
+        }else if(sector === "norte-quito"){
+            if(document.querySelectorAll(".centroNorte-quito").length !== 0){
+                document.querySelectorAll(".centroNorte-quito").forEach(elemento => {
+                    elemento.remove();
+                });
+            }
+        
+        }
+    }
+    
 }

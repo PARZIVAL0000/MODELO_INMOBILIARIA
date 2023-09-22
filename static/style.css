@@ -264,6 +264,10 @@ input[type="radio"]{
     padding: .8rem;
 }
 
+input[type="radio"]:hover{
+    cursor: pointer;
+}
+
 input[type="radio"]#sector1{
     background-color: #ffffff;
     border: 2px solid #105e89;
