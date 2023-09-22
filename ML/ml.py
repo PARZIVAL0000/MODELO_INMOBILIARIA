@@ -108,7 +108,6 @@ def ML():
     
     r_1 = r_.loc[idParqueaderos]
 
-
     return r_1
 
 

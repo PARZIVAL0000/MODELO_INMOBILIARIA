@@ -72,4 +72,3 @@ def buscar():
     return render_template('buscar.html', entrada=entrada, datos=datos)
 
 
-
