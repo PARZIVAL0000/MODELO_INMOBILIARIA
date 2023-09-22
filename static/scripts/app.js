@@ -20,8 +20,9 @@ const barrios = {
     "18"  : 'La Luz',
     "19"  : 'Norte de Quito',
     "20"  : 'Pomasqui',
-    
 };
+
+let barrio = [];
 
 document.addEventListener("DOMContentLoaded", () => {
     app();
@@ -107,6 +108,9 @@ function ValidarFormulario(){
                     if(document.getElementById("desplegar-listado")){
                         document.getElementById("desplegar-listado").id = '';
                     }
+
+                    
+
                     campos.sector = true;   
                 }else{
                     /* Dentro de esta seccion lo que haremos es verificar por nuestra dos opciones despues...
@@ -164,6 +168,11 @@ function ValidarFormulario(){
             if(!campos.tipo_acabado){
                 this.ejecutarCarga("acabado", "4");
             }
+
+            if(!campos.sector){
+                document.getElementsByClassName("listado-sectores")[0].classList.add('error-sectores');
+                document.querySelector(".listado-sectores > .mensaje").classList.add("mensaje-imprimir");
+            }
         }
     });
 }
@@ -174,6 +183,7 @@ function ejecutarCarga(campo, id){
     document.querySelector(`#${campo}`).classList.add("border-danger");
     document.querySelector(`#campo-${id} .entrada > .mensaje`).classList.add("mensaje-imprimir");
 }
+
 
 
 function MostrarBarrios(s = null){
@@ -234,6 +244,9 @@ function MostrarBarrios(s = null){
 
 function limpiarHTML(s){
     if(s === "norte-quito"){
+        barrio = [];
+        campos.sector = false;
+
         if(document.querySelectorAll(".centroNorte-quito").length !== 0){
             document.querySelectorAll(".centroNorte-quito").forEach(tr => {
                 tr.remove();
@@ -246,6 +259,9 @@ function limpiarHTML(s){
             });
         }
     }else{
+        barrio = [];
+        campos.sector = false;
+
         if(document.querySelectorAll(".norte-quito").length !== 0){
             document.querySelectorAll(".norte-quito").forEach(tr => {
                 tr.remove();
@@ -260,7 +276,6 @@ function limpiarHTML(s){
     }
 }
 
-let barrio = [];
 
 function seleccionarBarrio(){
 
@@ -282,6 +297,8 @@ function seleccionarBarrio(){
                 `;
 
                 barrio = [];
+
+                campos.sector = false;
             }else{
                 if(barrio.length === 0){
 
@@ -290,6 +307,10 @@ function seleccionarBarrio(){
 
                     let nombre_barrio = document.querySelector(`#tr-${id.split("-")[1]} td:nth-child(2)`).textContent;
                     barrio.push(nombre_barrio);
+
+                    campos.sector = true;
+
+                    document.querySelector("#input_sectorBarrio").value = barrio[0];
                 }
             }
            
@@ -303,6 +324,7 @@ function seleccionarBarrio(){
                 `;
 
                 barrio = [];
+                campos.sector = false;
             }else{
 
                 if(barrio.length === 0){
@@ -311,6 +333,9 @@ function seleccionarBarrio(){
 
                     let nombre_barrio = document.querySelector(`#tr-${id.split("-")[1]} td:nth-child(2)`).textContent;
                     barrio.push(nombre_barrio);
+                    campos.sector = true;
+
+                    document.querySelector("#input_sectorBarrio").value = barrio[0];
                 }
             }
         }
