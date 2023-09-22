@@ -85,6 +85,7 @@ button.accordion-button{
     transition: background-color 360ms ease-in-out;
 }
 
+
 .btn-escoger{
     background-color: rgb(201, 201, 13);
     width: 43%;
@@ -407,6 +408,15 @@ footer .secciones .seccion_2 ul > li{
 
 
 /* Estilso a nuestra tabla de barrios */
+
+a.btn_close{
+    background-color: #ff000021 !important;
+    padding: 0.3rem;
+    border-radius: 100%;
+    font-size: 1.9rem;
+    display: inline-block;
+}
+
 a#boton_barrio{
     background-color: #05660533;
     padding: 0.3rem;
@@ -414,3 +424,4 @@ a#boton_barrio{
     font-size: 1.9rem;
     display: inline-block;
 }
+
