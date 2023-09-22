@@ -120,6 +120,8 @@ function ValidarFormulario(){
 
                    campos.sector = false;
                 }
+
+                this.MostrarBarrios();
             }else{
                 campos.sector = false;
             }
