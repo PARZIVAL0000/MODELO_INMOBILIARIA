@@ -160,6 +160,8 @@ function ValidarFormulario(){
         } else {
             e.preventDefault();
 
+            window.location.href="#regresar";
+
             if(!campos.habitaciones){
                 this.ejecutarCarga("habitaciones", "2");
             }

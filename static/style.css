@@ -309,11 +309,25 @@ input[type="radio"]#sector4:checked{
     background-color: #89631075;
 }
 
+
 .body-form .formulario .secciones .datos_inmobiliaria .listado-sectores .l-sector{
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: 3rem;
+}
+
+.l-sector.l-sector-1{
+    background-color: #aeceee0f !important;
+}
+.l-sector.l-sector-2{
+    background-color: #bff3c108 !important;
+}
+.l-sector.l-sector-3{
+    background-color: #fbcbf80a !important;
+}
+.l-sector.l-sector-4{
+    background-color: #e4d9c414 !important;
 }
 
 div#accordionFlushExample{
