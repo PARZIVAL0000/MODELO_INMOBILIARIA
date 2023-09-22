@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function app(){
     ValidarFormulario();
     MostrarBarrios();
+    seleccionarBarrio();
 }
 
 const campos = {    
@@ -117,8 +118,6 @@ function ValidarFormulario(){
 
                         this.MostrarBarrios(value.trim());
                     }
-
-                   campos.sector = false;
                 }
 
                 this.MostrarBarrios();
@@ -206,7 +205,7 @@ function MostrarBarrios(s = null){
             
                 
                 accion.innerHTML = `
-                    <a id="boton_barrio" href="#">
+                    <a id="boton_barrio" class="boton-${i+1} btn-${s}" href="#">
                         <i class='bx bx-check' style='color:#469c07'>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAbFJREFUSEvt1L1Kw2AUBuD3pCURXBQHdx0cvAP/qTTqBbg4tmnBRUQRvAMdCm6CthHURbwAf6KCIoiDg4uCIoKDgqKIOGgiyZGksdTSmjRWHWzG5HznyXm/LyH80UV/5KIK/1ry1airUQdLgEFRVVwE08pWQl8r1qTyh4tBsipmAIqB8WJBiGwnXg4L8crC+agj0SNbZmQr+Xb8o7CcEVVnUhcly+rcTBonPxq1nJFmAQz7QZ0sgp2ez6vyUQLuYXFPqUk/Vn4Jy0uohSGOaHFjGgQu9pJyWpoBYTT7jB9CArrWY8ap10Al4cFVhJ6eJQ2MCIC0pujJwmb5qD0pETo24vqZF/pl1ANzUrMZwhGAOrfRjKboYx9No6qUIsZ49hzhzjTRuZPUz/2gnnvcNy+2siDsA1zvNkxpij4hqzVTYJ50792aArXtxF4v/aKesF2QxbEHUIOzi8AuAT0uckNA96aiX5SD+oLton5VarHYxtGYAxjXYaL2NeX1qlzUN2wX9i7UNIUsPnDwb6JlwTmcreUwC0NBJ/X1HQeJ0O+aivy5/GL5dVU4SGqB1vy/qN8B84aPH569eLAAAAAASUVORK5CYII="/>
                         </i>
@@ -220,6 +219,8 @@ function MostrarBarrios(s = null){
     
                 document.querySelector("#cuerpo_contenido").appendChild(contenedor);
             }
+
+            seleccionarBarrio();
         }
     }else{
         document.querySelector("#accordionPanelsStayOpenExample button").classList.add("collapsed");
@@ -254,5 +255,29 @@ function limpiarHTML(s){
                 tr.remove();
             });
         }
+    }
+}
+
+function seleccionarBarrio(){
+    const VerificarBotonBarrio = (e) => {
+        e.preventDefault();
+
+        console.log(e.classList);
+
+        const id = e.classList[0];
+        const sector = e.classList[1];
+
+        if(sector === "btn-centroNorte-quito"){
+           document.querySelector(`.${id}`).innerHTML = "<i class='bx bx-x' style='color:#aa3d1c'><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAaBJREFUSEvtlb1OAkEUhc8dtbGz0sjKA1iY2AMagpFoiBawEk0stdTCB/BRLMTExRhi7GyENTSK+gzyY0lUAhKzM2ZhSQhBGHYJa8G0O3O/OWfvPUNwaZFLXIzBI3N+bPX/sTrh885MEU/BEEdqtvja62baincNnB+Xq7Pbh7ncT6+9Pf/xKcAW/coLgCUAHxxGMK6/P3creOmbjxCxawCTAG5VvRCxDTYPJn2efUF0BjRm/pMzCsXT+cf2oprfswlQyoLWwVhETb/dOQJ3gVc4o2AL3gklgXDsoXDfr1mkxynpX4gLiAtLeQPODKGAoFlKaySwIQM1LyUNNjdrAWUXAglLTQXANAAG4FsQre9k8pl+SlvfBwI3bG8qPwcwYRWpEfFQLFPKykIHVuwaOBlQ9oSAqdZc7VZXiVE4ls7rsqqlrZZorrpsR0tb3THLoxknOwEio1wmMp8ALAP44jBW5SJT3Kh6cctRclmPxBUjfhLNlMzc/nM1UwwH5epc1NEjIduhdvZJd7Wd4o6sHjbQdmQO6yJjq4flZN86rln9C/K9tR9aPntxAAAAAElFTkSuQmCC\"/></i>";
+        }else if(sector === "btn-norte-quito"){
+            document.querySelector(`.${id}`).innerHTML = "<i class='bx bx-x' style='color:#aa3d1c'><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAaBJREFUSEvtlb1OAkEUhc8dtbGz0sjKA1iY2AMagpFoiBawEk0stdTCB/BRLMTExRhi7GyENTSK+gzyY0lUAhKzM2ZhSQhBGHYJa8G0O3O/OWfvPUNwaZFLXIzBI3N+bPX/sTrh885MEU/BEEdqtvja62baincNnB+Xq7Pbh7ncT6+9Pf/xKcAW/coLgCUAHxxGMK6/P3creOmbjxCxawCTAG5VvRCxDTYPJn2efUF0BjRm/pMzCsXT+cf2oprfswlQyoLWwVhETb/dOQJ3gVc4o2AL3gklgXDsoXDfr1mkxynpX4gLiAtLeQPODKGAoFlKaySwIQM1LyUNNjdrAWUXAglLTQXANAAG4FsQre9k8pl+SlvfBwI3bG8qPwcwYRWpEfFQLFPKykIHVuwaOBlQ9oSAqdZc7VZXiVE4ls7rsqqlrZZorrpsR0tb3THLoxknOwEio1wmMp8ALAP44jBW5SJT3Kh6cctRclmPxBUjfhLNlMzc/nM1UwwH5epc1NEjIduhdvZJd7Wd4o6sHjbQdmQO6yJjq4flZN86rln9C/K9tR9aPntxAAAAAElFTkSuQmCC\"/></i>";
+        }
+    }
+
+    const botonesBarrio = document.querySelectorAll("#boton_barrio");
+    if(botonesBarrio.length !== 0){
+        botonesBarrio.forEach(btn => {
+            btn.addEventListener("click", VerificarBotonBarrio);
+        });
     }
 }
