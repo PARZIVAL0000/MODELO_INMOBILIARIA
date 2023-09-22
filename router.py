@@ -33,11 +33,12 @@ def buscar():
                         sector = "Puembo"
 
                 elif(sector == "centroNorte-quito" or sector == "norte-quito"):
-                    pass
+                    sector = barrio
 
 
                 resultado = ml.entradas([
                     {
+
                         'Habitaciones' : habitaciones,
                         'Parqueadero' : parqueadero,
                         'TipoAcabados' : tipoAcabados,

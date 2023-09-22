@@ -17,7 +17,6 @@ import seaborn as sns
 """
 
 informacion = {
-    'buscarPor' : '',
     'habitaciones' : '',
     'parqueadero' : '',
     'tipoAcabados' : '',
@@ -26,18 +25,10 @@ informacion = {
 }
 
 fichero1 = 'ML/casas_venta.csv'
-fichero2 = 'ML/departamentos_venta.csv'
 
 def ML():
-    global fichero
     #obtenidos los datos de nuestro formulario... ahora lo que tenemos que realizar a continuacion es el medio de prediccion..
-    data = None
-
-    if(informacion['buscarPor'] == "casas_venta"):
-        data = pd.read_csv(fichero1)
-    elif(informacion['buscarPor'] == "departamento_venta"):
-        data = pd.read_csv(fichero2)
-
+    data = pd.read_csv(fichero1)
 
     ciudad = []
     sector = []
@@ -190,21 +181,10 @@ def ModelLearning(X, y):
 #Esta funcion de aqui, procesa los datos del formulario y los almacena.
 def entradas(entradas = []):
     if (len(entradas) != 0):
-        informacion['buscarPor'] = entradas[0]['BuscarPor']
         informacion['habitaciones'] = entradas[0]['Habitaciones']
         informacion['parqueadero'] = entradas[0]['Parqueadero']
         informacion['tipoAcabados'] = entradas[0]['TipoAcabados']
         informacion['sector'] = entradas[0]['Sector']
-
-        if(informacion['tipoAcabados'] == "PrimerAcabado"):
-            informacion['precioTipoAcabados'] = 800
-        elif(informacion['tipoAcabados'] == "SegundoAcabado"):
-            informacion['precioTipoAcabados'] = 400
-        elif(informacion['tipoAcabados'] == "TercerAcabado"):
-            informacion['precioTipoAcabados'] = 300
-        else:
-            informacion['precioTipoAcabados'] = 0
-
         return True 
     else:
         return False 
