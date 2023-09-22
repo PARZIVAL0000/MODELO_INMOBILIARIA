@@ -1,5 +1,3 @@
-console.log('conexion...');
-
 const type = new Typed('.typed', {
     strings: [
         '<i class="cabecera_texto">La casa de tus sueños.</i>', 

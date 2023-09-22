@@ -155,7 +155,7 @@ function ValidarFormulario(){
 
     formulario.addEventListener("submit", (e) => {
 
-        if(campos.habitaciones && campos.parqueadero && campos.buscarPor && campos.sector && campos.tipo_acabado){
+        if(campos.habitaciones && campos.parqueadero && campos.sector && campos.tipo_acabado){
             // el usuario completo todos los campos...
         } else {
             e.preventDefault();
@@ -300,8 +300,8 @@ function seleccionarBarrio(){
                 `;
 
                 barrio = [];
-
                 campos.sector = false;
+                document.querySelector("#input_sectorBarrio").value = "";
             }else{
                 if(barrio.length === 0){
                     if(document.querySelector(".seccion_radios .error-sectores")){
@@ -332,6 +332,7 @@ function seleccionarBarrio(){
 
                 barrio = [];
                 campos.sector = false;
+                document.querySelector("#input_sectorBarrio").value = "";
             }else{
 
                 if(barrio.length === 0){
