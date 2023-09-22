@@ -109,7 +109,10 @@ function ValidarFormulario(){
                         document.getElementById("desplegar-listado").id = '';
                     }
 
-                    
+                    if(document.querySelector(".seccion_radios .error-sectores")){
+                        document.querySelector(".seccion_radios .error-sectores").classList.remove("error-sectores");
+                        document.querySelector(".seccion_radios .listado-sectores .mensaje-imprimir").classList.remove("mensaje-imprimir");
+                    }
 
                     campos.sector = true;   
                 }else{
@@ -301,6 +304,10 @@ function seleccionarBarrio(){
                 campos.sector = false;
             }else{
                 if(barrio.length === 0){
+                    if(document.querySelector(".seccion_radios .error-sectores")){
+                        document.querySelector(".seccion_radios .error-sectores").classList.remove("error-sectores");
+                        document.querySelector(".seccion_radios .listado-sectores .mensaje-imprimir").classList.remove("mensaje-imprimir");
+                    }
 
                     document.querySelector(`.${id}`).innerHTML = "<i class='bx bx-x' style='color:#aa3d1c'><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAaBJREFUSEvtlb1OAkEUhc8dtbGz0sjKA1iY2AMagpFoiBawEk0stdTCB/BRLMTExRhi7GyENTSK+gzyY0lUAhKzM2ZhSQhBGHYJa8G0O3O/OWfvPUNwaZFLXIzBI3N+bPX/sTrh885MEU/BEEdqtvja62baincNnB+Xq7Pbh7ncT6+9Pf/xKcAW/coLgCUAHxxGMK6/P3creOmbjxCxawCTAG5VvRCxDTYPJn2efUF0BjRm/pMzCsXT+cf2oprfswlQyoLWwVhETb/dOQJ3gVc4o2AL3gklgXDsoXDfr1mkxynpX4gLiAtLeQPODKGAoFlKaySwIQM1LyUNNjdrAWUXAglLTQXANAAG4FsQre9k8pl+SlvfBwI3bG8qPwcwYRWpEfFQLFPKykIHVuwaOBlQ9oSAqdZc7VZXiVE4ls7rsqqlrZZorrpsR0tb3THLoxknOwEio1wmMp8ALAP44jBW5SJT3Kh6cctRclmPxBUjfhLNlMzc/nM1UwwH5epc1NEjIduhdvZJd7Wd4o6sHjbQdmQO6yJjq4flZN86rln9C/K9tR9aPntxAAAAAElFTkSuQmCC\"/></i>";
                     document.querySelector(`.${id}`).classList.add("btn_close");
@@ -328,6 +335,11 @@ function seleccionarBarrio(){
             }else{
 
                 if(barrio.length === 0){
+                    if(document.querySelector(".seccion_radios .error-sectores")){
+                        document.querySelector(".seccion_radios .error-sectores").classList.remove("error-sectores");
+                        document.querySelector(".seccion_radios .listado-sectores .mensaje-imprimir").classList.remove("mensaje-imprimir");
+                    }
+
                     document.querySelector(`.${id}`).innerHTML = "<i class='bx bx-x' style='color:#aa3d1c'><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAaBJREFUSEvtlb1OAkEUhc8dtbGz0sjKA1iY2AMagpFoiBawEk0stdTCB/BRLMTExRhi7GyENTSK+gzyY0lUAhKzM2ZhSQhBGHYJa8G0O3O/OWfvPUNwaZFLXIzBI3N+bPX/sTrh885MEU/BEEdqtvja62baincNnB+Xq7Pbh7ncT6+9Pf/xKcAW/coLgCUAHxxGMK6/P3creOmbjxCxawCTAG5VvRCxDTYPJn2efUF0BjRm/pMzCsXT+cf2oprfswlQyoLWwVhETb/dOQJ3gVc4o2AL3gklgXDsoXDfr1mkxynpX4gLiAtLeQPODKGAoFlKaySwIQM1LyUNNjdrAWUXAglLTQXANAAG4FsQre9k8pl+SlvfBwI3bG8qPwcwYRWpEfFQLFPKykIHVuwaOBlQ9oSAqdZc7VZXiVE4ls7rsqqlrZZorrpsR0tb3THLoxknOwEio1wmMp8ALAP44jBW5SJT3Kh6cctRclmPxBUjfhLNlMzc/nM1UwwH5epc1NEjIduhdvZJd7Wd4o6sHjbQdmQO6yJjq4flZN86rln9C/K9tR9aPntxAAAAAElFTkSuQmCC\"/></i>";
                     document.querySelector(`.${id}`).classList.add("btn_close");
 
