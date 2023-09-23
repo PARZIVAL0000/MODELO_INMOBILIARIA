@@ -10,4 +10,5 @@ const type = new Typed('.typed', {
     typeSpeed: 75,
     startDelay: 1000,
     backDelay: 5000,
+    cursorChar: '',
 });
