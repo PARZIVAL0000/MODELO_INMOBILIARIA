@@ -7,11 +7,23 @@ td{
     height: 5rem;
 }
 
+.buscar .cabecera_titulo h1{
+    margin:0rem;
+    text-transform:capitalize;
+}
+
+@media (max-width: 405px) {
+    .buscar.contenedor {
+        width:unset  !important;
+    }
+}
 
 .inmobiliarias_busqueda h2.h2-1{
     padding:4rem 0rem .9rem 1rem !important;
     font-size: 3.5rem;
+    text-transform: capitalize;
 }
+
 
 .inmobiliarias_busqueda h2.tl{
     font-size:3.5rem;
@@ -21,18 +33,20 @@ td{
 .inmobiliarias_busqueda .secciones{
     display:flex;
     gap:1rem;
+    align-items: center;
+    margin:.5rem;
 }
+
 
 .inmobiliarias_busqueda .secciones .seccion-1{
     flex:1;
-    padding: 1rem 0rem 0rem 1rem;
+    padding: 0rem 0.4rem;
+    width: 100%;
 }
 
 .inmobiliarias_busqueda .secciones .seccion-1 .maps iframe{
     margin: 0 auto;
-    width: 108rem;
-    display: inherit;
-    height: 41rem;
+    width: 100%;
 }
 
 .inmobiliarias_busqueda .secciones .seccion-2{
@@ -40,6 +54,7 @@ td{
     margin: 1rem;
     border-radius: 1rem;
     padding: 0rem;
+    width: 100%;
 }
 
 .inmobiliarias_busqueda .secciones .seccion-2 p{
@@ -47,11 +62,22 @@ td{
     margin-bottom: 2rem !important;
 }
 
+@media (max-width:760px){
+    .inmobiliarias_busqueda h2.h2-1{    
+        font-size:2.5rem;
+        text-align: center;
+    }
+
+    .inmobiliarias_busqueda .secciones{
+        flex-direction:column;
+    }
+
+}
+
 #resumen-caja{
-    height: 41rem;
     background-color: #ffbf00;
-    padding: 3rem 0.9rem 0rem 0.9rem;
-    width: 40rem;
+    padding: 1rem;
+    width: 100%;
 }
 
 .d-resumen{
