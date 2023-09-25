@@ -25,7 +25,7 @@ informacion = {
 }
 
 fichero1 = 'ML/terrenos_quito.csv'
-
+""" RAMA MASTER_DOS """
 def ML():
     #obtenidos los datos de nuestro formulario... ahora lo que tenemos que realizar a continuacion es el medio de prediccion..
     data = pd.read_csv(fichero1)
@@ -48,8 +48,6 @@ def ML():
     print(sector)
 
     return 
-
-    
 
     
 
