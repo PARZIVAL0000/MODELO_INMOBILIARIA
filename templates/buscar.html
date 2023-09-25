@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="info">
                                             <h4 class="info_heading">Acciones</h4>
-                                            <button type="button" class="boton-mapa">Ver mapa</button>
+                                            <button id="{{ j }}" type="button" class="boton-mapa">Ver mapa</button>
                                         </div>
                                     </div>
                                 </li>
@@ -143,7 +143,7 @@
             precios.forEach(precio => {
                 let resultado = "$";
                 let p = precio.textContent.split("$")[1];
-                console.log(p);
+                
                 if(p.length >= 4 && p.length <= 6){
                     let e = p.slice(-3,);
                     p = p.replace(e, '');

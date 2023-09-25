@@ -48,7 +48,17 @@
 
     function Buscar(){
         document.addEventListener("DOMContentLoaded", () => {
-            
+            BotonMapa();
+        });
+    }
+
+    function BotonMapa(){
+        const botones = document.querySelectorAll(".boton-mapa");
+        botones.forEach(boton => {
+            boton.addEventListener("click", (event) => {
+                let id = event.target.id; 
+                
+            });
         });
     }
 
