@@ -172,6 +172,19 @@ td{
     padding-left: 2rem;
 }
 
+.boton-mapa{
+    width: 15rem;
+    height: 3rem;
+    border: none;
+    background-color: #f9891b;
+    color: rgb(255, 255, 255);
+    transition: background-color 360ms ease-in;
+}
+
+.boton-mapa:hover{
+    background-color: #f98a1bb1;
+}
+
 .seccion_tabla .listado_inmobiliarias .home .descripcion ol{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -199,4 +212,16 @@ span{
     display: flex;
     gap: 0.9rem;
     align-items: center;
+}
+
+
+/* decorar mensaje */
+.mensaje_alterno{
+    background-color: #ffc10726;
+    padding: 0.9rem 0rem 0.5rem 2.4rem;
+}
+
+.mensaje_alterno p{
+    font-size:2.5rem;
+    font-weight: lighter;
 }

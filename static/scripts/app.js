@@ -2,25 +2,31 @@ const barrios = {
     "0" : 'Carcelén',
     "1" : 'Kennedy',
     "2" : 'El Batán',
-    "3" : 'Bellavista',
-    "4" : 'González Suárez',
-    "5" : 'Guápulo',
-    "6"  : 'Quito Tenis',
-    "7"  : 'Iñaquito',
-    "8"  : 'La Mariscal',
-    "9"  : 'San Carlos',
-    "10"  : 'Mena del Hierro',
-    "11"  : 'El Condado',
-    "12"  : 'Cotocollao',
-    "13"  : 'Comité del Pueblo',
-    "14"  : 'La Bota',
-    "15"  : 'Ponceano',
-    "16"  : 'Tumbaco',
-    "17"  : 'El Inca',
-    "18"  : 'La Luz',
-    "19"  : 'Norte de Quito',
-    "20"  : 'Pomasqui',
+    "3" : 'González Suárez',
+    "4" : 'Guápulo',
+    "5"  : 'Quito Tenis',
+    "6"  : 'Iñaquito',
+    "7"  : 'La Mariscal',
+    "8"  : 'San Carlos',
+    "9"  : 'Mena del Hierro',
+    "10"  : 'El Condado',
+    "11"  : 'Cotocollao',
+    "12"  : 'Comité del Pueblo',
+    "13"  : 'La Bota',
+    "14"  : 'Ponceano',
+    "15"  : 'Tumbaco',
+    "16"  : 'El Inca',
+    "17"  : 'La Luz',
+    "18"  : 'Norte de Quito',
+    "19"  : 'Pomasqui',
 };
+
+const barrios_centroNorte = {
+    "0" : "La Carolina",
+    "1" : "Quito Tenis",
+    "2" : "Bellavista",
+    "3" : "Centro Norte"
+}
 
 let barrio = [];
 
@@ -200,7 +206,15 @@ function MostrarBarrios(s = null){
         if(s !== null){
             limpiarHTML(s);
 
-            for(let i = 0; i < Object.keys(barrios).length; i++){
+            let b = {};
+
+            if(s === "norte-quito"){
+                b = barrios;
+            }else{
+                b = barrios_centroNorte;
+            }
+
+            for(let i = 0; i < Object.keys(b).length; i++){
                 let contenedor = document.createElement('TR');
                 let identificador = document.createElement('TD');
                 let barrio = document.createElement('TD');
@@ -208,7 +222,7 @@ function MostrarBarrios(s = null){
                 let accion = document.createElement('TD');
     
                 identificador.textContent = i + 1;
-                barrio.textContent = barrios[i.toString()];
+                barrio.textContent = b[i.toString()];
                 
                 if(s === "centroNorte-quito"){
                     contenedor.classList.add(s);

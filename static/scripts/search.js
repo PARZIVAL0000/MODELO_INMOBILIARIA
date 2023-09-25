@@ -48,7 +48,7 @@
 
     function Buscar(){
         document.addEventListener("DOMContentLoaded", () => {
-            CargarMapa();
+            
         });
     }
 
