@@ -2,30 +2,30 @@ const barrios = {
     "0" : 'Carcelén',
     "1" : 'Kennedy',
     "2" : 'El Batán',
-    "3" : 'González Suárez',
+    "3" : 'González Suárez', 
     "4" : 'Guápulo',
     "5"  : 'Quito Tenis',
-    "6"  : 'Iñaquito',
-    "7"  : 'La Mariscal',
+    "6"  : 'Iñaquito', 
+    "7"  : 'La Mariscal', 
     "8"  : 'San Carlos',
-    "9"  : 'Mena del Hierro',
-    "10"  : 'El Condado',
-    "11"  : 'Cotocollao',
+    "9"  : 'Mena del Hierro', 
+    "10"  : 'El Condado', 
+    "11"  : 'Cotocollao', 
     "12"  : 'Comité del Pueblo',
-    "13"  : 'La Bota',
-    "14"  : 'Ponceano',
-    "15"  : 'Tumbaco',
-    "16"  : 'El Inca',
+    "13"  : 'La Bota', 
+    "14"  : 'Ponceano', 
+    "15"  : 'Tumbaco', 
+    "16"  : 'El Inca', 
     "17"  : 'La Luz',
-    "18"  : 'Norte de Quito',
-    "19"  : 'Pomasqui',
+    "18"  : 'Norte de Quito', 
+    "19"  : 'Pomasqui', 
 };
 
 const barrios_centroNorte = {
     "0" : "La Carolina",
     "1" : "Quito Tenis",
-    "2" : "Bellavista",
-    "3" : "Centro Norte"
+    "2" : "Bellavista", 
+    "3" : "Centro Norte", 
 }
 
 let barrio = [];
@@ -38,6 +38,7 @@ function app(){
     ValidarFormulario();
     MostrarBarrios();
     seleccionarBarrio();
+    
 }
 
 const campos = {    
@@ -220,6 +221,7 @@ function MostrarBarrios(s = null){
                 let barrio = document.createElement('TD');
                 let sector = document.createElement('TD');
                 let accion = document.createElement('TD');
+                accion.classList.add('boton-barrio');
     
                 identificador.textContent = i + 1;
                 barrio.textContent = b[i.toString()];
@@ -237,7 +239,7 @@ function MostrarBarrios(s = null){
                 
                 accion.innerHTML = `
                     <a id="boton_barrio" class="boton-${i+1} btn-${s}" href="#">
-                        <i class='bx bx-check' style='color:#469c07'>
+                        <i class='bx bx-check ${i+1} ${s}' style='color:#469c07'>
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAbFJREFUSEvt1L1Kw2AUBuD3pCURXBQHdx0cvAP/qTTqBbg4tmnBRUQRvAMdCm6CthHURbwAf6KCIoiDg4uCIoKDgqKIOGgiyZGksdTSmjRWHWzG5HznyXm/LyH80UV/5KIK/1ry1airUQdLgEFRVVwE08pWQl8r1qTyh4tBsipmAIqB8WJBiGwnXg4L8crC+agj0SNbZmQr+Xb8o7CcEVVnUhcly+rcTBonPxq1nJFmAQz7QZ0sgp2ez6vyUQLuYXFPqUk/Vn4Jy0uohSGOaHFjGgQu9pJyWpoBYTT7jB9CArrWY8ap10Al4cFVhJ6eJQ2MCIC0pujJwmb5qD0pETo24vqZF/pl1ANzUrMZwhGAOrfRjKboYx9No6qUIsZ49hzhzjTRuZPUz/2gnnvcNy+2siDsA1zvNkxpij4hqzVTYJ50792aArXtxF4v/aKesF2QxbEHUIOzi8AuAT0uckNA96aiX5SD+oLton5VarHYxtGYAxjXYaL2NeX1qlzUN2wX9i7UNIUsPnDwb6JlwTmcreUwC0NBJ/X1HQeJ0O+aivy5/GL5dVU4SGqB1vy/qN8B84aPH569eLAAAAAASUVORK5CYII="/>
                         </i>
                     </a>

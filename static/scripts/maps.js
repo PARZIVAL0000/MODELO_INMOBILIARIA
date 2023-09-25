@@ -42,6 +42,7 @@
         </iframe>
         `
     };
+    
 
     ejecutarFuncion();
 
@@ -66,7 +67,6 @@
         });
     }
 
-
     function InsertarIframe(valor){
         switch(valor){
             case "PUEMBO":
@@ -79,14 +79,38 @@
 
             case "CENTRONORTE-QUITO":
                 document.getElementsByClassName('mapa-sectores')[0].innerHTML = iframesHTML[`${valor}`];
+                IdentificarMapa();
                 break;
 
             case "NORTE-QUITO":
                 document.getElementsByClassName('mapa-sectores')[0].innerHTML = iframesHTML[`${valor}`];
+                IdentificarMapa();
                 break;
 
             default:
                 break;
         }
     }
-})()
+
+    function IdentificarMapa(){
+        const botones = document.querySelectorAll(".boton-barrio > a");
+
+        botones.forEach(boton => {
+            boton.addEventListener("click", (e) => {
+                const id = e.target.parentNode.classList[2];
+                const tipo = e.target.parentNode.classList[3];
+                
+                if(tipo === "centroNorte-quito"){
+                    let coordenadas = barrios_centroNorte[id].split(" ");
+                    // iniciarMapa(coordenadas[0], coordenadas[1]);
+                }else{
+                    let coordenadas = barrios_centroNorte[id].split(" ");
+                    // iniciarMapa(coordenadas[0], coordenadas[1]);
+                }
+            });
+        });
+
+    }
+    
+
+})();
