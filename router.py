@@ -46,29 +46,31 @@ def buscar():
                     }
                 ])
 
+                ml.ML()
                 #con esta entrada alimentamos a nuestro modelo...
-                datos['Habitaciones'] = habitaciones
-                datos['Parqueadero'] = parqueadero
-                datos['TipoAcabados'] = tipoAcabados
-                datos['Sector'] = sector
+                # datos['Habitaciones'] = habitaciones
+                # datos['Parqueadero'] = parqueadero
+                # datos['TipoAcabados'] = tipoAcabados
+                # datos['Sector'] = sector
 
-                if(resultado):
-                    resultado = ml.ejecutarModelo()
-                    entrada['nombre'] = resultado['nombre'].values
-                    entrada['sector'] = resultado['sector'].values
-                    entrada['precio'] = resultado['precio'].values
-                    entrada['area'] = resultado['area'].values
-                    entrada['habitaciones'] = resultado['habitaciones'].values
-                    entrada['banos'] = resultado['banos'].values
-                    entrada['parqueadero'] = resultado['parqueadero'].values
-                    entrada['fecha'] = resultado['fecha'].values
-                    entrada['ciudad'] = resultado['ciudad'].values 
-                    entrada['precioXm2'] = resultado['precioXm2'].values
+                # if(resultado):
+                    # resultado = ml.ejecutarModelo()
+                    # entrada['nombre'] = resultado['nombre'].values
+                    # entrada['sector'] = resultado['sector'].values
+                    # entrada['precio'] = resultado['precio'].values
+                    # entrada['area'] = resultado['area'].values
+                    # entrada['habitaciones'] = resultado['habitaciones'].values
+                    # entrada['banos'] = resultado['banos'].values
+                    # entrada['parqueadero'] = resultado['parqueadero'].values
+                    # entrada['fecha'] = resultado['fecha'].values
+                    # entrada['ciudad'] = resultado['ciudad'].values 
+                    # entrada['precioXm2'] = resultado['precioXm2'].values
 
         else:
             #redireccionamos al usuarioo... pero le generamos un parametros para que pueda ser consumido despues.\\
             return render_template('index.html')
 
-    return render_template('buscar.html', entrada=entrada, datos=datos)
+    # return render_template('index.html', entrada=entrada, datos=datos)
+    return render_template('index.html')
 
 

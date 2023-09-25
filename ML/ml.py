@@ -24,7 +24,7 @@ informacion = {
     'precioTipoAcabados' : 0
 }
 
-fichero1 = 'ML/casas_venta.csv'
+fichero1 = 'ML/terrenos_quito.csv'
 
 def ML():
     #obtenidos los datos de nuestro formulario... ahora lo que tenemos que realizar a continuacion es el medio de prediccion..
@@ -44,6 +44,14 @@ def ML():
     #nuestro db filtrado... solamente con los valores del sector que se esta especificando.
     sector = data.loc[:,"sector"] == informacion['sector'] 
     sector = data.loc[sector]
+
+    print(sector)
+
+    return 
+
+    
+
+    
 
     respuesta = sector.loc[:, "nombre"] != "NN"
     sector = sector.loc[respuesta]
