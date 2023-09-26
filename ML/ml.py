@@ -45,6 +45,9 @@ def ML():
     sector = data.loc[:,"sector"] == informacion['sector'] 
     sector = data.loc[sector]
 
+    resultado = sector.loc[:, "area"] != "0 Baños"
+    sector = sector.loc[resultado]
+
     print(sector)
 
     return 
