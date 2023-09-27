@@ -24,7 +24,9 @@ informacion = {
     'precioTipoAcabados' : 0
 }
 
-fichero1 = 'ML/terrenos_quito.csv'
+fichero1 = 'ML/datas.csv'
+
+
 """ RAMA MASTER_DOS """
 def ML():
     #obtenidos los datos de nuestro formulario... ahora lo que tenemos que realizar a continuacion es el medio de prediccion..
@@ -32,92 +34,43 @@ def ML():
 
     ciudad = []
     sector = []
+    precios = []
+    areas = []
 
     for key, value in data['sector'].items():
         valor = value.split(", ")
         sector.append(valor[0])
-        ciudad.append(valor[len(valor)-1])
+        ciudad.append(valor[len(valor)-2])
+
+    for key, precio in data['precio'].items():
+        valor = str(precio.split(" ")[1].split("\n")[0])
+        precios.append(valor)
 
     data['sector'] = sector 
     data['ciudad'] = ciudad
 
-    #nuestro db filtrado... solamente con los valores del sector que se esta especificando.
-    sector = data.loc[:,"sector"] == informacion['sector'] 
-    sector = data.loc[sector]
+    for key, value in data['area'].items():
+        value = str(value)
+        if(value != 'nan'):
+            areas.append(value.split(" ")[0])
+        else:
+            areas.append(value)
+            
+    data['area'] = areas
 
-    resultado = sector.loc[:, "area"] != "0 Baños"
-    sector = sector.loc[resultado]
+    resultado = data.loc[: , 'area'] != 'nan'
+    data = data.loc[resultado]
 
-    print(sector)
+    #vamos a calcular con una 'regresion'
+    precios = data['precio']
+
+    print("Precio Minimo: " + np.amin(precios))
+    print("Precio Maximo: " + np.amax(precios))
+    print("Precio Promedio: " + np.mean(precios))
+    print("Precio Desviacion Estandar: " + np.std(precios))
 
     return 
 
-    
-
-    respuesta = sector.loc[:, "nombre"] != "NN"
-    sector = sector.loc[respuesta]
-    
-    preciosFormateados = []
-    areaFormateada = []
-    parqueaderoFormateada = []
-    for i,j in sector['precio'].items():
-        j = str(j).replace(".", "")
-        preciosFormateados.append(int(j))
-    
-    for i,j in sector['area'].items():
-        j = str(j).replace(".", "")
-        areaFormateada.append(int(j))
-    
-    for i,j in sector['parqueadero'].items():
-        parqueaderoFormateada.append(int(j))
-
-    sector['precio'] = preciosFormateados
-    sector['area'] = areaFormateada
-    sector['parqueadero'] = parqueaderoFormateada
-
-    
-    #(area+(acabados))*costo_m2 = resultado
-    listado_preciom2 = []
-    for key, value in sector['precio'].items():
-        precio_m2 = sector['precio'][key]//sector['area'][key]
-        
-        listado_preciom2.append(precio_m2)
-
-    sector['precioXm2'] = listado_preciom2
-
-
-    precio_rCalculado = []
-    for key, value in sector['area'].items():
-        precio = (value+informacion['precioTipoAcabados'])*sector['precioXm2'][key]
-
-        precio_rCalculado.append(precio)
-
-    sector['precio'] = precio_rCalculado
-    idHabitaciones = []
-    idParqueaderos = []
-
-    for key, value in sector["habitaciones"].items():
-        if(str(value).isdigit()):
-            if(value == informacion['habitaciones']):
-                idHabitaciones.append(key)
-            else:
-                if(int(informacion['habitaciones']) > 2 and int(informacion['habitaciones']) <= 6):
-                    idHabitaciones.append(key)
-
-    r_ = sector.loc[idHabitaciones]
-
-    for key, value in r_['parqueadero'].items():
-        if(str(value).isdigit()):
-            if(int(value) == int(informacion['parqueadero'])):
-                idParqueaderos.append(key)
-            else:
-                if(int(informacion['parqueadero']) > 2 and int(informacion['parqueadero']) <= 8):
-                    idParqueaderos.append(key)
-    
-    
-    r_1 = r_.loc[idParqueaderos]
-
-    return r_1
 
 
 #funcion para verificar el nivel de prediccion de nuestro ML
