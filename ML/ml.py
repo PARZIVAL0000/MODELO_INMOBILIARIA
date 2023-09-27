@@ -63,35 +63,27 @@ def ML():
     resultado = data.loc[: , 'area'] != 'nan'
     data = data.loc[resultado]
 
-    #filtrar por sector escogido del usuario...
-    resultado = data.loc[:, 'sector'] == informacion['sector']
-    data = data.loc[resultado]
+
+    if(informacion['sector'] != '' and informacion['habitaciones'] != '' and informacion['parqueadero'] != '' and 
+       informacion['tipoAcabados'] != '' and informacion['sector'] != '' and informacion['precioTipoAcabados'] > 0):
+        #filtrar por sector escogido del usuario...
+        resultado = data.loc[:, 'sector'] == informacion['sector']
+        data = data.loc[resultado]
+
+        # print("Precio Minimo: " + np.amin(precios))
+        # print("Precio Maximo: " + np.amax(precios))
+        # print("Precio Promedio: " + np.mean(precios))
+        # print("Precio Desviacion Estandar: " + np.std(precios))
+    
+        return data
+
+
+    return data
     
 
-    #vamos a calcular con una 'regresion'
-    p = data['precio']
-    
-    for i in p.items():
-        if(i.isdigit()):
-            precios.append(int(i))
-            
-
-    data['precio'] = precios 
-
-    print(data)
-
-    return
-    
-    print("Precio Minimo: " + np.amin(precios))
-    print("Precio Maximo: " + np.amax(precios))
-    print("Precio Promedio: " + np.mean(precios))
-    print("Precio Desviacion Estandar: " + np.std(precios))
-
-    return ''
 
 def obtenerML():
-    data = pd.read_csv(fichero1)
-    return data
+    return ML()
 
 
 #funcion para verificar el nivel de prediccion de nuestro ML
