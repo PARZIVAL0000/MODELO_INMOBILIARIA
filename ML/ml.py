@@ -100,20 +100,6 @@ def obtenerML():
 def obtenerInfo():
     return pd.DataFrame(info)
 
-#funcion para verificar el nivel de prediccion de nuestro ML
-def nivel_prediccion(y_true, y_prediccion):
-    nivel = r2_score(y_true, y_prediccion)
-    return nivel 
-
-
-def formatearPresupuesto():
-    precioCliente = informacion['presupuestoCliente']
-    if(len(precioCliente) > 3 and len(precioCliente) <= 6):
-        decimal = precioCliente[-3:]
-        precioCliente = precioCliente.replace(decimal, ".")
-        precioCliente += decimal
-    return precioCliente
-
 
 #Esta funcion de aqui, procesa los datos del formulario y los almacena.
 def entradas(entradas = []):
