@@ -41,17 +41,10 @@ def buscar(habitaciones, parqueadero, tipoAcabados, sector):
 
         if(resultado):
             resultado = ml.ML()
-            # print(resultado['sector'])
-            # entrada['nombre'] = resultado['nombre'].values
-            # entrada['sector'] = resultado['sector'].values
-            # entrada['precio'] = resultado['precio'].values
-            # entrada['area'] = resultado['area'].values
-            # entrada['habitaciones'] = resultado['habitaciones'].values
-            # entrada['banos'] = resultado['banos'].values
-            # entrada['parqueadero'] = resultado['parqueadero'].values
-            # entrada['fecha'] = resultado['fecha'].values
-            # entrada['ciudad'] = resultado['ciudad'].values 
-            # entrada['precioXm2'] = resultado['precioXm2'].values
+            resultado = resultado.to_json(orient="index")
+            resultado = loads(resultado)
+
+            return resultado
 
         return "METODO POST"
 

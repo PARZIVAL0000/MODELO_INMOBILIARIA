@@ -70,10 +70,18 @@ def ML():
         resultado = data.loc[:, 'sector'] == informacion['sector']
         data = data.loc[resultado]
 
-        # print("Precio Minimo: " + np.amin(precios))
-        # print("Precio Maximo: " + np.amax(precios))
-        # print("Precio Promedio: " + np.mean(precios))
-        # print("Precio Desviacion Estandar: " + np.std(precios))
+        cantidad = data['precio']
+        p = []
+
+        for i,j in cantidad.items():
+            if(j.isdigit()):
+                p.append(int(j))
+
+        data['precioMinimo'] = np.amin(p)
+        data['precioMaximo'] = np.amax(p)
+        data['precioPromedio'] = np.mean(p)
+        data['PrecioSTD'] = np.std(p)
+        
     
         return data
 
@@ -113,11 +121,8 @@ def entradas(entradas = []):
         return False 
 
 
-def ejecutarModelo():
-    return ML()
-
 def main():
-    ejecutarModelo()
+    ML()
     
 
 if __name__ == '__main__':
