@@ -4,6 +4,8 @@ from flask import url_for
 from flask import render_template
 from ML import ml 
 from json import loads
+from json import encoder
+import json
 
 app = Flask(__name__)
 
@@ -44,7 +46,16 @@ def buscar(habitaciones, parqueadero, tipoAcabados, sector):
             resultado = resultado.to_json(orient="index")
             resultado = loads(resultado)
 
-            return resultado
+            resultado2 = ml.obtenerInfo()
+            resultado2 = resultado2.to_json(orient="index")
+            resultado2 = loads(resultado2)
+            
+        
+            return {
+                '0' : resultado, 
+                '1' : resultado2
+            }
+        
 
         return "METODO POST"
 

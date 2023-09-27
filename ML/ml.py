@@ -25,6 +25,12 @@ informacion = {
 
 fichero1 = 'ML/datas.csv'
 
+info = {
+    'precioMinimo' : [''],
+    'precioMaximo' : [''],
+    'precioPromedio' : [''],
+    'PrecioSTD' : ['']
+}
 
 """ RAMA MASTER_DOS """
 def ML():
@@ -77,22 +83,22 @@ def ML():
             if(j.isdigit()):
                 p.append(int(j))
 
-        data['precioMinimo'] = np.amin(p)
-        data['precioMaximo'] = np.amax(p)
-        data['precioPromedio'] = np.mean(p)
-        data['PrecioSTD'] = np.std(p)
+        info['precioMinimo'][0] = np.amin(p) 
+        info['precioMaximo'][0] = np.amax(p)
+        info['precioPromedio'][0] = np.mean(p)
+        info['PrecioSTD'][0] = np.std(p)
         
-    
         return data
-
 
     return data
     
 
-
 def obtenerML():
     return ML()
 
+
+def obtenerInfo():
+    return pd.DataFrame(info)
 
 #funcion para verificar el nivel de prediccion de nuestro ML
 def nivel_prediccion(y_true, y_prediccion):
