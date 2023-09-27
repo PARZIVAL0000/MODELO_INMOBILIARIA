@@ -10,7 +10,6 @@ def home(name = None):
     resultado = ml.obtenerML()
     resultado = resultado.to_json(orient="index")
     resultado = loads(resultado)
-
     return resultado
     
 
@@ -47,10 +46,9 @@ def buscar(habitaciones, parqueadero, tipoAcabados, sector):
             resultado2 = loads(resultado2)
             
         
-            return {
-                '0' : resultado, 
-                '1' : resultado2
-            }
+            resultado['informacionAdicional'] = resultado2
+        
+            return resultado
         
 
         return "METODO POST"
