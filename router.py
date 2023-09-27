@@ -40,8 +40,8 @@ def buscar(habitaciones, parqueadero, tipoAcabados, sector):
         ])
 
         if(resultado):
-            resultado = ml.ejecutarModelo()
-            print(resultado)
+            resultado = ml.ML()
+            # print(resultado['sector'])
             # entrada['nombre'] = resultado['nombre'].values
             # entrada['sector'] = resultado['sector'].values
             # entrada['precio'] = resultado['precio'].values

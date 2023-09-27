@@ -21,7 +21,6 @@ informacion = {
     'parqueadero' : '',
     'tipoAcabados' : '',
     'sector' : '',
-    'precioTipoAcabados' : 0
 }
 
 fichero1 = 'ML/datas.csv'
@@ -65,7 +64,8 @@ def ML():
 
 
     if(informacion['sector'] != '' and informacion['habitaciones'] != '' and informacion['parqueadero'] != '' and 
-       informacion['tipoAcabados'] != '' and informacion['sector'] != '' and informacion['precioTipoAcabados'] > 0):
+       informacion['tipoAcabados'] != '' and informacion['sector'] != ''):
+        
         #filtrar por sector escogido del usuario...
         resultado = data.loc[:, 'sector'] == informacion['sector']
         data = data.loc[resultado]
