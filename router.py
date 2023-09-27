@@ -1,11 +1,7 @@
 from flask import Flask 
 from flask import request
-from flask import url_for
-from flask import render_template
 from ML import ml 
 from json import loads
-from json import encoder
-import json
 
 app = Flask(__name__)
 
