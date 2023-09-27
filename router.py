@@ -16,7 +16,7 @@ def home(name = None):
     return resultado
     
 
-@app.route("/buscar/<habitaciones>/<parqueadero>/<tipoAcabados>/sector", methods=["POST"])
+@app.route("/buscar/<habitaciones>/<parqueadero>/<tipoAcabados>/<sector>", methods=["POST"])
 def buscar(habitaciones, parqueadero, tipoAcabados, sector):
     """
         habitaciones => 2/3/4/1
@@ -39,19 +39,19 @@ def buscar(habitaciones, parqueadero, tipoAcabados, sector):
             }
         ])
 
-    
         if(resultado):
             resultado = ml.ejecutarModelo()
-            entrada['nombre'] = resultado['nombre'].values
-            entrada['sector'] = resultado['sector'].values
-            entrada['precio'] = resultado['precio'].values
-            entrada['area'] = resultado['area'].values
-            entrada['habitaciones'] = resultado['habitaciones'].values
-            entrada['banos'] = resultado['banos'].values
-            entrada['parqueadero'] = resultado['parqueadero'].values
-            entrada['fecha'] = resultado['fecha'].values
-            entrada['ciudad'] = resultado['ciudad'].values 
-            entrada['precioXm2'] = resultado['precioXm2'].values
+            print(resultado)
+            # entrada['nombre'] = resultado['nombre'].values
+            # entrada['sector'] = resultado['sector'].values
+            # entrada['precio'] = resultado['precio'].values
+            # entrada['area'] = resultado['area'].values
+            # entrada['habitaciones'] = resultado['habitaciones'].values
+            # entrada['banos'] = resultado['banos'].values
+            # entrada['parqueadero'] = resultado['parqueadero'].values
+            # entrada['fecha'] = resultado['fecha'].values
+            # entrada['ciudad'] = resultado['ciudad'].values 
+            # entrada['precioXm2'] = resultado['precioXm2'].values
 
         return "METODO POST"
 
