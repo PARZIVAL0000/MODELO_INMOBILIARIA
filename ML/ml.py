@@ -1,14 +1,5 @@
 import numpy as np
 import pandas as pd
-import re
-import math
-from sklearn.model_selection import ShuffleSplit
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.model_selection import learning_curve
-from sklearn.metrics import r2_score
-import matplotlib.pyplot as pl
-import seaborn as sns
 
 """ 
     ==============================================================================
