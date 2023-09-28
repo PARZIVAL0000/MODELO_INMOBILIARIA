@@ -127,6 +127,7 @@ def filtrarDatos(entrada):
                 entrada = entrada.replace(numeros, '')
                 entrada += "."
                 entrada += numeros
+                
 
     return entrada
 
