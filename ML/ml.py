@@ -78,10 +78,10 @@ def ML():
         precioSTD = filtrarDatos(np.std(p))
 
         #---------------------
-        info['precioMinimo'][0] = np.amin(p) 
-        info['precioMaximo'][0] = np.amax(p)
-        info['precioPromedio'][0] = np.mean(p)
-        info['PrecioSTD'][0] = np.std(p)
+        info['precioMinimo'][0] = minimo
+        info['precioMaximo'][0] = maximo
+        info['precioPromedio'][0] = precioPromedio
+        info['PrecioSTD'][0] = precioSTD
 
         return data
 
