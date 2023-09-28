@@ -25,67 +25,75 @@ info = {
 
 """ RAMA MASTER_DOS """
 def ML():
-    #obtenidos los datos de nuestro formulario... ahora lo que tenemos que realizar a continuacion es el medio de prediccion..
-    data = pd.read_csv(fichero1)
-    
-    ciudad = []
-    sector = []
-    precios = []
-    areas = []
 
-    for key, value in data['sector'].items():
-        valor = value.split(", ")
-        sector.append(valor[0])
-        ciudad.append(valor[len(valor)-2])
+    try:
+        #obtenidos los datos de nuestro formulario... ahora lo que tenemos que realizar a continuacion es el medio de prediccion..
+        data = pd.read_csv(fichero1)
+        
+        ciudad = []
+        sector = []
+        precios = []
+        areas = []
+
+        for key, value in data['sector'].items():
+            valor = value.split(", ")
+            sector.append(valor[0])
+            ciudad.append(valor[len(valor)-2])
 
 
-    for key, precio in data['precio'].items():
-        valor = str(precio.split(" ")[1].split("\n")[0]).replace('.', '')
-        precios.append(valor)
+        for key, precio in data['precio'].items():
+            valor = str(precio.split(" ")[1].split("\n")[0]).replace('.', '')
+            precios.append(valor)
 
-    data['sector'] = sector 
-    data['ciudad'] = ciudad
-    data['precio'] = precios
+        data['sector'] = sector 
+        data['ciudad'] = ciudad
+        data['precio'] = precios
 
-    for key, value in data['area'].items():
-        value = str(value)
-        if(value != 'nan'):
-            areas.append(value.split(" ")[0])
-        else:
-            areas.append(value)
-            
-    data['area'] = areas
+        for key, value in data['area'].items():
+            value = str(value)
+            if(value != 'nan'):
+                areas.append(value.split(" ")[0])
+            else:
+                areas.append(value)
+                
+        data['area'] = areas
 
-    resultado = data.loc[: , 'area'] != 'nan'
-    data = data.loc[resultado]
-
-    if(informacion['sector'] != '' and informacion['habitaciones'] != '' and informacion['parqueadero'] != '' and 
-       informacion['tipoAcabados'] != '' and informacion['sector'] != ''):
-        #filtrar por sector escogido del usuario...
-        resultado = data.loc[:, 'sector'] == informacion['sector']
+        resultado = data.loc[: , 'area'] != 'nan'
         data = data.loc[resultado]
 
-        cantidad = data['precio']
-        p = []
+        if(informacion['sector'] != '' and informacion['habitaciones'] != '' and informacion['parqueadero'] != '' and 
+        informacion['tipoAcabados'] != '' and informacion['sector'] != ''):
+            #filtrar por sector escogido del usuario...
+            resultado = data.loc[:, 'sector'] == informacion['sector']
+            data = data.loc[resultado]
 
-        for i,j in cantidad.items():
-            if(j.isdigit()):
-                p.append(int(j))
+            cantidad = data['precio']
+            p = []
 
-        minimo = filtrarDatos(np.amin(p))
-        maximo = filtrarDatos(np.amax(p))
-        precioPromedio = filtrarDatos(np.mean(p))
-        precioSTD = filtrarDatos(np.std(p))
+            for i,j in cantidad.items():
+                if(j.isdigit()):
+                    p.append(int(j))
 
-        #---------------------
-        info['precioMinimo'][0] = minimo
-        info['precioMaximo'][0] = maximo
-        info['precioPromedio'][0] = precioPromedio
-        info['PrecioSTD'][0] = precioSTD
+            minimo = filtrarDatos(np.amin(p))
+            maximo = filtrarDatos(np.amax(p))
+            precioPromedio = filtrarDatos(np.mean(p))
+            precioSTD = filtrarDatos(np.std(p))
+
+            #---------------------
+            info['precioMinimo'][0] = minimo
+            info['precioMaximo'][0] = maximo
+            info['precioPromedio'][0] = precioPromedio
+            info['PrecioSTD'][0] = precioSTD
+
+            return data
 
         return data
-
-    return data
+    except ValueError:
+        return {
+            "mensaje" : "Atención sector no encontrado, vuelve a intentarlo con otros sectores.",
+            "estado" : "500"
+        }
+    
     
 
 def filtrarDatos(entrada):
@@ -107,8 +115,6 @@ def filtrarDatos(entrada):
                 entrada = entrada.replace(numeros, '') 
                 entrada += "."
                 entrada += numeros
-
-    print(entrada)
 
     return entrada
 

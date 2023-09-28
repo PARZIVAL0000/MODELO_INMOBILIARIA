@@ -23,29 +23,31 @@ def buscar(habitaciones, parqueadero, tipoAcabados, sector):
     """
 
     if(request.method == "POST"):
-        resultado = ml.entradas([
-            {
-                'Habitaciones' : habitaciones,
-                'Parqueadero' : parqueadero,
-                'TipoAcabados' : tipoAcabados,
-                'Sector' : sector,
-            }
-        ])
-
-        if(resultado):
-            resultado = ml.ML()
-            resultado = resultado.to_json(orient="index")
-            resultado = loads(resultado)
-
-            resultado2 = ml.obtenerInfo()
-            resultado2 = resultado2.to_json(orient="index")
-            resultado2 = loads(resultado2)
+        try:
             
-            resultado['informacionAdicional'] = resultado2
-            return resultado
-        
+            resultado = ml.entradas([
+                {
+                    'Habitaciones' : habitaciones,
+                    'Parqueadero' : parqueadero,
+                    'TipoAcabados' : tipoAcabados,
+                    'Sector' : sector,
+                }
+            ])
 
-        return "METODO POST"
+            if(resultado):
+                resultado = ml.ML()
+                resultado = resultado.to_json(orient="index")
+                resultado = loads(resultado)
+
+                resultado2 = ml.obtenerInfo()
+                resultado2 = resultado2.to_json(orient="index")
+                resultado2 = loads(resultado2)
+                
+                resultado['informacionAdicional'] = resultado2
+                return resultado
+        except AttributeError:
+            return resultado
+
 
     return "[!] ATENCION: Debes usarlo con metodo POST" 
 
