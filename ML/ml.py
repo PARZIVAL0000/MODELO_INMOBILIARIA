@@ -95,7 +95,6 @@ def ML():
         }
     
     
-
 def filtrarDatos(entrada):
     entrada = str(entrada)
 
