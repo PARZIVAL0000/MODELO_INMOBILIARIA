@@ -35,16 +35,21 @@ def buscar(habitaciones, parqueadero, tipoAcabados, sector):
             ])
 
             if(resultado):
+                r = []
                 resultado = ml.ML()
                 resultado = resultado.to_json(orient="index")
                 resultado = loads(resultado)
 
+                for a in resultado:
+                    r.append(resultado[a])
+
                 resultado2 = ml.obtenerInfo()
                 resultado2 = resultado2.to_json(orient="index")
                 resultado2 = loads(resultado2)
-                
-                resultado['informacionAdicional'] = resultado2
-                return resultado
+                data = { 'infoCasas': r,'informacionAdicional':resultado2}
+                return data
+            
+
         except AttributeError:
             return resultado
 

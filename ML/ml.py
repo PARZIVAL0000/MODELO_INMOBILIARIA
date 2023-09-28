@@ -25,7 +25,6 @@ info = {
 
 """ RAMA MASTER_DOS """
 def ML():
-
     try:
         #obtenidos los datos de nuestro formulario... ahora lo que tenemos que realizar a continuacion es el medio de prediccion..
         data = pd.read_csv(fichero1)
