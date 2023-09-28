@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
+from sklearn.metrics import r2_score
 
 """ 
-    ==============================================================================
-    =========           ML INSTITUTO UNIVERSITARIO CORDILLERA           ==========
-    ==============================================================================
+==============================================================================
+=========           ML INSTITUTO UNIVERSITARIO CORDILLERA           ==========
+==============================================================================
 """
-
 informacion = {
     'habitaciones' : '',
     'parqueadero' : '',
@@ -27,7 +27,7 @@ info = {
 def ML():
     #obtenidos los datos de nuestro formulario... ahora lo que tenemos que realizar a continuacion es el medio de prediccion..
     data = pd.read_csv(fichero1)
-
+    
     ciudad = []
     sector = []
     precios = []
@@ -38,9 +38,9 @@ def ML():
         sector.append(valor[0])
         ciudad.append(valor[len(valor)-2])
 
+
     for key, precio in data['precio'].items():
         valor = str(precio.split(" ")[1].split("\n")[0]).replace('.', '')
-        
         precios.append(valor)
 
     data['sector'] = sector 
@@ -59,10 +59,8 @@ def ML():
     resultado = data.loc[: , 'area'] != 'nan'
     data = data.loc[resultado]
 
-
     if(informacion['sector'] != '' and informacion['habitaciones'] != '' and informacion['parqueadero'] != '' and 
        informacion['tipoAcabados'] != '' and informacion['sector'] != ''):
-        
         #filtrar por sector escogido del usuario...
         resultado = data.loc[:, 'sector'] == informacion['sector']
         data = data.loc[resultado]
@@ -74,15 +72,50 @@ def ML():
             if(j.isdigit()):
                 p.append(int(j))
 
+        minimo = filtrarDatos(np.amin(p))
+        maximo = filtrarDatos(np.amax(p))
+        precioPromedio = filtrarDatos(np.mean(p))
+        precioSTD = filtrarDatos(np.std(p))
+
+        #---------------------
         info['precioMinimo'][0] = np.amin(p) 
         info['precioMaximo'][0] = np.amax(p)
         info['precioPromedio'][0] = np.mean(p)
         info['PrecioSTD'][0] = np.std(p)
-        
+
         return data
 
     return data
     
+
+def filtrarDatos(entrada):
+    entrada = str(entrada)
+
+    if(len(str(entrada)) != 3):
+        
+        if(len(str(entrada)) > 4 and len(str(entrada)) <= 6):
+            numeros = entrada[-3:]
+            entrada = entrada.replace(numeros, '') 
+            entrada += "."
+            entrada += numeros
+        elif(len(str(entrada)) >= 7): 
+            entrada = round(float(entrada))
+            entrada = str(entrada)
+            
+            if(len(str(entrada)) > 4 and len(str(entrada)) <= 6):
+                numeros = entrada[-3:]
+                entrada = entrada.replace(numeros, '') 
+                entrada += "."
+                entrada += numeros
+
+    print(entrada)
+
+    return entrada
+
+def probar_aprendizaje(y_true, y_predict):
+    score = r2_score(y_true, y_predict)
+    # Return the score
+    return score
 
 def obtenerML():
     return ML()

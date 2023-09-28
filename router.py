@@ -22,13 +22,9 @@ def buscar(habitaciones, parqueadero, tipoAcabados, sector):
         sector => [...]
     """
 
-    entrada = dict()
-    datos = dict()
-
     if(request.method == "POST"):
         resultado = ml.entradas([
             {
-
                 'Habitaciones' : habitaciones,
                 'Parqueadero' : parqueadero,
                 'TipoAcabados' : tipoAcabados,
@@ -45,9 +41,7 @@ def buscar(habitaciones, parqueadero, tipoAcabados, sector):
             resultado2 = resultado2.to_json(orient="index")
             resultado2 = loads(resultado2)
             
-        
             resultado['informacionAdicional'] = resultado2
-        
             return resultado
         
 
