@@ -99,6 +99,8 @@ def ML():
 def filtrarDatos(entrada):
     entrada = str(entrada)
 
+    print(entrada, ' ', len(entrada))
+
     if(len(str(entrada)) != 3):
         
         if(len(str(entrada)) > 4 and len(str(entrada)) <= 6):
@@ -113,6 +115,16 @@ def filtrarDatos(entrada):
             if(len(str(entrada)) > 4 and len(str(entrada)) <= 6):
                 numeros = entrada[-3:]
                 entrada = entrada.replace(numeros, '') 
+                entrada += "."
+                entrada += numeros
+            else:
+                numeros = entrada[-6:]
+                entrada = entrada.replace(numeros, '')
+                entrada += "."
+                entrada += numeros
+
+                numeros = entrada[-3:]
+                entrada = entrada.replace(numeros, '')
                 entrada += "."
                 entrada += numeros
 
