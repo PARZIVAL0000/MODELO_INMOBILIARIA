@@ -99,8 +99,6 @@ def ML():
 def filtrarDatos(entrada):
     entrada = str(entrada)
 
-    print(entrada, ' ', len(entrada))
-
     if(len(str(entrada)) != 3):
         
         if(len(str(entrada)) > 4 and len(str(entrada)) <= 6):
@@ -128,7 +126,6 @@ def filtrarDatos(entrada):
                 entrada += "."
                 entrada += numeros
                 
-
     return entrada
 
 def probar_aprendizaje(y_true, y_predict):
