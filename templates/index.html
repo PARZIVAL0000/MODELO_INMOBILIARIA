@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/normalize.css">
+    <link rel="stylesheet" href="static/style.css">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    
+    <title>Inmobiliaria - Buscador Inteligente</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="bg-primary cabecera">
+            <div class="bg bg-image">
+                <h1 class="cabecera_heading">En Inmobiliaria Encuentra <span class="typed"></span></h1>
+                <div class="sombreado">
+                </div>
+            </div>
+            <header class="cabecera_titulo">
+                <img class="cabecera_titulo--home" src="static/img/casa.png" alt="icono casa">
+                <h2 class="text-white text-center pt-3 pb-3">Inmobiliaria - Presupuesta la casa de tus sueños</h2>
+            </header>
+        </div>
+
+        <section class="conocenos">
+            <div class="conocenos_sobreNosotros">
+                <div class="img">
+                    <img width="500" src="static/img/nosotros.jpeg" alt="Imagen sobre nosotros">
+                </div>
+                <div class="texto">
+                    <div class="h2">Sobre Nosotros</div>
+                    <p>Estamos especializados en proporcionarte información sobre terrenos disponibles para que puedas lograr construir la casa de tus sueños, y lo puedas disfrutar junto con tus seres más amados.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <div class="seccion_errores">
+            <div class="seccion_informacion">
+                <div class="texto">
+                    <div class="h2">Te ayudamos a no cometer los tipicos errores de compras de casas y terrenos</div>
+                    <p>La revolución tecnológica nos ha permitido buscar nuevas oportunidades de vivir bien y mucho más cómodo, por ello con nuestro modelo buscador de terrenos te ayudaremos a proporcionarte el medio para hacer tu vida mucho más simple y cómoda.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="barra_titulo">
+            <div>Comienza probando nuestro formulario, para poner a prueba al modelo</div>
+        </div>
+
+        <div class="card body-form" id="regresar">
+            <form method="POST" action="/buscar" class="formulario">
+                <div class="secciones">
+                    <div class="datos_inmobiliaria">        
+                        
+                        <div class="block-1">
+                            <fieldset>
+                                <legend>Cuántas habitaciones deseas en tu nuevo hogar.</legend>
+                                <div class="estilo_form" id="campo-2">
+                                    <div class="icono">
+                                        <i class='bx bxs-bed' style='color:rgba(192,84,22,0.93)'  ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAA05JREFUSEulVj1PU2EUPueCMJBIFFoSE0lMHPkHNeUjOsjA0qImTDo7uEj/ggUX3XUzaCkODhpjYquxk6sbGxgTbkUDkUQN3GPOfd+39/28LfEu0HvP53Oe84EIAATi0f+Xr3LfZzJScxBj0iKLep5QCJ7gPKK5CagY07+OpBk6AnllnPeexEOoeDP+eKNY4g+/k+Hda81vO45ybh2E93fLF6ZH8fgii5Y3444dOfqSbVeK+6xAQGvzzW49t3QBXFvLhRoSrrKduWY8YdYTUz7JwmUW2tWp/dStdNyfB673VrVQQ5COt+KJHoN95FL1blem9rl+CcAuIu0MQlZbJgGcRoIUapGxGZxRY/WpXRVQn+bxByfeeqH2lUg5JoRdBBLk4mbPwhwHwhmBGn0BgANbhmTGrDLr1Fg3pQ0QrrGAmsn1vZ6NGKHw4WaxlJzAK3YWDcFS+UXcsSdNPrksxwpazpgdGI41aLjdkkQ6jmCp3Ig7NnKCXNEqJyAyzqmx7jhFV4dafpTqFtR0YOdAhNMIA5Jr+/rl0a9jh48QYDk09nJby8OwlBYIjaNf4/cW32z/UfoGq9vVwmMAXOnL5tyoAh8RnsxtxulAUaMjReltderSCNFn5KGi1lWfCFTfewa5TzM5PgMzVzfivdRx1ruTtwGih1k8FN6TjtlBRkxKmrtzW3sbbFg4RoB2pcgw1JTjdPPYPWI49EAqjQW3FsKD2Wa8zg57s7pVmUzp79p228CthKiPWK/h7Lk9F5rdulHjViUb6ikUvYydHXKqEuh29KXTY3WrOlmLIFr1HQWhQ8CeaErXz2uEBJK1ha1unWuoQS0z1utkDg3rKgvXOHTFeTN+XyncGUJc///Dz4m2Rxsiuj//svs0yxgAXq+cPzv2d/hWQnSOF7hInDpE0DEXk7JjvrVlEKEEhCUxemktAvx5NHL8fPHZj8OMXFZf9taifvo4yJoEtFt7sO1kGbUdhwaY0z2aoHH66PtY+uqRSx+T9s3ld5C/RpRjlpqVN5fR4T71cMYhJuuEEjLuPtZxU5PLwpKV+NVQhJ/KjW5HHwJ9N5cU4GPhJKEr/JNPZEUovWvCtrR6+BZWPti2K3PgaTXub8Y7KwdcTPYY/geqpLE17x6nIQAAAABJRU5ErkJggg=="/></i>
+                                    </div>
+                                    <div class="entrada">
+                                        <label for="habitaciones">Número de habitaciones:</label>
+                                        <select name="Habitaciones" id="habitaciones" class="border form-control">
+                                            <option disabled value="" selected>Escoge un valor</option>
+                                            <option value="2">2 habitaciones</option>
+                                            <option value="3">3 habitaciones</option>
+                                            <option value="4">4 habitaciones</option>
+                                            <option value="1">Una Suite</option>
+                                        </select>
+                                        <div class="mensaje">
+                                            Escoge el número de habitación disponible
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        
+                        <div class="block-2">
+                            <fieldset>
+                                <legend>Cuántos parqueaderos quieres en tu nuevo hogar.</legend>
+                                <div class="estilo_form" id="campo-3">
+                                    <div class="icono">
+                                        <i class='bx bxs-car' style='color:rgba(22,192,80,0.93)'  ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABBtJREFUSEuVV01oXFUU/s59kza0EG3Je0pBQUFBwYULJVWTzNQubKXTSari36qFVsGFRWzEH+hOG1e6kKpF1I01mvZNaa2IZBJjEUsFyaJaK63Whc68YFGqdPqce+T9zbv3/cybziJk7r3nfOd85zvn3iEUfggAd0+p3+L/CQQGhwupdd867UeH1vfjvdR63kEdIvsUgfyN+E9m/leBmZFbwqXCSrij8pQRZwETBbGnmPPOd7nJJy876r7T01PrmmUKB3v3Cmvs+8dB2Abi+wASSYlkZ8kSTF+TwExzzD7oqy6jVkHGakThIbNRe5kIu5NqLM4ytAj87GuV7WnNf4SVFbW5UL2TWHwZnjnDko+C0OnVeV7DUdB1BhGqILrF6zAYxobW2OxSj3aK+bDmqtMQYgcAt224t/01euxiYbsrvA19/tDawUH3NIABAAdaZXsqaa9QHQ4BBpnz1dNEwmLwF065/lgeaF6Pehyb87WPCdjIzC2nXL/dr3WirJpfa35iPcBHQyE90yzXP1InV8/MlY40G7UnQXjDW6IONv1xv30yOfU0sZuNra8SiZ0Ad5gHbnYqn17yx2H/XPsiHlp8cM3KzoozBDYk4y2nYr+iylhTNWYeXmGZ7ncgrGOgCeYPCvF8VQWc+OJSPRJtJ2CYgQvX/Nse+Xnz8Xbgzytr+Fl3assq95KYJdDdyX7NBk8P/fQlEWuZgW9X87WTv1Tev+z7j8ytudo2EngnoLTvGaaVSetXdQJHG4wdrYptRwj+stnYOkVEe3pTm+UtxyLjKDNPO5X6Po1qD1gQ7fEyZmCJmd4G+HoCP0VEZpb7vIuBmR0G7TcEt6SknUS4w7OPgRUpaMBkjCyPz571grAWas+B8WKRyLRWYXqpWTm837O5rrFlhMk45kExyzDjBHBENRnGXa3R2XM+8FxtEgLvZg/6+NWhSoOIdzfH6x96a9aJCQsu/+BBSZbTyz7VWcBe6JI+EeDXXPmfaxglb8g/UJSxus/MS0aHpq5caf84sGpwF4Nf6El1sbgy4Pt+AeTUeLhRe1YQlOmiNUd+wn13nk/11HKlfkCjenhx4lbR4UUApauhVat9j+wZ8nKpU7rn942HfvXaRhuZVqP6BEi82QVm/MaEC1r9ElMxL0hi3AjCDZHoGHjaGbdngkCjkRnSZX01eS+kPBJRIbsNn3CfQW9yKTWQhKi2xg6dUAvY9aoCJ1WoQWe8oeKrM9jUgP27UQVWLgnPcVjnb7qjVcrnnQ1H3kvR2YeSzUZ1O5HxehSQNGj98ujhnwJfGtVhpAu1RyD5JiHoovtP++Cfm4//HQ+HvFmd5n7tZ5uGSqtXPsqS14DovFO2Z+JT0S+JvmWc3zuq07zfWmoC+kMgGYBKac9+Dd9r6twsSOZ/7o7QODJ4bf0AAAAASUVORK5CYII="/></i>
+                                    </div>
+                                    <div class="entrada">
+                                        <label for="parqueadero">Número de parqueadero:</label>
+                                        <select name="Parqueadero" id="parqueadero" class="border form-control">
+                                            <option disabled value="" selected>Escoge un valor</option>
+                                            <option value="1">1 Parqueadero</option>
+                                            <option value="2">2 Parqueadero</option>
+                                            <option value="3">3 Parqueadero</option>
+                                            <option value="4">4 Parqueadero</option>
+                                            <option value="5">5 Parqueadero</option>
+                                        </select>
+                                        <div class="mensaje">
+                                            Escoge el número de parqueadero disponible
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        
+                        <div class="block-3">
+                            <fieldset>
+                                <legend>Escoge los acabados que deseas tener.</legend>
+                                <div class="estilo_form" id="campo-4">
+                                    <div class="icono">
+                                        <i class='bx bxs-home' style='color:#0676c0'  ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAA11JREFUSEuVVzuIE1EUPXd2kxFBFEEECxW0EBRsZAsRJ/EDFiIWfhqXFWxUbDer25gt/GRSqwgKu6iFHxDEQtAlG1ELsbDQQlBQC2ERRBGXnckmVybzJvNm3nuTSZrAm/veuffcc8+8IfT9EQAGxF8cTiBw8AS9h90YJVCLEET1fqYtmUdp8sqDT6agGEwPW5xonABb7LvOvaDiuPq+FPY4yhcpRYWgdCdMmkf9WvluHlbS7Gr6Z87FHm8cYKKnAIYEW23q8EGvXn4W7tKkYFhKaiOj/kLl5YiFTpOBZSl6FxmW03J3v01vj1sp2iFpQgOlpmiPz25iGnoHYFVYlKLq38TtHV593xe531mCTQJr1LZ88sXapaXhoJr1fQTxvTDcHvl3ee+8kXZxQGKctIdWXq8oovUGwLZ0/wzVfPAxvBPurr9Z8dlzXP1YtBd+zjKwK6K3ayZS1gkDicX1yl++Zi+qW30TQ4aKCah2rOJC8zFAh2QwxW7MxvbErzmHAYozTZmVNim70rjFoFN5zUFHOzNfa9XL51SAQJgayyyONydBfEmlVOE4j/lM+m7pSro/EnCYc+RK+hMHcPNEKI/6bvluLAFC6NUCpTjeOADhSkov89RmVlLX3fx6+VmE1QMuXmhsQZveA7Bzjo3OHFPQibI9Qme75+75FBlrN7gwMXeGGNfVwc+0f5FjvhYw0emW69zsvt57W44+GCpsXHuKqLNOgJ8EsCGL4cz3bnjwNwJPB/QyWz+Wvs7f5ofH2uGkRHWnLhl2pTnHYGeg1qZmmkBNz3VKujNUAxGb8wArFcuMU2AdgwCL9LrAxI7kkFnCkaQRv7WCin3XKSWsK2IlTjKZrl2ZE8BJ4RB4hixMy1l0OjgJ0FgiM1GxAix6q965+lLNU75brsogxUqjCtDFaL6iVAfrsYnqnnB4yjMBy0oNL0FNzy0JcSUZNb4W5R4nyY4rjtZ7FSsqED3WvMESlinbZLfHYpwGA5ZVI4srVbE8EvIjuzJ3n4Fj6RlkwtlWrXRDXg9cz2JcV78q8MB3S8cTlwgBaKb6fGMzM46AgxtlNC3WL4/8GdT2/0kkNPF8pc2FMQavltYXyeJH3tU9n+P98ReOgWrzVVvvyprVPksqsMnvFd8zB+Y54j/ZeJg188R06wAAAABJRU5ErkJggg=="/></i>
+                                    </div>
+                                    <div class="entrada">
+                                        <label for="acabado">Tipo Acabado:</label>
+                                        <select name="TipoAcabados" id="acabado" class="border form-control">
+                                            <option disabled value="Escoge un valor" selected>Escoge un valor</option>
+                                            <option value="800">Gama Alta</option>
+                                            <option value="400">Gama Media</option>
+                                            <option value="300">Económico</option>
+                                        </select>
+                                        <div class="mensaje">
+                                            Selecciona el tipo de acabados del hogar que necesitas
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="seccion_radios">
+                            <fieldset>
+                                <legend>Selecciona los sectores disponibles</legend>
+                                
+                                <div class="listado-sectores">
+
+                                    <div class="l-sector l-sector-1">
+                                        <div class="icono">
+                                            <i class='bx bx-building-house' style='color:#049cd2'  ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAjhJREFUSEvdls9rE1EQx7+z+5ofpa2CF4+K9mDLilW8CGItitIgeBIEBQMNgkL/FwVPaRtBD+LFg1QURaOgF4WoMVYoRW9epZZsUt/uyG6yZXfZZF+ShaB729mZ+bz5sTOPMKSHhsSFGpiZ9OUv8wQ+BmZN+bBENjM+WIXDT8I2SmCx9PkRgIvKwJAigR78WTAu+8Wx4NRKbcq2rVq/UM9Ot+hg87qx4b3HgkWxOgviV64B02lZMMqqh+hm+2+BM6XKPim1a07kQth3G/mZH1GyxCOOcqgqG6jGqpDEI/6Pm+v2elqMmo8BnG1H+VzWsxewONkMR51ccz18lxWbY86omw1BynJiax6XTph+uWrduzfXndqYSFsO9KSrSPSsNUD4XNvwjWzqOdyc3vIcDQ6+vz4hmuYLMI63nZZlPXve/WdHzac7GSC8lw19zg8Pp1+9qx1oo/4aoCMBqFfTVs2D8HT2DK5MbkZ1uhp4+du4sLffgmC00ouXUhvPIb+/EXBa+p4R9u9VMOba8oqk1KmMZu4JTzMl8EixusjEt3Yg3kIoVXYLKdwMSCE/Ij/zK+DQOSPzDYa2Fl4mauCVT0fZplUAe/2bKLZpgJ8EO8es7+oL7DZPxApUlfVf4w5gxKW6y45WSnWniHuNJG6oRA4Q1dtGEnqBG0gSDgePWHX3qeqFeiEQcapYPWQTf1X11YuexjS1XTDWOi4Jfal6ldg+0IvTOF0mbcNaMO759WJvmXFO+/0+NPBfL/kOPcsbb2EAAAAASUVORK5CYII="/></i>
+                                        </div>
+                                        <div class="entrada_radio">
+                                            <label for="sector1">Sector Cumbayá</label>
+                                            <input type="radio" id="sector1" name="Sector" value="cumbaya" checked/>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="l-sector l-sector-2">
+                                        <div class="icono">
+                                            <i class='bx bxs-business' style='color:#00500c'  ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAASxJREFUSEvtljFOw0AQRd8iIQpc5QQp03AGyAVQ6EiV3ITkKFRBooiVC4QrIKp0nACEtGm9yIpRTOKNZ9a27CKuLGtmnv/MX+0YWnpMS1w6ATbcX99wYXqlXUhIuLp85/X7pzTWE7BX/BA94lgoCm2I7UAR/y90Dx5FM+BJVSi2waPqHHieKb8DbrP342+1K/4rmG//qW9QbszEfbHafgAuFVLcai1YakzDmKV98YOlDiv6wdO5c2KbmtijuEWwzlxHR9E8g/sE0wc3yekoUSydMQx3Rc30ADAktm+MovRUrJsA+4YSCJbOWB9Xk7kaAMvM5QU3b66aZyx3dc1g/eykGd01l1SBNu6sGJDeqdrm5uML72PJFlEF6t1AqhQNyA1eTwNYnr26aiVl/i/BMrsfd87rcgAAAABJRU5ErkJggg=="/></i>
+                                        </div>
+                                        <div class="entrada_radio">
+                                            <label for="sector2">Sector Puembo</label>
+                                            <input type="radio" id="sector2" name="Sector" value="puembo"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="l-sector l-sector-3">
+                                        <div class="icono">
+                                            <i class='bx bxs-business' style='color:#710bad'  ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAU5JREFUSEvtlj1Ow0AQheclQkLCVU5AScMZCFeIFQQV3ICfCxBKmjg5AhWRULgCXAFR0XGCREh2SR6yJUeO8Hpn10ZxgStr/XY+zZtneyFburAlrrQBTFzuzQ8B9mwuUDqr3Z3vt/vlyZdNa3q+7vg6eD4V8lFfCB9RMjjQ6zeVa/BNMB+RcutSKEpC71G1CwzIXdo5KX0ROUrvy9Ya7zgvWLS/ak3EHkwSi2kSvouAWSP5TLWQMp06mMBZFA9mRrA2YGUuVO1NxzWOw1H7wK7h+v0q4gHgJ4l9EZ7nLlg71oaLWB1ntrF7UQSk65N4+HoVPPXBzkvjYNM8vcHacLnqrFa7FtTqrWBtuMzAPw5X4zPWprpxsHZmrjrrjF0LavX/4Mwpn6OP1uLKT6b6n+pKK+rL/seaU0QdpvEEUqeoz17v46kPbMP1ugV89/8A3F9XLuBKxpsAAAAASUVORK5CYII="/></i>
+                                        </div>
+                                        <div class="entrada_radio">
+                                            <label for="centro">Sector Centro Norte Quito</label>
+                                            <input type="radio" id="sector3" name="Sector" value="centroNorte-quito"/>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="l-sector l-sector-4">
+                                        <div class="icono">
+                                            <i class='bx bx-building-house' style='color:#aa891c'  ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAkZJREFUSEvdls9rE1EQx7/vdTEbjT9ABaVBA+ZiQRDFo1iLoiQIejBtQUGvHgJ6aOgtt7Iiiv0HFBSM20MRaVAUjYInBb1oLy1ETPHgRSRmN7J9UzbdLdslzXv5AaHuZXdn581nZ+bLm8fQp4v1iQslMBHYjDGYAmfHicBVf5YxCAI+jU5UiuE1SmDTiM8CuKgKDPsRqDCaWxoP2qVg886BISyLr51C/XWCseTYxI9F/10KnpmKDxPHW3cBEzh9ebJSUv2JVms3F/jJVCLBuXPNzVwI7eH4ZLnczNbzjJsFVLV11WNVSM8z/n/FVZxORqqW9RxgZ1ezpFexaPRCKrtQD2fdM3GZd+NROCiCMLwOwlCChlTmVsUK2lX73lJcZn5vDNGIu7+e9Bxfevdz3v09rHo6k/9V9QN1DX48ndyxxbZfg3CiEZShFNP18+5j1bZfrFWA4SNq9ZEgPFx+ZVU3oJb9DsDRINTvaaPnIfg/XT9zJbvwp5nSlcDPjD3b69A/ADjiQd/8rWnp6/myHQz6IJ/Qt2115kAY8eyfI7BP1URsd3g3UwI/NeJZBtxfa743EGbvJXY5ttOogKZrXy7dLP8OBlwVO7vBiObDw0QJXLi9/xingTkA+4KTSCYaAD+5EGkC39kR2IXJIP5YVB2VShlvBJaVutWM7grcrlplm0rTDaQXJdy8YNXRp+oX1sK6M1fBOHiYY/mbarB2/AQGhsZy3+c3HBKmMXiVwA61E1Tmy0CLmdzSo6Cf9JQpC9rp976BVwD3TRA9kCcNYAAAAABJRU5ErkJggg=="/></i>
+                                        </div>
+                                        <div class="entrada_radio">
+                                            <label for="centro">Sector Norte Quito</label>
+                                            <input type="radio" id="sector4" name="Sector" value="norte-quito"/>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="mensaje">
+                                        Debe escoger un barrio del listado para el sector escogido
+                                    </div>
+                                </div>
+                        
+                            </fieldset>
+                            
+                        </div>
+
+                        <div class="listado_barrios pt-4">
+                            <h2 class="text-capitalize">Barrios</h2>
+                            <div class="accordion" id="accordionPanelsStayOpenExample">
+                                <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne" disabled>
+                                        Barrios para sectores centro-norte y norte de Quito
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse">
+                                    <div class="accordion-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Identificador</th>
+                                                    <th>Nombre</th>
+                                                    <th>Sector</th>
+                                                    <th>Acción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="cuerpo_contenido">
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="barrio" id="input_sectorBarrio" value="">
+                        </div>
+
+                        <div class="mapa-sectores">
+                        </div>
+                    </div>
+
+                </div>
+    
+                <input type="submit" value="Buscar" class="btn"/>
+            </form>
+        </div>
+
+        {% if info['resultado'] is eq('completo') %}
+            <div class="mostrar_informacion">
+                <div class="header">
+                    <h2 class="header_titulo">Resultados de ML</h2>
+                </div>
+                <div class="section_estadistica">
+                    <ol style="list-style-type: none;">
+                        <li>
+                            <p class="column">Precio Minimo</p>
+                            <p class="texto">${{ info.contenido['Estadistica'][0]['Precio-Minimo'] }}</p>
+                        </li>
+                        <li>
+                            <p class="column">Precio Maximo</p>
+                            <p class="texto">${{ info.contenido['Estadistica'][0]['Precio-Maximo'] }}</p>
+                        </li>
+                        <li>
+                            <p class="column">Precio Promedio</p>
+                            <p class="texto">${{ info.contenido['Estadistica'][0]['Precio-Promedio'] }}</p>
+                        </li>
+                    </ol>
+                </div>
+                <div class="header" id="casas">
+                    <h2 class="header_titulo">Resultados de Viviendas Analizadas</h2>
+                </div>
+    
+                <div class="section_casas">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="column">Nombre</th>
+                                <th class="column">Precio Base</th>
+                                <th class="column">Sector</th>
+                                <th class="column">Area</th>
+                                <th class="column">TipoVivienda</th>
+                                <th class="column">Localizacion</th>
+                                <th class="column">Precio Modelo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for j in range(info.contenido['InformacionCasas']|length) %}
+                            <tr>
+                                <td class="texto">{{ info.contenido['InformacionCasas'][j]['nombre'] }}</td>
+                                <td class="texto">${{ info.contenido['InformacionCasas'][j]['precioBase'] }}</td>
+                                <td class="texto">{{ info.contenido['InformacionCasas'][j]['sector'] }}</td>
+                                <td class="texto">{{ info.contenido['InformacionCasas'][j]['area']}} m<sup>2</sup></td>
+                                <td class="texto">{{ info.contenido['InformacionCasas'][j]['tipoVivienda'] }}</td>
+                                <td class="texto">{{ info.contenido['InformacionCasas'][j]['localizacion'] }}</td>
+                                <td class="texto">{{ info.contenido['InformacionCasas'][j]['PrecioPredecido'] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="header">
+                    <h2 class="header_titulo">Resultados Información Cliente</h2>
+                </div>
+                <div class="section_cliente">
+                    <ol style="list-style-type: none;">
+                        <li>
+                            <p class="column">Habitaciones</p>
+                            <p class="texto">{{ info.contenido['InformacionCliente'][0]['habitaciones']}} hab.</p>
+                        </li>
+                        <li>
+                            <p class="column">Parqueadero</p>
+                            <p class="texto">{{ info.contenido['InformacionCliente'][0]['parqueadero']}} par.</p>
+                        </li>
+                        <li>
+                            <p class="column">Acabados</p>
+                            <p class="texto">{{ info.contenido['InformacionCliente'][0]['tipoAcabados']}} acb.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        {% endif %}
+
+        <footer>
+            <div class="secciones">
+                <div class="seccion_1">
+                    <div class="cabecera">
+                        <h2>Inmobiliaria</h2>
+                    </div>
+                    <div class="descripcion">
+                        <p>Con un buscador inteligente, encuentra la casa de tus sueños</p>
+                    </div>
+                </div>
+                <div class="seccion_2">
+                    <h2>Buscanos y Contáctanos Por</h2>
+                    <ul>
+                        <li><a href="https://github.com/PARZIVAL0000"><box-icon type='logo' name='github'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAA5JJREFUSEu119urVVUUBvDfLAjqIQyzjsUpiwo0USm7GP0BUtD1oYfoippPJkI9BAVSEFQUIUQllVIPEXQBQei5h6xTdE8IzNRUMCMCo3sz5lpr7zXX3GuffU7QhMOZe605xzfHGN83xlzBxBEQqf4182pPPp9oZGRB2t2MIIgJondR3/Nx+HM50nyBT8KVggtFixu3j+K7wJ7I3+N97x4nA541XOfjIdwaWNjxvrX3E97E4/i2ttaNYp6tGjhPY44fnCJ6GA+q5nMJor/wBLbij9nS0XW1PdZiwS7R5ZOp03vyGdyEI+O87yPoEryPqfH87fF+lPQJ9BocKMPal+Mz8AEublKwLxBiRagJYLVrB/A7LmkitRdrCD9XshxoqEeZO3BXFt61eBeX4UlcimQs/aV8pt9LsU+wRTQTuDbyXubldtGGLn26CbwKe4qcXpDkMjnPnXowFUkyG4zk6nJ83a5qnU8F5LUY3D4sVDUlVxE/mxNwG75l+KqQ00tYlytoEPWTiccFC7JcHiMsJ/7QBzxSRdtFpwv2is7J9iWindsDbHVgpk7/UPibsG0u3rbODqW1QfRCsXdZc6AKfzCS5t7Oc1Az2f5xwBPKSfL2cEGoGyK7atfasQ7bC5C0OSfJmJ7UW0BOwy+FvU2CbQMODd6tx4vFwpX4fH4eD9M0TThYdLwH8FTp8S1Nkc9x7sUr/7EL34h3ikPfjZ0VhzJmpiIw1FnDsd2i6+fUGkbD8hZuLvZegY9aj9u3x7Fw8KIpcHfi1dru+DbW3lKqhWlP5Vn2/AQWaHp2py3iedyHP5GKxupGWi9HHhmydBw+qbmkdpiAy7EjcM+gWpdNoqk41Vnvj3ySJNY0/3/wMZ7G612rYS3xsaaeZ850Ar0CX+RyLU/2DDY3D9fgbLxRXwSqp6uaaGT7wiLisdxo0cieTTZLkpbApzaNYoWgIhcW4Q78huc6+W53p2JRlciWsNXs06Yn/5oDjfbj+ljn4cPG242VvkeuoPl9qprvj8GS7jU1HCFeLThUXl87wAX1E1F2E5YSTwi+EU3jrFHeVDsPUr0fcPlLXIdDfQWow+oevaaytzWwJZKutj/izDGGjsZgSqwUkS4MjzapKXjYKqzHzsgRpgUbRRcFbsslkZFoJ75PHAgcHvsB0KCVOu75VOlSoifV7afNLA269K4umX2xy8VSrukpIPPAHNbACbD/z+t/AdiDJy8ffBp9AAAAAElFTkSuQmCC"/></box-icon></a></li>
+                        <li><a href="https://codeschoolw.blogspot.com/"><box-icon name='blogger' type='logo' ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAthJREFUSEudlztoVUEQhr8hAREsBEMI+GgUFEFCVMRIEomWglZWdtor2CiIdews7AUbC0vRJsRgMKLiA9GAWvgWGwk2oliYlT27OWcfs+cc3Sb37mP++Wfmn7kR6iWA8d/6fA6vCoLxr/3b0EQDEqEp24rRDkNlI8lJ4BdkRuON6lsPBqvx6uOE9CSyExhWPLRbyxheZinr8NYex3ltQjFo4ARwXmBHxCb3dg6YQZivy6SQ17CKlIJiLTCHcCCOcanoapQZ4IKAcQDleAaMIxdvAUda3rUYlatgTiVxzNzQcnwcuBG60cpTV88x4GbNWSEeMfbnT4A93UpudechMJ6mOX0Rnm8GPhXk8AH4mJxtBTap94VhDN+ys4KO9wMPFENvgV0gv5ruVt0aQVjCsEF5sxd4qpOwnS5YAlNGWEglIfDYwD6lToeAV4D964u4Duhp4EpbrYRnh4A7sZe1oRfA98TQqIH1LcKxjH8AiyAXK5WthjpJ+GFj9dtrhYNBaQV5tduCfaY0kOrxFLCgVqNvgc0UituD3ioi5yYFFlcbS9pADgJ3uzrOfw6MSRdyt1Lg6X/pt90ZieIQMI6Aq7BMG5gvGLQatlpWl4fYCGzLLrg0TYC5X2YcAjcOfwG2Az87gNcB7wWGlGlme8SjEvAEcE+Rk523Y8Cfxhe1AQ9geAPYjtZI230cE3heqmrL6nWB1RKw3JFXq+nR5k5U1VuAzypjATHw1bbC1iHhpZW0zxpPicU7n/s6A9o8Pgdc0oE9g9bBpDaTsxi5HDrqgGMXB30R7C6GNaMUbyTHtxGOYlgJ60NjbPFGgFk3kfosvW8B14GTwO80DyVge28NYCfMGcDqU5dnuOvwV6rfaw70WlhoeaiVtAQpGBAYN2BT0L4csJ3dvnpVyVX4UY6LAesCDDWi/aov4KtlqEul5Jrf9zILJ1ieCbcTMFY0EttL/qcLD0u5KhfGX7JL+iIVxE2NAAAAAElFTkSuQmCC"/></box-icon></a></li>
+                        <li><a href="#"><box-icon name='facebook-circle' type='logo' color='#453f3f' ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGtJREFUSEuVV1toHGUU/s7Mpl7ITWkTxYcmFCGtxQftQwl25s+S3fZFqMbFBy0ofVIURSqiL76pVAUr+ChCQSndVfCGIZN1ZrYJVqogSCO+pK1C1CTSLYlIk905Mred2z+bdR7/y/nO+c75zvmHIP0IBAbLNwEC8jfzLiXXXRM7fhkcbyFYjW/+D4d84LihuBspo5XHKmpzff0wtdtjjqLc7W07zgqp6rXh3bsvVqvVdud6YDNiLsliTxGXNO1egF4F4REAwx7N2ZvXAXzqtNtv1hcWlkMH8kjoCvzwAw/efnOg/y0GngWgpnPi4WedaBHzO0Pr669Xl5a2ojtBxLEMSYulWCzuVdvtrwG+j+Fe8j95sNIyuYRW67ixuLgi25VGPK1p+4loAcCdnUs9I7pq6Di64qjqZN389lqnGAODGWAhxF197FwEaG9uuQdOMPAXAQ2Aryik/MuEAjvODEAT4V0GlrCrb3LemL+RrtuE/WkhzhHz49FibqjntomesSyrGTcwrevPE/B+wijRB4ZlPZfId1xJR4WYcJh/6YHepeGRkftr1Wo73WRKmv4CE95L1cSW4jhjcxcu/BGeT1Bd0vWzAE7s1FEYPDNvNz6LnzsmxFiLMKY4/KgDuFGnv9OGbb/SkVmos8qBA7uae/asgTEo0WjCiErKxKxl/houljW9xoQZmcMxyS3P2/a+TMRlTSsyUb0XvdzWag1+sbi44QIFDt/sRWuqokzMmq7DYdUTUNLFU2D+qDvNfqFtKzRgmfamq2ohRH8fOxuyVpa0xYCiHjdM83N3vZOKsq69zKDTPQETDViWtemeFVOiv89hL/rsF+nOnwf8otFonEkAT4upU2Dnbd+TRBNwF64atj2+U9G5+yVdP89ARdqZmE8Zjca7HtWhnEqadgKgszk5vmo07HHpKPS8iRpwSdN/BnBQaof5CaPR+CQVsThMzN/l0LVs2Pa+GEQcrnOlUqmozdXVfwDc4i/Gmw+DFPXQnGX+6AbQYUQIUSgwXyegX0Jpk4jO+NXIGFxbfaN62Z88blXfGBl5zYNhHgDwUua+j980bNvt/RxVdXCyrGk1JpLqMW5sO15cXlXzRtcZwgAr9PG8ZT3p24nJyfWjJMQhMF9Ke5w2mgD2qjoupyS9oXAURTk4Z5qXpS3TBSzr+jcMHMukKOZNCOzmSQ8iltPbcaJm2HYlfiZnLPISA3fIhr9rquVRHTSQuI4lfBPw5xbR/vQUk8qtNCV0ODwL4FaJpiHLcZyhsD8zYYOIioZl/ZB+5uS+uaaFeIiYvwIw1DXHEqqD82sgKhuW9ZPsFes3kJyWVCwW71Hb7fMAJsMjEdXWppfjgOqUc186hcLT9Xr9b7npmI67tEMqa9oREJ1k4CgDoy1vSATAUcS/EzALRflwzjS/D2UThZUMMUu1hIJoiVDWjowPjYz+Vq35j3evW62sjEavyW4cRuH5wDucjT+P8qiTR5ZvOAc4S0v4q5QB7spQcDqaIZ058x/0vPU1VlF5YgAAAABJRU5ErkJggg=="/></box-icon></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="static/scripts/letter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="static/scripts/app.js"></script>
+    <script src="static/scripts/maps.js"></script>
+    <script src="static/scripts/maps2.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwQHKWZcWbAy441Mc3w6nq5BxGtdTQMio&callback=iniciarMapa"></script>
+</body>
+</html>

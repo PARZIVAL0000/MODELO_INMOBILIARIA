@@ -1,0 +1,80 @@
+(() => {
+
+    const iframesHTML = {
+        "PUEMBO": `
+        <iframe id="puembo" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63836.811962162064!2d-78.44673582371941!3d-0.17005154265714362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5923416590ffb%3A0x878bcd62a0fd662c!2sPuembo!5e0!3m2!1ses-419!2sec!4v1694967851581!5m2!1ses-419!2sec" 
+            width="600" 
+            height="450"
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        `,
+        "CUMBAYA" : `
+        <iframe id="cumbaya" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31918.339242500577!2d-78.45613750312903!3d-0.2065081366531639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5911fc4a2d301%3A0x75c0df62f9a789b0!2zQ3VtYmF5w6EsIFF1aXRv!5e0!3m2!1ses-419!2sec!4v1694967629394!5m2!1ses-419!2sec" 
+            width="400" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        `,
+        "CENTRONORTE-QUITO" : `
+        <iframe id="cn-quito" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31918.44568515711!2d-78.50868855313003!3d-0.14405009068984048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20norte%20de%20quito!5e0!3m2!1ses-419!2sec!4v1694967821652!5m2!1ses-419!2sec" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        `,
+        "NORTE-QUITO" : `
+        <iframe id="n-quito" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31918.44568515711!2d-78.50868855313003!3d-0.14405009068984048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20norte%20de%20quito!5e0!3m2!1ses-419!2sec!4v1694967821652!5m2!1ses-419!2sec" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        `
+    };
+
+
+    Buscar();
+
+    function Buscar(){
+        document.addEventListener("DOMContentLoaded", () => {
+            BotonMapa();
+        });
+    }
+
+    function BotonMapa(){
+        const botones = document.querySelectorAll(".boton-mapa");
+        botones.forEach(boton => {
+            boton.addEventListener("click", (event) => {
+                let id = event.target.id; 
+                
+            });
+        });
+    }
+
+
+    function CargarMapa(){
+        const contenedor = document.getElementsByClassName("seccion-1")[0];
+        const tipo = contenedor.children[0].id;
+
+        if(tipo.trim().toLowerCase() === "cumbayá"){
+            contenedor.children[0].innerHTML = iframesHTML.CUMBAYA;
+        }else if(tipo.trim().toLowerCase() === "puembo"){
+            contenedor.children[0].innerHTML = iframesHTML.PUEMBO;
+        }else if(tipo.trim().toLowerCase() === "centroNorte-quito"){
+            contenedor.children[0].innerHTML = iframesHTML["CENTRONORTE-QUITO"];
+        }else if(tipo.trim().toLowerCase() === "norte-quito"){
+            contenedor.children[0].innerHTML = iframesHTML["NORTE-QUITO"];
+        }
+    }
+})();
