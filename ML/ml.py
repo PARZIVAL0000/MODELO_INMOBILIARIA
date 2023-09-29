@@ -32,75 +32,35 @@ resultado_final = {
 
 
 def modelo():
-    data = pd.read_csv('ML/datas.csv')
+    data = pd.read_csv('ML/casas_venta.csv')
 
-    respuesta = data['area'].notna()
+    respuesta = data.loc[:, 'nombre'] != 'NN'
     data = data.loc[respuesta]
 
-    #aqui generar cambio al update-csv
-    data['parqueaderos'] = informacion['parqueadero']
-    data['habitaciones'] = informacion['habitaciones']
-    data['tipoAcabados'] = informacion['tipoAcabados']
-
-    data = data.loc[data['precio'].str.contains('$', na=False, case=True, regex=False)]
+    data['sector'] = data['sector'].str.split(",")[0]
+    data['ciudad'] = data['sector'].str.split(",")[1]
+    data['precio'] = int(data['precio'].str.replace('.', ''))
 
     listado_areas = []
-    listado_parqueaderos = []
-    listado_habitaciones = []
-    listado_tipoAcabados = []
-    listado_precios = []
-    listado_sector = []
-    listado_ciudad = []
+    for key,value in data['area'].items():
+        if(str(value).find('m²') != -1):
+            listado_areas.append(int(value))
+        else:
+            signo = value[-2:]
+            value = value.replace(signo, '')
+            listado_areas.append(int(value))
 
-    listado_descripcion = []
-    listado_localizacion = []
-    listado_tipoVivienda = []
-    listado_nombre = []
-    for key,area in data['area'].items():
-        area = str(area)
-        signo = area.split(" ")[1]
-        if(signo == "m²"):
-            m2 = area.split(" ")[0].replace(".", "")
-            listado_areas.append(int(m2))
+    data['habitaciones'] = int(data['habitaciones'].str)
+    data['banos'] = int(data['banos'].str)
+    data['parqueadero'] = int(data['parqueadero'].str)
 
-            listado_parqueaderos.append(data['parqueaderos'][key])
-            listado_habitaciones.append(data['habitaciones'][key])
-            listado_tipoAcabados.append(data['tipoAcabados'][key])
-
-            precio = data['precio'][key].split("\n")[0].split(" ")[1].replace('.','')
-            listado_precios.append(int(precio))
-
-            listado_sector.append(data['sector'][key].split(",")[0])
-
-            listado_localizacion.append(data['localizacion'][key])  
-            listado_descripcion.append(data['descripcion'][key])  
-            listado_tipoVivienda.append(data['tipoVivienda'][key])  
-            listado_nombre.append(data['nombre'][key]) 
-
-
-    df_info = {
-        'precio' : listado_precios,
-        'area' : listado_areas,
-        'parqueaderos' : listado_parqueaderos,
-        'habitaciones' : listado_habitaciones,
-        'tipoAcabados' : listado_tipoAcabados,
-        'sector' : listado_sector,
-        'localizacion' : listado_localizacion,
-        'tipoVivienda' : listado_tipoVivienda,
-        'descripcion' : listado_descripcion,
-        'nombre' : listado_nombre
-    }
-
-
-    df_info = pd.DataFrame(df_info)
-
-    respuesta = df_info.loc[:, 'sector'] == informacion['sector']
-    df_info = df_info.loc[respuesta]
-
+    respuesta = data.loc[:, 'sector'] == informacion['sector']
+    data = data.loc[respuesta]
 
     #----------------------------------
-    precio = df_info['precio']
-    caracteristica = df_info.drop(['precio', 'sector', 'localizacion', 'tipoVivienda', 'descripcion', 'nombre'], axis = 1)
+    #Clasificacion de la informacion....
+    precio = data['precio']
+    caracteristica = data.drop(['precio', 'sector', 'ciudad', 'fecha', 'nombre'], axis = 1)
 
     precio_minimo = np.amin(precio)
     precio_maximo = np.amax(precio)
@@ -135,15 +95,14 @@ def modelo():
     c = []
     #Recolectamos los datos de nuestros clietes....
     #area - habitaciones
-    for k,v in df_info['area'].items():
-        i_c = {"nombre" : '', "precioBase" : '', "sector" : '', "descripcion" : '', "tipoVivienda" : '', "localizacion" : '', "PrecioPredecido" : "", "area" : ""}
-        i_c['nombre'] = df_info['nombre'][k]
-        i_c['descripcion'] = df_info['descripcion'][k]
-        i_c['localizacion'] = df_info['localizacion'][k]
-        i_c['precioBase'] = str(df_info['precio'][k])
-        i_c['sector'] = df_info['sector'][k]
-        i_c['tipoVivienda'] = df_info['tipoVivienda'][k]
-        i_c['area'] = str(df_info['area'][k])
+    for k,v in data['area'].items():
+        i_c = {"nombre" : '', "precioBase" : '', "sector" : '', "ciudad" : '', "PrecioPredecido" : "", "area" : ""}
+        i_c['nombre'] = data['nombre'][k]
+        i_c['precioBase'] = str(data['precio'][k])
+        i_c['sector'] = data['sector'][k]
+        i_c['ciudad'] = data['ciudad'][k]
+        i_c['PrecioPredecido'] = data['precio'][k]
+        i_c['area'] = str(data['area'][k])
 
 
         data = []
@@ -166,8 +125,7 @@ def modelo():
 
     resultado = PredictTrials(caracteristica, precio, fit_model, client_data)
     resultado_final['InformacionCliente'][0]['PrecioRango'] = resultado
-
-    print(resultado_final['InformacionCasas'][0]['sector'])
+    
     return resultado_final
     
 
