@@ -50,9 +50,9 @@ def buscar():
                     if(resultado):
                         modelo.limpiarDic()
                         resultado = modelo.modelo()
-                        info['resultado'] = 'completo'
-                        info['contenido'] = resultado
-                        print(resultado)
+                        info['resultado'] = 'incompleto'
+                        info['contenido'] = {}
+                        
                    
                 except ValueError:
                      return render_template('index.html', error="No se pudo verificar, vuelve a intentarlo nuevamente.")

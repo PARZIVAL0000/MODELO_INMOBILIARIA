@@ -1,4 +1,3 @@
-# Import libraries necessary for this project
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import ShuffleSplit
@@ -7,7 +6,6 @@ from sklearn.metrics import make_scorer
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
-
 
 informacion = {
     'habitaciones' : '',
@@ -30,22 +28,37 @@ resultado_final = {
 }
 
 
-
 def modelo():
     data = pd.read_csv('ML/casas_venta.csv')
 
     respuesta = data.loc[:, 'nombre'] != 'NN'
     data = data.loc[respuesta]
 
-    for key in data['sector'].keys():
-        print(data['sector'][key].split(","))
-        data['ciudad'][key] = data['sector'][key].split(",")[1]
-        data['sector'][key] = data['sector'][key].split(",")[0]
-        data['precio'][key] = int(str(data['precio'][key]).replace('.', ''))
-        data['habitaciones'][key] = int(data['habitaciones'][key])
-        data['banos'][key] = int(data['banos'][key])
-        data['parqueadero'][key] = int(data['parqueadero'][key])
+    listado_ciudad = []
+    listado_sector = []
+    listado_precio = []
 
+    for key,value in data['sector'].items():
+        listado_sector.append(value.split(",")[-1])
+    
+    for key,value in data['sector'].items():
+        listado_ciudad.append(value.split(",")[0])
+    
+    for key,value in data['precio'].items():
+        listado_precio.append(int(str(value).replace('.','')))
+        # data['habitaciones'][key] = int(data['habitaciones'][key])
+        # data['banos'][key] = int(data['banos'][key])
+        # data['parqueadero'][key] = int(data['parqueadero'][key])
+    print(listado_sector)
+    print(listado_ciudad)
+    print(listado_precio)
+
+    data['sector'] = listado_sector
+    data['ciudad'] = listado_ciudad
+    data['precio'] = listado_precio
+
+
+    return
     for key in data['area'].keys():
         value = data['area'][key]
         if(str(value).find('m²') != -1):
@@ -128,7 +141,7 @@ def modelo():
     resultado = PredictTrials(caracteristica, precio, fit_model, client_data)
     resultado_final['InformacionCliente'][0]['PrecioRango'] = resultado
 
-    return resultado_final
+    # return resultado_final
     
 
 def performance_metric(y_true, y_predict):
