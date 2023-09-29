@@ -39,25 +39,22 @@ def modelo():
     listado_precio = []
 
     for key,value in data['sector'].items():
-        listado_sector.append(value.split(",")[-1])
+        value = value.split(",")[-1]
+        listado_sector.append(value)
     
     for key,value in data['sector'].items():
-        listado_ciudad.append(value.split(",")[0])
+        value = value.split(",")[0]
+        listado_ciudad.append(value)
     
+    data['ciudad'] = listado_sector
+    data['sector'] = listado_ciudad
+
     for key,value in data['precio'].items():
-        listado_precio.append(int(str(value).replace('.','')))
-        # data['habitaciones'][key] = int(data['habitaciones'][key])
-        # data['banos'][key] = int(data['banos'][key])
-        # data['parqueadero'][key] = int(data['parqueadero'][key])
-    print(listado_sector)
-    print(listado_ciudad)
+        value = str(value).replace('.', '')
+        value = int(value)
+        listado_precio.append(value)
+
     print(listado_precio)
-
-    data['sector'] = listado_sector
-    data['ciudad'] = listado_ciudad
-    data['precio'] = listado_precio
-
-
     return
     for key in data['area'].keys():
         value = data['area'][key]
