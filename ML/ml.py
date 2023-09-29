@@ -37,22 +37,24 @@ def modelo():
     respuesta = data.loc[:, 'nombre'] != 'NN'
     data = data.loc[respuesta]
 
-    data['sector'] = data['sector'].str.split(",")[0]
-    data['ciudad'] = data['sector'].str.split(",")[1]
-    data['precio'] = int(data['precio'].str.replace('.', ''))
+    for key in data['sector'].keys():
+        print(data['sector'][key].split(","))
+        data['ciudad'][key] = data['sector'][key].split(",")[1]
+        data['sector'][key] = data['sector'][key].split(",")[0]
+        data['precio'][key] = int(str(data['precio'][key]).replace('.', ''))
+        data['habitaciones'][key] = int(data['habitaciones'][key])
+        data['banos'][key] = int(data['banos'][key])
+        data['parqueadero'][key] = int(data['parqueadero'][key])
 
-    listado_areas = []
-    for key,value in data['area'].items():
+    for key in data['area'].keys():
+        value = data['area'][key]
         if(str(value).find('m²') != -1):
-            listado_areas.append(int(value))
+            data['area'][key] = int(value)
         else:
             signo = value[-2:]
             value = value.replace(signo, '')
-            listado_areas.append(int(value))
+            data['area'][key] = int(value)
 
-    data['habitaciones'] = int(data['habitaciones'].str)
-    data['banos'] = int(data['banos'].str)
-    data['parqueadero'] = int(data['parqueadero'].str)
 
     respuesta = data.loc[:, 'sector'] == informacion['sector']
     data = data.loc[respuesta]
@@ -125,7 +127,7 @@ def modelo():
 
     resultado = PredictTrials(caracteristica, precio, fit_model, client_data)
     resultado_final['InformacionCliente'][0]['PrecioRango'] = resultado
-    
+
     return resultado_final
     
 
