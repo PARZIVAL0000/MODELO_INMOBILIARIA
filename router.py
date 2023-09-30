@@ -29,7 +29,7 @@ def buscar():
                 if(sector == "cumbaya" or sector == "puembo"):
                     #Acomodamos nuestras variables... filtrandolas de la mejor manera.
                     if(sector == "cumbaya"):
-                        sector = "Cumbaya"
+                        sector = "Cumbayá"
                     elif(sector == "puembo"):
                         sector = "Puembo"
 
@@ -53,6 +53,7 @@ def buscar():
                         info['resultado'] = 'incompleto'
                         info['contenido'] = {}
                         
+                        # print(resultado)
                    
                 except ValueError:
                      return render_template('index.html', error="No se pudo verificar, vuelve a intentarlo nuevamente.")

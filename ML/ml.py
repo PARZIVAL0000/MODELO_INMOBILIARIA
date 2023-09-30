@@ -1,11 +1,13 @@
 import numpy as np
 import pandas as pd
+import re
 from sklearn.model_selection import ShuffleSplit
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import make_scorer
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
+
 
 informacion = {
     'habitaciones' : '',
@@ -31,44 +33,84 @@ resultado_final = {
 def modelo():
     data = pd.read_csv('ML/casas_venta.csv')
 
-    respuesta = data.loc[:, 'nombre'] != 'NN'
+    respuesta = data.loc[:, 'nombre'] != "NN"
     data = data.loc[respuesta]
 
-    listado_ciudad = []
     listado_sector = []
-    listado_precio = []
+    listado_ciudad = []
+    for s in data.sector:
+        s = str(s).split(",")[0]
+        listado_sector.append(s)
 
-    for key,value in data['sector'].items():
-        value = value.split(",")[-1]
-        listado_sector.append(value)
+    for s2 in data.sector:
+        s2 = str(s2).split(",")[-1]
+        listado_ciudad.append(s2)
+
+    data['sector'] = listado_sector
+    data['ciudad'] = listado_ciudad
+
+    listado_precios = []
+    listado_areas = []
+    listado_habitaciones = []
+    listado_banos = []
+    for v in data.precio:
+        v = str(v).replace('.', '')
+        listado_precios.append(v)
+
+    for j in data.area:
+        j = str(j)
     
-    for key,value in data['sector'].items():
-        value = value.split(",")[0]
-        listado_ciudad.append(value)
-    
-    data['ciudad'] = listado_sector
-    data['sector'] = listado_ciudad
-
-    for key,value in data['precio'].items():
-        value = str(value).replace('.', '')
-        value = int(value)
-        listado_precio.append(value)
-
-    print(listado_precio)
-    return
-    for key in data['area'].keys():
-        value = data['area'][key]
-        if(str(value).find('m²') != -1):
-            data['area'][key] = int(value)
+        if(j.find('m²') == -1 and j.find('estac.') == -1):
+            listado_areas.append(j)
         else:
-            signo = value[-2:]
-            value = value.replace(signo, '')
-            data['area'][key] = int(value)
+            pattern = r"^.estac\."
 
+            if(re.search(pattern, j)):
+                listado_areas.append('nan')
+            else:
+                signo = j[-2:]
+                j = j.replace(signo, '')
+                listado_areas.append(j)
+        
+    for h in data.habitaciones:
+        h = str(h)
+        pattern = r"^.+(baños|baño)$"
+        if((not re.search(pattern, h)) and h.find('estac.') == -1):
+            listado_habitaciones.append(h)
+        else:
+            listado_habitaciones.append('nan')
 
+    for b in data.banos:
+        b = str(b)
+        if(b.find('estac.') == -1):
+            listado_banos.append(b)
+        else:
+            listado_banos.append('nan')
+
+    data.precio = listado_precios
+    data.area = listado_areas
+    data.habitaciones = listado_habitaciones
+    data.banos = listado_banos
+
+    resultado = data.loc[: , 'precio'] != 'nan'
+    data = data.loc[resultado]
+
+    resultado = data.loc[:, 'area'] != 'nan'
+    data = data.loc[resultado]
+
+    resultado = data.loc[:, 'habitaciones'] != 'nan'
+    data = data.loc[resultado]
+
+    resultado = data.loc[:, 'banos'] != 'nan'
+    data = data.loc[resultado]
+
+    data.precio = pd.to_numeric(data.precio, downcast='integer')
+    data.area = pd.to_numeric(data.area, downcast='integer')
+    data.habitaciones = pd.to_numeric(data.habitaciones, downcast='integer')
+    data.banos = pd.to_numeric(data.banos, downcast='integer')
+    
     respuesta = data.loc[:, 'sector'] == informacion['sector']
     data = data.loc[respuesta]
-
     #----------------------------------
     #Clasificacion de la informacion....
     precio = data['precio']
@@ -97,7 +139,7 @@ def modelo():
     resultado_final['InformacionCliente'][0]['habitaciones'] = informacion['habitaciones']
     resultado_final['InformacionCliente'][0]['parqueadero'] = informacion['parqueadero']
     resultado_final['InformacionCliente'][0]['tipoAcabados'] = informacion['tipoAcabados']
-
+  
     X_train, X_test, y_train, y_test = train_test_split(caracteristica, precio, test_size=0.2, random_state = 42)
 
     reg = fit_model(X_train, y_train)
@@ -108,37 +150,37 @@ def modelo():
     #Recolectamos los datos de nuestros clietes....
     #area - habitaciones
     for k,v in data['area'].items():
-        i_c = {"nombre" : '', "precioBase" : '', "sector" : '', "ciudad" : '', "PrecioPredecido" : "", "area" : ""}
-        i_c['nombre'] = data['nombre'][k]
-        i_c['precioBase'] = str(data['precio'][k])
-        i_c['sector'] = data['sector'][k]
-        i_c['ciudad'] = data['ciudad'][k]
-        i_c['PrecioPredecido'] = data['precio'][k]
-        i_c['area'] = str(data['area'][k])
+        infoCasa = {"nombre" : '', "precioBase" : '', "sector" : '', "ciudad" : '', "PrecioPredecido" : '', "area" : ''}
 
+        infoCasa['nombre'] = data['nombre'][k]
+        infoCasa['precioBase'] = str(data['precio'][k])
+        infoCasa['sector'] = data['sector'][k]
+        infoCasa['ciudad'] = data['ciudad'][k]
+        infoCasa['PrecioPredecido'] = ''
+        infoCasa['area'] = data['area'][k]
 
-        data = []
-        data.append(v)
-        data.append(informacion['habitaciones'])
-        data.append(informacion['parqueadero'])
-        data.append(informacion['tipoAcabados'])
+        d = []
+        d.append(v)
+        d.append(informacion['habitaciones'])
+        d.append(informacion['parqueadero'])
+        d.append(informacion['tipoAcabados'])
 
-        client_data.append(data)
-        c.append(i_c)
-
+        client_data.append(d)
+        c.append(infoCasa)
+    
     # client_data = [[1200, 2, 5, 300]]  # Client 3
     # # Show predictions
     for i, price in enumerate(reg.predict(client_data)):
         c[i]['PrecioPredecido'] = "${:,.0f}".format(price)
         print("El ML predijo la terreno-{} con un precio estimado de: ${:,.0f}".format(i+1, price))
-
         resultado_final['InformacionCasas'].append(c[i])
 
 
     resultado = PredictTrials(caracteristica, precio, fit_model, client_data)
+    print(resultado)
     resultado_final['InformacionCliente'][0]['PrecioRango'] = resultado
 
-    # return resultado_final
+    return resultado_final
     
 
 def performance_metric(y_true, y_predict):

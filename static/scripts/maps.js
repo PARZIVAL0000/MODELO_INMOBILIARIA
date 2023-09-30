@@ -48,7 +48,8 @@
 
     function ejecutarFuncion(){
         document.addEventListener("DOMContentLoaded", () => {
-            InputsRadio();
+            //En caso de querer volver a usar esta funcion descomentarla, para poder hacer funcionar los mapas.
+            // InputsRadio();
         });
     }
 
