@@ -12,7 +12,6 @@ const barrios = {
     "10"  : 'Ponceano',  
     "11"  : 'Manuela Canizares', 
     "12"  : 'La Colon', 
-    "13"  : 'Pomasqui', 
 };
 
 const barrios_centroNorte = {
@@ -116,15 +115,21 @@ function ValidarFormulario(){
                         document.querySelector(".seccion_radios .listado-sectores .mensaje-imprimir").classList.remove("mensaje-imprimir");
                     }
 
+                    if(!document.querySelector('#ocultarPanel')){
+                        document.querySelector(".listado_barrios").id = "ocultarPanel";
+                    }
+
                     campos.sector = true;   
                 }else{
                     /* Dentro de esta seccion lo que haremos es verificar por nuestra dos opciones despues...
                         Centro nort de quito y norte quito... lo que vamos a realizar es desplegar por un listado de barrios especificos.
                     */
                     if(value.trim() === "centroNorte-quito" || value.trim() === "norte-quito"){
+                        document.querySelector(".listado_barrios").id = '';
+                        document.querySelector(".listado_barrios").classList.add("mostrarPanel");
+
                         const identificador = "desplegar-listado";
                         document.getElementsByClassName("listado_barrios")[0].id = identificador;
-
                         this.MostrarBarrios(value.trim());
                     }
                 }
@@ -195,6 +200,7 @@ function ejecutarCarga(campo, id){
 
 function MostrarBarrios(s = null){
     if(document.getElementById("desplegar-listado")){
+        //settings para nuestro boton que despliega listado de barrios.
         document.querySelector("#desplegar-listado button").classList.remove("collapsed");
         document.querySelector("#desplegar-listado #panelsStayOpen-collapseOne").classList.remove("collapse");
         document.querySelector("#desplegar-listado #panelsStayOpen-collapseOne").classList.add("show");
@@ -294,15 +300,12 @@ function limpiarHTML(s){
 
 
 function seleccionarBarrio(){
-
     const VerificarBotonBarrio = (e) => {
         e.preventDefault();
         let boton = e.target.parentNode.parentNode;
-
         const id = boton.classList[0];
         const sector = boton.classList[1];
 
-        
         if(sector === "btn-centroNorte-quito"){
             if(document.querySelector(`.${id}`).classList.contains("btn_close")){
                 document.querySelector(`.${id}`).classList.remove("btn_close");
@@ -347,7 +350,6 @@ function seleccionarBarrio(){
                 campos.sector = false;
                 document.querySelector("#input_sectorBarrio").value = "";
             }else{
-
                 if(barrio.length === 0){
                     if(document.querySelector(".seccion_radios .error-sectores")){
                         document.querySelector(".seccion_radios .error-sectores").classList.remove("error-sectores");
@@ -367,6 +369,7 @@ function seleccionarBarrio(){
         }
     }
 
+    //este un boton el cual contiene cada uno de nuestro registros de barrios del listado.
     const botonesBarrio = document.querySelectorAll("#boton_barrio");
     if(botonesBarrio.length !== 0){
         botonesBarrio.forEach(btn => {

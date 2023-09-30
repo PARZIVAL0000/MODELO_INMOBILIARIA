@@ -34,8 +34,6 @@ table{
     caption-side: bottom;
     border-collapse: collapse;
     overflow-y: scroll;
-    display: inline-block;
-    height: 40rem;
 }
 
 th{
@@ -617,11 +615,28 @@ div#accordionFlushExample{
     padding-top: 1.5rem!important;
     grid-column: 3 / 5;
     width: 100%;
+}
+
+/* Ocultar panel listado de barrios. */
+#ocultarPanel{
     display: none;
 }
 
+.mostrarPanel{
+    position: fixed;
+    background-color: rgba( 0 0 0 / .6);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 4rem;
+}
+
 div#accordionPanelsStayOpenExample {
-    padding-top: 4rem;
+    width: 50%;
+    margin: 0 auto;
+    height: 100%;
+    display: grid;
 }
 
 @media (max-width:1032px){
