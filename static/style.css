@@ -33,7 +33,9 @@ body{
 table{
     caption-side: bottom;
     border-collapse: collapse;
-    overflow-y: scroll;
+    overflow-y: auto;
+    display: inline-block;
+    height: 52rem;
 }
 
 th{
@@ -127,6 +129,13 @@ button.accordion-button{
     width: 43%;
     margin: 0.1rem;
     font-size: 1.5rem;
+}
+
+.btn-seleccion{
+    width: 20rem;
+    margin:0rem;
+    background-color: #8d5de3;
+    font-weight: 300;
 }
 
 .btn:hover{
@@ -643,6 +652,17 @@ div#accordionPanelsStayOpenExample {
     .listado_barrios{
         margin:0.5rem;
     }
+}
+
+div#panelsStayOpen-collapseOne{
+    height: 93%;
+}
+
+div#contenido_barrios {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* ALERTAS  */
