@@ -33,9 +33,6 @@ body{
 table{
     caption-side: bottom;
     border-collapse: collapse;
-    overflow-y: auto;
-    display: inline-block;
-    height: 52rem;
 }
 
 th{
@@ -136,6 +133,15 @@ button.accordion-button{
     margin:0rem;
     background-color: #8d5de3;
     font-weight: 300;
+    text-transform: capitalize;
+}
+
+.btn-cancelar{
+    width: 20rem;
+    margin:0rem;
+    background-color: #e93814;
+    font-weight: 300;
+    text-transform: capitalize;
 }
 
 .btn:hover{
@@ -663,6 +669,16 @@ div#contenido_barrios {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+div.table_contenido{
+    height: 51rem;
+    overflow-y: auto;
+}
+
+.accion{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /* ALERTAS  */
