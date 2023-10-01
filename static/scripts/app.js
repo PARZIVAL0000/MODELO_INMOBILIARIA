@@ -22,6 +22,7 @@ const barrios_centroNorte = {
     "4" : "Sangolqui", 
 }
 
+
 let barrio = [];
 
 document.addEventListener("DOMContentLoaded", () => {
