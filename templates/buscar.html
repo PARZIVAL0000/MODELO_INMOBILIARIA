@@ -23,96 +23,72 @@
                 </header>
             </div>
     
-            <div class="inmobiliarias_busqueda">
-                <div class="box">
-                    <a href="/" class="btn btn-success">
-                        <i class='bx bx-left-arrow-alt'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAj5JREFUSEuNl81KXEEQhb/ahUEQRhCfY0JwIxFECPgMujIPkrxL8gwhJBFFcJNNVsHlbPQBRJCsOvSddm7/VHXXhWGG7uqu01XnnL4jbB8BAqSvaTj/PQeWK5SYZsiIUbYcDE0bCUKIUPVHOUceGKfrM3ezzuAH5bBKlgFSE3W39eR0VKIM8bTa09cBSTaldm/k6/1EUldiJWhQ6iWBA4G/LbkGsjB7PGAjsItwS2AJHAIPdR08FBALX1JMXbVd4BfwNiX7CpyrJBloo5BTE1tC3wG5gbBKcX+AY4QnW8wKpFGpKxA7wM9U2jj1GzgFnl5JNJtJbiwl8rq6A6qySSocJke9C/ABeG7MR/HKCZCmGr3HCbWwIHA1n1SuIZwBL3ZfLWq1p9/quFqyQPhO4CiNP4J8FMKL6c8lmjXIemZnKe2C1dm6N8AP4GjUh3Z+C/8z8MlqR8bq4rz9xD4jnxJbl4qVOAKNpf5G4H1CHY3iEvjXOWU+tQbiR30yr1aPsYCcXFwDCrkUu1cYnr9oeAyk1vAdjZw8JlmRa0yeaVPNQE5yLTcW27Cqfasye/Aq/HSemPwGWKVrNHOvre6r1zb7JtjIycfSCDBeEtFQVgn/F4SL3vVrtnqcs4mIyW+BPeAd8Oh1MdOrPX1KSZYg+xDu+xzpXxgq4ByEh7MW6J5z26DTqmbTAZJespywNqunmcGLe4ppLgNFTvXQQMqeQucazcukbJ1Ne/xu7DOb4rj/fvUuibSRp9T2fz3LQv4DEWjiIYKFtDAAAAAASUVORK5CYII="/></i>
-                        Regresar</a>
-                    <h4 class="box_heading">Resumen de búsqueda:</h4>
-                    <div class="resumen">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><p class="d-resumen">Habitaciones Cliente: <span style="font-weight: bold;text-align: right; padding-left: 11rem;">{{datos.Habitaciones}} <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAwFJREFUSEudl62OVEEQhb8ygMCgCKwYHC+AW4VYg0JOJiSgIfAKM/MIJAQkCZsM65AEhZoHwKIYsYAkwWyCaNLd1ber/3YGRuze6du3TtU5VafnCtNHAJe/+qvOUtgQ1gXB6RPlxvzN7inD+T3/+RmBWQAFHtT0T8C5WFkoQ5uaqhFRFkjsptF1lZnf5sHmun4GLCy4JtcoVwDvL7fIP4IK86odIngWvdMfrTSHNpTg5B24R/EB2SnOTPvt1MHj2Hbpj4buUHBQcwmIU3o173PgWMNuQY6U10z7HqEHwB16s6YJdKfAvuItcNRqPkbfV3HVSHIO7hhhN2kcY18C3nMKP2a1gZTTv8HJXGmsKzW9EeZ15mzlwhkujFzlStohg642lYZMFFQbqjN3ujQD2YKbaBdYODtYyQhsgeF+NJuNwDy2J0WlI9VMnJngtk41Fzhz1Zwn1617fgMy11E5BzkGlxop8xRyzGNTJaSaj7vdNldNrwdZA6v9JmNzn65XOJbm2cJkInBM1xvDaXUirUFWKoH913HR1ENT7T5hC+yf8db6PlMd9z4EPlQRm4obehWno30P+AHwsdI4QN4FbgGflYk1jpUGvQI8FzhxcG0y43jzQuCTg1fAH312hZOl9sp94LvAV8tLWWQsKU2Arfgt8MRI00ovvMbxLANPVHvXNQdYYSBFnJSYBf4NXAd8h3+rUO9AcK9fwA29Z6mugGF0HusIF11dJVOIa0B8yLD1cuDGMuOCAZaV6pQmtzdiBYimFNZMegVJxSFhVCiq0/Ue/Wlo/cil0Ukjauc4U50y6VimZ6oF0bIF1k7wQe2nojXcatZqi58C2Ir12tKaqW6Ag8loxSON2+E5bJzy76muxgLLSIIFlqU2WiFpOIn6p438FNzN3kFqnctmPDq1gB/A7eRWHQOx4yEvwL1MgZs+aK3DrDQpPAXe1LQaCsrXDeAecAJc7btV+QoTlCh9+8L7ssCXEXMdjdv3nBR0j2VWv2vH1AzmuKl+/AJ3oNB1Cn8BWYRFM33hLqsAAAAASUVORK5CYII="/></span></p></li>
-                            <li class="list-group-item"><p class="d-resumen">Parqueadero Cliente: <span style="font-weight: bold;text-align: right; padding-left: 11rem;">{{datos.Parqueadero}} <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAzFJREFUSEuVlk2IjlEUx3/HRErI+GiSIha+VooNacxSZimlDA2lxteCpKTMFKWUokEhGSMbZWUsbMZYWFjIaqxmGhZGaMKklDjc9953nvM8z73v+7ir5+M+53/+/3PO/z6CWwJo7Sq6aq/DnmyrIGijzxqGdnGqIVbJquGe/EsPXGJjRcjLURKniVoWzm5NMP6PaCHzhrJHsk1KXcyuXOOIrinlIjxyUhe6YRbQDewV6FBw936lsvJv/wgMKzwABmzbJqUuvLiocDYPlipBhKr/sBfoy2ljtsaIbBF4FSZsVOCxwu8o4/LQtAC7gXWB7WbgtZMp6wN3HV/9wFHgF9AmMFWvcaMuNVawGJgEZgv0KxwvDlMO2KjwQaBNYQik07pLXOxS0R3OU2An8BFYbjyo1iQx4O3Ai6BgN8q9sprRDgtNNyPpIeBOYLoNeFlUq/jBVeAEvqaLgGlrk3FvjTJuBT4JtChcAU5lwIJYHwbmIIyhrBCYVLiV6IGSwds4JtEe0GXABMgmQb/W+8AD++jzgGfA1qpg8RKkzhwZF3Sjws9aoQywM4qHsUOquYGm59uOEOhhhNuOqW0uN+znA9uklabGqfQ8n0uNj0CfelMJwH6TB/bFEtAl1JpCWgW9rMJI/vDNRzZ1bQc9DUyBnAT9YmzTuZgBzuwtMBYR9L4KXUGWcYU16drn+I4JujqUbBDYbywrAOfnuCj1E2BXCDkNLEhbZi6l78D88GRIoFOzGSwwjkvdjnAXlaWg5xCuuf+fCr87zgMuAJ+BgwIjaeCS1EkP9zsT56uXN2omWXMJvZ5Ats4Al8LtSBaj+TBVqH172HMMuJ51tX+6FniDMLc+Z3UGFeQtY5eJ/wA2AO+LBuLu9wGuE+vrHchE6t/XengkuVXAShNrD/CoXisvdRZhBzBsDu2ZLqwHKHh7I5VrU2KIdwDPg0+UmigAh3hCHyq9zU+kaL/Z8XQBPfBM6HzO6xFGjUMdAW5mW1JuZaJlZt8D3DDhXX3fRoFD2C68S00hDKB8SwE37GZhIcoBwJ3LYyCDxT+Z9FxWmaRS0at8lD8kDIHwcbUYhf6sMNX/tvwFMiUkNzfaoaIAAAAASUVORK5CYII="/></span></p></li>
-                            <li class="list-group-item"><p class="d-resumen">Sector: <span style="font-weight: bold;text-align: right; padding-left: 11rem;">{{datos.Sector}} <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABBpJREFUSEuN11uolFUUB/DfUikTumgU3cuiPN3ICqUetLLIQIpKeoiC6CQY+hLdAxEitJvZS0UZSoRPEkhBkSFkGgXdjMgSJDMNH7qBL1ZK7tjz7TPzzcw349lPZ/a319pr/dd//fc6ob0CqfOz9lfry+DP43HR5ze7ozht9l3/OOjgoKgGn68uLqvPvNnuXFyF8wpEe/AN9lZuGgLtuyRap7pXwTWkOvB5dzEexoVN9Qh2prBKinUhpeaidVLsgrqee+3iM7ARs3uhGQDwNtwp/NFIjHZijXRqY3+RFFtIp5edH7AG32JH2bsMM/EgZpS9PcJcKfa1CNtQsmE1PkH4SirQhuVSrCAd6Yq1k/YkrMRjJantkmvxb1ftx3Ia0iXrhXtKoZfitTZ1whzJjYVLmyWf1oJZjqdLli/h0aZAB9TYNfi8GKwJFld9HCOkd3BpT72/a9WVn8p+5sTtOBKMJHa18S7R1qDOFG8z+WU8lA1xGn7HqbltgjMrxnadzxs/40ocwAh+LEE8jhdraLXL3kSv70tWH2F+uWetZLQcfh3Pl6ZdhtFSshfwRDmzg7iE1PFRu2kQuf7CVGG1FI8UKf0T0/AJrm9nUDn7ArOwExcX/2/hPmSGT+9V434BqawyE4/BCuSM8jpMTCKtysztuTiTKIvL35hSEHpW8mTwTwrH1bqqfO4FusLsF5yDtVhU2mOv5GxsFa7rziA+I+XW2U1cULiyDvfT8pXltWsNYvXWYE7iY2JeYcMrUiwtsOfWyjWeKCyTYrTsr6aUJmyVzOmUppuMA6CON0mLCqtzXQ8I06SWYuWs23DVNHmXMEtqsfpk/IYJwRupUrWGjOtuKlxvDmlTcfoAMmx55Tbp7uPK9kvSQuwrtV+SeLXY3CBsGUKuLg2bGOxPVe/+ivOFw1n0S/3mEXMLvO9iey2dTK78VJ6C/cFZqWHCGMTq7Cez+ZnisIjAUd7aKvuVpKeKXZbLzPg+oAdeHBybwm5JfhYPCTMkezq4NE4JV5ShYILKdiQ43PQ29wtI96txFzaUcLMe55Y52E+tltFUfE1Mb5UjLJB8UE+17noY1GM2mSRLyo/3ymPwXw9HJ5M2YW7R8OcSY3A3TEMhhjyLY74n4kPcVDY2CHdLrQckr8nE+6R55ffGYGEToXqbp7/2YzudqKZoCUJcXcRkjdSawXItN0puKyabiQUhHeoahxuyG0au0nptEp1YxqCZ1SMfb5OOxx0F3m2JWzocqOVTNLfeVYMks6kDsl1WsS3C5T2CkCeQ+cLB3segDm8/1OModC2Sk7CJmF0y2IxbW6/QMAp3Zr72/eV4UaWG9qz3blGuPNjd29LysL5GtMF86Rk1u0afTg0GQ9D35egbDcE0/SfRzn88YTQlOL66/Q/wC2M2cj/ddQAAAABJRU5ErkJggg=="/></span></p></li>
-                        </ul> 
-                    </div>
-                    <!-- <h2 class="text-transform h2-1">Historial y Ubicación inmobiliarias</h2>
-                    <div class="secciones">
-                        <div class="seccion-1">
-                            Aqui se encontrara nuestro maps correspondiente a la eleccion que realizamos..
-                            <div class="maps" id="{{datos.Sector}}">
-                            </div>
-                        </div>
-                        <div class="seccion-2">
-                            <div class="card" id="resumen-caja">
-                                <h2 class="card-title fs-1">Resumen Búsqueda</h2>
-                                <p class="card-text">Objetivo de la búsqueda del cliente</p>
-                                
-                                  
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
+            <div class="barra_info">
+                <ul style="list-style-type:none;">
+                    <li>
+                        <p>Habitaciones: <span>4</span></p>
+                    </li>
+                    <li>
+                        <p>Parqueaderos: <span>4</span></p>
+                    </li>
+                    <li>
+                        <p>Tipo Acabados: <span>Económico</span></p>
+                    </li>
+                    <li>
+                        <p>Sector: <span>Cumbayá</span></p>
+                    </li>
+                </ul>
+            </div>
 
-                <div class="seccion_tabla">
-                    <h2 class="text-transform tl">Listado Inmobiliarias</h2>
-                    <div class="accordion accordion-flush contenedor-inmobiliaria" id="accordionFlushExample">
-                        <ul class="listado_inmobiliarias" style="list-style-type: none; padding:0rem;">
-                            {% if entrada.nombre|length is ne(0) %}
-                                {%  for j in range(entrada.nombre|length) %}
-                                <li class="home">
-                                    <div class="img">
-                                        <img width="400" src="static/img/casa.jpg" alt="imagen de casa"/>
-                                    </div>
-                                    <div class="descripcion">
-                                        <h3>Información de inmobiliaria</h3>
-                                        <div class="info">
-                                            <h4 class="info_heading">Descripción</h4>
-                                            <p class="info_parrafo">{{entrada.nombre[j]}}</p>
-                                        </div>
-                                        <div class="info">
-                                            <h4 class="info_heading">Características</h4>
-                                            <ol style="list-style: none;">
-                                                <li>
-                                                    <img width="25" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAwFJREFUSEudl62OVEEQhb8ygMCgCKwYHC+AW4VYg0JOJiSgIfAKM/MIJAQkCZsM65AEhZoHwKIYsYAkwWyCaNLd1ber/3YGRuze6du3TtU5VafnCtNHAJe/+qvOUtgQ1gXB6RPlxvzN7inD+T3/+RmBWQAFHtT0T8C5WFkoQ5uaqhFRFkjsptF1lZnf5sHmun4GLCy4JtcoVwDvL7fIP4IK86odIngWvdMfrTSHNpTg5B24R/EB2SnOTPvt1MHj2Hbpj4buUHBQcwmIU3o173PgWMNuQY6U10z7HqEHwB16s6YJdKfAvuItcNRqPkbfV3HVSHIO7hhhN2kcY18C3nMKP2a1gZTTv8HJXGmsKzW9EeZ15mzlwhkujFzlStohg642lYZMFFQbqjN3ujQD2YKbaBdYODtYyQhsgeF+NJuNwDy2J0WlI9VMnJngtk41Fzhz1Zwn1617fgMy11E5BzkGlxop8xRyzGNTJaSaj7vdNldNrwdZA6v9JmNzn65XOJbm2cJkInBM1xvDaXUirUFWKoH913HR1ENT7T5hC+yf8db6PlMd9z4EPlQRm4obehWno30P+AHwsdI4QN4FbgGflYk1jpUGvQI8FzhxcG0y43jzQuCTg1fAH312hZOl9sp94LvAV8tLWWQsKU2Arfgt8MRI00ovvMbxLANPVHvXNQdYYSBFnJSYBf4NXAd8h3+rUO9AcK9fwA29Z6mugGF0HusIF11dJVOIa0B8yLD1cuDGMuOCAZaV6pQmtzdiBYimFNZMegVJxSFhVCiq0/Ue/Wlo/cil0Ukjauc4U50y6VimZ6oF0bIF1k7wQe2nojXcatZqi58C2Ir12tKaqW6Ag8loxSON2+E5bJzy76muxgLLSIIFlqU2WiFpOIn6p438FNzN3kFqnctmPDq1gB/A7eRWHQOx4yEvwL1MgZs+aK3DrDQpPAXe1LQaCsrXDeAecAJc7btV+QoTlCh9+8L7ssCXEXMdjdv3nBR0j2VWv2vH1AzmuKl+/AJ3oNB1Cn8BWYRFM33hLqsAAAAASUVORK5CYII="/>
-                                                    <p>Número de habitaciones: <span>{{entrada.habitaciones[j]}} habitaciones</span></p>
-                                                </li>
-                                                <li>
-                                                    <img width="25"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAwNJREFUSEull02ITWEYx39P0ySrKQtlZWFL2aCmcGOlyI6NMgsJsRD52rhTlAUSRVZDNspqsrGZuqynJFlR0yxYjFIWoqnx6j3vc855P8+9d7yre8993ufz//8/5wr/ewQwoRP/Ufs5fGq/NScxGuI0yTljn69LkFFsK5tSEvp8ZD9VJnXg5FbyYAJhGsMEsAQsr3tCXqIZH0HgK8BpYJsariHMY7gKfKkv52dZTs9rdVilfrsN3PBRIBjFkiyD2QV876o+DzTb7Ay03BTYa+Cd/rwC3AVZAnMCOKrPXwHHxm97N7jmEGYwsgpmO/DZ5Vlx5yXIcTBrwBTwSzETUSuDvGDGCtu2jZWbBYQDGBYB21LXBxd4PzCrlZ7yZ+3ZlJhUuQh4HHF6YFyAt0CvjVkaTp1X11RrpZHyjIGBVuYCd54yi0uiFIAranUTWKAXqaITgRbhbgRJsb5NmLkfeArMSWCTmswAW1Usno2N3LQJP4DnwE+XdHvOCjyupTEvk1muR9WrQ99Be+0c8KSGaR26D9wMlMhHe/I504MkWNL7WYR+jGo/cGF56MyGJJEBlNEtYylo42irneUlp07V2QCsDptriTiRmFhff9TXZeBePOPDwGs1sEr1ab0Uiu7tBN4r5A8hvIlbvQX46rogd8BcLwbO0DYBY2vzELgA/AVsjJW4YhtnDrA0skYHVUQK8cui4V04IjCvDH8qcMaxJqSTtbe8/eAJ/zXgRcW9jN5Hs/R5tNktGG4Bk4Dl8A7gW+MnQ7dpW6nApKqVvfRxGNDaJCqPuxE26uL+DewDWfRXV/oi4Cqzwe8De1Khq6UxIyZpVxYA27XFRmJzrU6mJjzCyHnVZLssgpOxt0nbjWbjPMBwMd+paMYZuFSi4hXSHdj9Wu+TRixywX2tzjlt1cyJlsNGB3dAjG6qWYz0k7d9bUchcLPOkooTOfSx7H7srjhoX4mSQg/TvARUGuuf/DWtUhhgqpeJJjV/3xf/SSTd9CtLCDxETDKiXpzxSLwd08gv5h+K1iA6lfQGGQAAAABJRU5ErkJggg=="/>
-                                                    <p>Número de baños: <span>{{entrada.banos[j]}} baños</span></p>
-                                                </li>
-                                                <li>
-                                                    <img width="25"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAzFJREFUSEuVlk2IjlEUx3/HRErI+GiSIha+VooNacxSZimlDA2lxteCpKTMFKWUokEhGSMbZWUsbMZYWFjIaqxmGhZGaMKklDjc9953nvM8z73v+7ir5+M+53/+/3PO/z6CWwJo7Sq6aq/DnmyrIGijzxqGdnGqIVbJquGe/EsPXGJjRcjLURKniVoWzm5NMP6PaCHzhrJHsk1KXcyuXOOIrinlIjxyUhe6YRbQDewV6FBw936lsvJv/wgMKzwABmzbJqUuvLiocDYPlipBhKr/sBfoy2ljtsaIbBF4FSZsVOCxwu8o4/LQtAC7gXWB7WbgtZMp6wN3HV/9wFHgF9AmMFWvcaMuNVawGJgEZgv0KxwvDlMO2KjwQaBNYQik07pLXOxS0R3OU2An8BFYbjyo1iQx4O3Ai6BgN8q9sprRDgtNNyPpIeBOYLoNeFlUq/jBVeAEvqaLgGlrk3FvjTJuBT4JtChcAU5lwIJYHwbmIIyhrBCYVLiV6IGSwds4JtEe0GXABMgmQb/W+8AD++jzgGfA1qpg8RKkzhwZF3Sjws9aoQywM4qHsUOquYGm59uOEOhhhNuOqW0uN+znA9uklabGqfQ8n0uNj0CfelMJwH6TB/bFEtAl1JpCWgW9rMJI/vDNRzZ1bQc9DUyBnAT9YmzTuZgBzuwtMBYR9L4KXUGWcYU16drn+I4JujqUbBDYbywrAOfnuCj1E2BXCDkNLEhbZi6l78D88GRIoFOzGSwwjkvdjnAXlaWg5xCuuf+fCr87zgMuAJ+BgwIjaeCS1EkP9zsT56uXN2omWXMJvZ5Ats4Al8LtSBaj+TBVqH172HMMuJ51tX+6FniDMLc+Z3UGFeQtY5eJ/wA2AO+LBuLu9wGuE+vrHchE6t/XengkuVXAShNrD/CoXisvdRZhBzBsDu2ZLqwHKHh7I5VrU2KIdwDPg0+UmigAh3hCHyq9zU+kaL/Z8XQBPfBM6HzO6xFGjUMdAW5mW1JuZaJlZt8D3DDhXX3fRoFD2C68S00hDKB8SwE37GZhIcoBwJ3LYyCDxT+Z9FxWmaRS0at8lD8kDIHwcbUYhf6sMNX/tvwFMiUkNzfaoaIAAAAASUVORK5CYII="/>
-                                                    <p>Número de parqueaderos: <span>{{entrada.parqueadero[j]}} parqueaderos</span></p>
-                                                </li>
-                                                <li>
-                                                    <img width="25"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAvpJREFUSEull7FrFUEQxn+DEB4KQvBfkBQKQmzVRkFsElEkjZ1BUERt1FQm75lGYqcoKiadhQSUaCEi2kgqwXSCEMS/wCiKRJuVvd27m7udu3vRK0K4291vvplvvtknArjsD+rRL5KPemH8v2lNfG8c51/930HZbkFwRew2mSpMCmwEaQenyVaBW9erbZ2cy0xVUzpMEZqCaGQcM5jVvhWgVR/N3EXtOwC8AEbrUJqxruUw+lDnbwhMOGE1I6M+XAdu5IcNk8ZErN2pmUWYz7OYl7sPbi5lIevgHm9F+8BpYHfQe6VTB0A/dEH59IECWKV3SXDTlTbvlu0icKYKm51oAwvMBYBKnMeB591Y5QqBSSesGM7UwrjE3ASuAXdqoKeA88Dh+P4NyF1wzyrrhIs4FgR6KlsROFAraiy4nPE+cJ+APzXQW8CVBva+VINatkYE9jr4EPdYwL7oRY0tK50CnsSE/AJZji7v3/fiwUeB1zqwaJ+5n9qMlap1JnJd+qjHge/AfuBzlMMYjjWB7Q5eAccS4NKGasCBRmAcQhTDKH4DI8A94EItpY8EvPK/AruMIZGX+Z9S/RPYIfDAwblSGlnQD4GzwA9gp6GB3HgHCP3SQEKIykC8oSWd+w44CHyLKf8SAcaA9xHwLXAk7cjisBbGIe3aSnMCkyArsQSe/TKwDZgC6cVAfX19netPylhZhVK1jIP7GNpJD2hZAHe1aMCqHc4AC7USeE3sAdaiLQ1cZpmVPtbtlIFtIszguF3xJJw3kEsghyJL72r3gZc1mpeBm6rV/OdOcekzTgLRlYzxY0+kE8BTY5J3A5ctIUvgpttvA7n5FTfHOCSSWncaSNgR2KwD5lg01JsjxbGYpKMEbroI6LpmSm4a8jE1TWtq22aB+WweK5cJVx9h1LxjD3MlaUkByAa4CWC1VHVyaDNKN75uP6OjlRyavzZ96UYvji89P730a0l2BmFjGr8kdNqNqWFZYwK+hUq0VrkqWJPj0EYx7O5k3V/+cBMzVF2hMgAAAABJRU5ErkJggg=="/>
-                                                    <p>Precio de inmobiliaria: <span class="precios">${{entrada.precio[j]}}</span></p>
-                                                </li>
-                                                <li>
-                                                    <img width="25"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABBpJREFUSEuN11uolFUUB/DfUikTumgU3cuiPN3ICqUetLLIQIpKeoiC6CQY+hLdAxEitJvZS0UZSoRPEkhBkSFkGgXdjMgSJDMNH7qBL1ZK7tjz7TPzzcw349lPZ/a319pr/dd//fc6ob0CqfOz9lfry+DP43HR5ze7ozht9l3/OOjgoKgGn68uLqvPvNnuXFyF8wpEe/AN9lZuGgLtuyRap7pXwTWkOvB5dzEexoVN9Qh2prBKinUhpeaidVLsgrqee+3iM7ARs3uhGQDwNtwp/NFIjHZijXRqY3+RFFtIp5edH7AG32JH2bsMM/EgZpS9PcJcKfa1CNtQsmE1PkH4SirQhuVSrCAd6Yq1k/YkrMRjJantkmvxb1ftx3Ia0iXrhXtKoZfitTZ1whzJjYVLmyWf1oJZjqdLli/h0aZAB9TYNfi8GKwJFld9HCOkd3BpT72/a9WVn8p+5sTtOBKMJHa18S7R1qDOFG8z+WU8lA1xGn7HqbltgjMrxnadzxs/40ocwAh+LEE8jhdraLXL3kSv70tWH2F+uWetZLQcfh3Pl6ZdhtFSshfwRDmzg7iE1PFRu2kQuf7CVGG1FI8UKf0T0/AJrm9nUDn7ArOwExcX/2/hPmSGT+9V434BqawyE4/BCuSM8jpMTCKtysztuTiTKIvL35hSEHpW8mTwTwrH1bqqfO4FusLsF5yDtVhU2mOv5GxsFa7rziA+I+XW2U1cULiyDvfT8pXltWsNYvXWYE7iY2JeYcMrUiwtsOfWyjWeKCyTYrTsr6aUJmyVzOmUppuMA6CON0mLCqtzXQ8I06SWYuWs23DVNHmXMEtqsfpk/IYJwRupUrWGjOtuKlxvDmlTcfoAMmx55Tbp7uPK9kvSQuwrtV+SeLXY3CBsGUKuLg2bGOxPVe/+ivOFw1n0S/3mEXMLvO9iey2dTK78VJ6C/cFZqWHCGMTq7Cez+ZnisIjAUd7aKvuVpKeKXZbLzPg+oAdeHBybwm5JfhYPCTMkezq4NE4JV5ShYILKdiQ43PQ29wtI96txFzaUcLMe55Y52E+tltFUfE1Mb5UjLJB8UE+17noY1GM2mSRLyo/3ymPwXw9HJ5M2YW7R8OcSY3A3TEMhhjyLY74n4kPcVDY2CHdLrQckr8nE+6R55ffGYGEToXqbp7/2YzudqKZoCUJcXcRkjdSawXItN0puKyabiQUhHeoahxuyG0au0nptEp1YxqCZ1SMfb5OOxx0F3m2JWzocqOVTNLfeVYMks6kDsl1WsS3C5T2CkCeQ+cLB3segDm8/1OModC2Sk7CJmF0y2IxbW6/QMAp3Zr72/eV4UaWG9qz3blGuPNjd29LysL5GtMF86Rk1u0afTg0GQ9D35egbDcE0/SfRzn88YTQlOL66/Q/wC2M2cj/ddQAAAABJRU5ErkJggg=="/>
-                                                    <p>Sector de inmobiliaria: <span>{{entrada.sector[j]}}</span></p>
-                                                </li>
-                                                <li>
-                                                    <img width="25"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAopJREFUSEuNl0FuFTEQRJ8RB0AskBBnSJQTwPwbJddAQlkl1/kfTgCcAUVCYgHrSDGy3TPTbXfPzKwiezzVVV1d30moJwFZL8jfw3pdkFXnkN52PleXyjv284fR2+Gw0B30BrzJ4Egllr2vkNVWMTaivAGugVdLXZHsa+Vek14g/wT+9psGWCq9Az4Dr0MtI2P4/X7OcAs86u2e8Qfg1y7LHS0d/GKFd8Af7Sgt4kfgqwDfZfi+VUTUfaX+DXAvAJ+AbxZ4/cIEnGXzBFyicbCeDs01JTiL808JLnoKF8aJPOUI2B+PUqj3FKWKoRqRVpch0pvLAdZsBnHtGK/bApKmRD4Lyxh4qbCVOB8mkSUohrTy8qMosABDdlqXdHJVxaTHApy4uNG0iqulviFxL1E6s1NSpxPkxTN9ZLrm6ufP0ByMqdWaidTZaMDilX6OJxLnrurGb1B58JRXdDglAXD9qB2niPb2KAau9npcGRvgsWonuaoBx/VpNVc6JbI3x9pcAlzNJSPRlB1GYvv3Oyng7mxXpPQ4Yjw6swEX6eaRM73fCZDImW2ctNTll6vmtzwbkVoLMoxrZC45qb6SYMpRj31z9ebUA1BzQWd1zX41HVobx/5S9TJ/JsUE2DZsjfWNHq+o9XWvx+U2Un7eOjb1fZF6sPM8941xq0QFiLnsaVfryHTYDNkRLRxiXA8vFwGgN9ImnMO5vN8uAm3TXgRUP8rue+BpQdiJyQDMK7CYuXz7t25Zj3ML6QvkesPsnyNgK5l6+rmplx70Lby5chiV9BbyleRCgK5Dw35AhckL8AP411//3Tk85p0wrQ4dV8BRQ/X6EaFj3F5YT+rgv6L4/yWdB0Fum4r+A/brMjIpJqeAAAAAAElFTkSuQmCC"/>
-                                                    <p>Área de inmobiliaria: <span>{{entrada.area[j]}} m<sup>2</sup></span></p>
-                                                </li>
-                                            </ol>
-                                        </div>
-                                        <div class="info">
-                                            <h4 class="info_heading">Acciones</h4>
-                                            <button id="{{ j }}" type="button" class="boton-mapa">Ver mapa</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                {% endfor %}
-                            {% else %}
-                                <div class="mensaje_alterno">
-                                    <p>No se ha podido encontrar una coincidencia, vuelve a intentarlo realizando otra consulta.</p>
-                                </div>
-                            {% endif %}
-                        </ul>
-                    </div>
+            <div class="inmobiliarias_busqueda">
+                <div class="listado_casas_info">
+                    <section class="casa_info">
+                        <div class="casa_info--header">
+                            <h2>Información Construcción de Casa</h2>
+                            <p>En base a las entradas del cliente, el modelo predijo a continuación.</p>
+                        </div>
+                        <div class="casa_info--body">
+                            <div class="seccion1">
+                                <p>Resumen de casa analizada con el modelo.</p>
+                                <ol style="list-style-type: none;">
+                                    <li>
+                                        <p>Linda y Amplica Casa en Urbanizacion Privada de Alto Lujo.</p>
+                                    </li>
+                                    <li>
+                                        <p>Precio: <span>$15000</span></p>
+                                    </li>
+                                    <li>
+                                        <p>Area: <span>167 m<sup>2</sup></span></p>
+                                    </li>
+                                    <li>
+                                        <p>Habitaciones: <span>2</span></p>
+                                    </li>
+                                    <li>
+                                        <p>Parqueaderos: <span>1</span></p>
+                                    </li>
+                                    <li>
+                                        <p>Sector: <span>Cumbayá</span></p>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="seccion2">
+                                <p>El modelo predijo a continuación un aproximado de cuanto costaría la construcción de tu casa en base a los datos que proporcionaste.</p>
+                                <ol>
+                                    <li>Precio Predecido: <span>$2000</span></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="mapa_casas_info">
+                    <iframe id="cumbaya" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31918.339242500577!2d-78.45613750312903!3d-0.2065081366531639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5911fc4a2d301%3A0x75c0df62f9a789b0!2zQ3VtYmF5w6EsIFF1aXRv!5e0!3m2!1ses-419!2sec!4v1694967629394!5m2!1ses-419!2sec" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div> 
 

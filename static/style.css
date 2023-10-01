@@ -69,6 +69,8 @@ iframe{
     margin: 0 auto;
     width: 100%;
     display: inherit;
+    height: 100%;
+    border-radius: 2.9rem;
 }
 
 select{

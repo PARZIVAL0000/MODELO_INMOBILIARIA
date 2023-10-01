@@ -50,8 +50,9 @@ def buscar():
                     if(resultado):
                         modelo.limpiarDic()
                         resultado = modelo.modelo()
+                        print(resultado)
                         info['resultado'] = 'incompleto'
-                        info['contenido'] = {}
+                        info['contenido'] = resultado
                         
                         # print(resultado)
                    
@@ -63,7 +64,6 @@ def buscar():
             return render_template('index.html')
         
 
-    # return render_template('buscar.html', entrada=entrada, datos=datos)
-    return render_template('index.html', info=info)
+    return render_template('buscar.html', info=info)
 
 

@@ -18,8 +18,50 @@ td{
     }
 }
 
+/* estilos para nuestro barra de informacion. */
+.barra_info{
+    margin: 1rem;
+    box-shadow: -1px 1px 30px rgb(0 0 0 / 0.6);
+    max-height: 10rem;
+    border-radius: 0.9rem;
+}
+
+.barra_info > ul{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 2rem;
+    padding:.4rem;
+}
+
+.barra_info > ul > li > p{
+    display: flex;
+    margin:0rem;
+    gap:2rem;
+}
+
+.barra_info > ul > li > p > span{
+    font-weight: 300;
+}
+
 .inmobiliarias_busqueda {
-    padding: 3rem 0.9rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 2rem;
+    height: 65rem;
+}
+
+.inmobiliarias_busqueda .listado_casas_info{
+    margin: 0 auto;
+    width: 100%;
+    display: inherit;
+    height: 100%;
+    border-radius: 2.9rem;
+    box-shadow: 1px 1px 8px rgb( 0 0 0 / .2);
+    padding: 2rem;
 }
 
 .inmobiliarias_busqueda h2.h2-1{
