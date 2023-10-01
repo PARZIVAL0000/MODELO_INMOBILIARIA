@@ -253,6 +253,7 @@ function MostrarBarrios(s = null){
             }
 
             seleccionarBarrio();
+            verificarBotonesBarrios();
         }
     }else{
         document.querySelector("#accordionPanelsStayOpenExample button").classList.add("collapsed");
@@ -305,6 +306,7 @@ function seleccionarBarrio(){
         const sector = boton.classList[1];
 
         if(sector === "btn-centroNorte-quito"){
+
             if(document.querySelector(`.${id}`).classList.contains("btn_close")){
                 document.querySelector(`.${id}`).classList.remove("btn_close");
                 document.querySelector(`.${id}`).innerHTML = `
@@ -336,6 +338,7 @@ function seleccionarBarrio(){
             }
            
             verificarBotonesBarrios();
+
         }else if(sector === "btn-norte-quito"){
             if(document.querySelector(`.${id}`).classList.contains("btn_close")){
                 document.querySelector(`.${id}`).classList.remove("btn_close");
@@ -386,20 +389,33 @@ function seleccionarBarrio(){
 function verificarBotonesBarrios(){
 
     const EscucharBotonConfirmar = (event) => {
+        event.preventDefault();
 
+        window.location.href='#regresar';
+        document.getElementById('desplegar-listado').classList.remove('mostrarPanel');
+        document.getElementById('desplegar-listado').id = 'ocultarPanel';
     }
 
     const EscucharBotonCancelar = (event) => {
+        event.preventDefault();
         if(document.getElementById('desplegar-listado')){
+            window.location.href='#regresar';
             document.getElementById('desplegar-listado').classList.remove('mostrarPanel');
             document.getElementById('desplegar-listado').id = 'ocultarPanel';
             document.getElementById('sector1').checked = true;
-            window.location.href='#regresar';
         }
     }
 
     let btnConfirmar = document.getElementById('btnConfirmar');
     let btnCancelar = document.getElementById('btnCancelar');
+
+    if(!campos.sector){
+        btnConfirmar.disabled=true;
+        btnConfirmar.style.Cursor='no-drop';
+        btnConfirmar.style.border='1px solid black';
+    }else{
+        btnConfirmar.disabled=false;
+    }
 
     btnConfirmar.addEventListener("click", EscucharBotonConfirmar);
     btnCancelar.addEventListener("click", EscucharBotonCancelar);
