@@ -24,61 +24,69 @@
             </div>
     
             <div class="barra_info">
+                {% if info['resultado'] is eq('completo') %}
                 <ul style="list-style-type:none;">
                     <li>
-                        <p>Habitaciones: <span>4</span></p>
+                        <p>Habitaciones: <span>{{ info['contenido']['InformacionCliente'][0].habitaciones }}</span></p>
                     </li>
                     <li>
-                        <p>Parqueaderos: <span>4</span></p>
+                        <p>Parqueaderos: <span>{{ info['contenido']['InformacionCliente'][0].parqueadero  }}</span></p>
                     </li>
                     <li>
-                        <p>Tipo Acabados: <span>Económico</span></p>
+                        <p>Tipo Acabados: <span>{{ info['contenido']['InformacionCliente'][0].tipoAcabados }}</span></p>
                     </li>
                     <li>
-                        <p>Sector: <span>Cumbayá</span></p>
+                        <p>Sector: <span>{{ info['contenido']['InformacionCliente'][0].Sector }}</span></p>
                     </li>
                 </ul>
+                {% endif %}
             </div>
 
             <div class="inmobiliarias_busqueda">
                 <div class="listado_casas_info">
-                    <section class="casa_info">
-                        <div class="casa_info--header">
-                            <h2>Información Construcción de Casa</h2>
-                            <p>En base a las entradas del cliente, el modelo predijo a continuación.</p>
-                        </div>
-                        <div class="casa_info--body">
-                            <div class="seccion1">
-                                <p>Resumen de casa analizada con el modelo.</p>
-                                <ol style="list-style-type: none;">
-                                    <li>
-                                        <p>Linda y Amplica Casa en Urbanizacion Privada de Alto Lujo.</p>
-                                    </li>
-                                    <li>
-                                        <p>Precio: <span>$15000</span></p>
-                                    </li>
-                                    <li>
-                                        <p>Area: <span>167 m<sup>2</sup></span></p>
-                                    </li>
-                                    <li>
-                                        <p>Habitaciones: <span>2</span></p>
-                                    </li>
-                                    <li>
-                                        <p>Parqueaderos: <span>1</span></p>
-                                    </li>
-                                    <li>
-                                        <p>Sector: <span>Cumbayá</span></p>
-                                    </li>
-                                </ol>
-                            </div>
-                            <div class="seccion2">
-                                <p>El modelo predijo a continuación un aproximado de cuanto costaría la construcción de tu casa en base a los datos que proporcionaste.</p>
-                                <ol>
-                                    <li>Precio Predecido: <span>$2000</span></li>
-                                </ol>
-                            </div>
-                        </div>
-                    </section>
+                    {% if info['resultado'] is eq('completo') %}
+                        {% for i in range(info['contenido'].InformacionCasas|length) %}
+                            <section class="casa_info">
+                                <div class="casa_info--header">
+                                    <h2>Información Construcción de Casa</h2>
+                                    <p>En base a las entradas del cliente, el modelo predijo a continuación.</p>
+                                </div>
+                                <div class="casa_info--body">
+                                    <div class="seccion1">
+                                        <p>Resumen de casa analizada con el modelo.</p>
+                                        <ol style="list-style-type: none;">
+                                            <li>
+                                                <p>Nombre: <span>{{ info['contenido'].InformacionCasas[i].nombre }}</span></p>
+                                            </li>
+                                            <li>
+                                                <p>Precio: <span>{{ info['contenido'].InformacionCasas[i].precioBase }}</span></p>
+                                            </li>
+                                            <li>
+                                                <p>Area: <span>{{ info['contenido'].InformacionCasas[i].area }} </span></p>
+                                            </li>
+                                            <li>
+                                                <p>Habitaciones: <span>2</span></p>
+                                            </li>
+                                            <li>
+                                                <p>Parqueaderos: <span>1</span></p>
+                                            </li>
+                                            <li>
+                                                <p>Sector: <span>{{ info['contenido'].InformacionCasas[i].sector }}</span></p>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div class="seccion2">
+                                        <p>El modelo predijo a continuación un aproximado de cuanto costaría la construcción de tu casa en base a los datos que proporcionaste.</p>
+                                        <ol style="list-style-type: none;">
+                                            <li>
+                                                <p>Precio Predecido: <span>{{ info['contenido'].InformacionCasas[i].PrecioPredecido }}</span></p>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </section>
+                        {% endfor %}
+                    {% endif %}
                 </div>
                 <div class="mapa_casas_info">
                     <iframe id="cumbaya" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31918.339242500577!2d-78.45613750312903!3d-0.2065081366531639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5911fc4a2d301%3A0x75c0df62f9a789b0!2zQ3VtYmF5w6EsIFF1aXRv!5e0!3m2!1ses-419!2sec!4v1694967629394!5m2!1ses-419!2sec" 

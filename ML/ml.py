@@ -25,7 +25,7 @@ resultado_final = {
     ],
 
     "InformacionCliente" : [
-        {"habitaciones" : '', "parqueadero" : '', "tipoAcabados" : '', "PrecioRango" : ''}
+        {"habitaciones" : '', "parqueadero" : '', "tipoAcabados" : '', "PrecioRango" : '', "Sector" : ''}
     ]
 }
 
@@ -139,6 +139,7 @@ def modelo():
     resultado_final['InformacionCliente'][0]['habitaciones'] = informacion['habitaciones']
     resultado_final['InformacionCliente'][0]['parqueadero'] = informacion['parqueadero']
     resultado_final['InformacionCliente'][0]['tipoAcabados'] = informacion['tipoAcabados']
+    resultado_final['InformacionCliente'][0]['Sector'] = informacion['sector']
   
     X_train, X_test, y_train, y_test = train_test_split(caracteristica, precio, test_size=0.2, random_state = 42)
 
@@ -225,7 +226,6 @@ def entradas(entradas = []):
         return False 
 
 
-
 def limpiarDic():
     resultado_final['Estadistica'][0]['Precio-Minimo'] = ""
     resultado_final['Estadistica'][0]['Precio-Maximo'] = ""
@@ -239,3 +239,4 @@ def limpiarDic():
     resultado_final['InformacionCliente'][0]['parqueadero'] = ""
     resultado_final['InformacionCliente'][0]['tipoAcabados'] = ""
     resultado_final['InformacionCliente'][0]['PrecioRango'] = ""
+    resultado_final['InformacionCliente'][0]['Sector'] = ""
