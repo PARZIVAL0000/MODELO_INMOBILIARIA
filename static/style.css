@@ -80,8 +80,8 @@ select{
 
 button.accordion-button{
     border: 1px solid rgb(0 0 0);
-    font-size: 1.5rem;
-    font-weight: lighter;
+    font-size: 1.7rem;
+    font-weight: 400;
     background-color: rgb(0 0 0 / 24%);
     color: rgb(0 0 0 / 24%);
     cursor: no-drop;
@@ -136,12 +136,20 @@ button.accordion-button{
     text-transform: capitalize;
 }
 
+.btn-seleccion:hover{
+    background-color: #9f6ff3d6 !important;
+}
+
 .btn-cancelar{
     width: 20rem;
     margin:0rem;
     background-color: #e93814;
     font-weight: 300;
     text-transform: capitalize;
+}
+
+.btn-cancelar:hover{
+    background-color: #e93814b3 !important;
 }
 
 .btn:hover{

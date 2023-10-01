@@ -32,7 +32,7 @@ function app(){
     ValidarFormulario();
     MostrarBarrios();
     seleccionarBarrio();
-    
+    verificarBotonesBarrios();
 }
 
 const campos = {    
@@ -96,7 +96,6 @@ function ValidarFormulario(){
                 break;
         }
     }
-
 
     const ValidarEntradaRadio = (e) => {
         const name = e.target.name;
@@ -195,7 +194,6 @@ function ejecutarCarga(campo, id){
     document.querySelector(`#${campo}`).classList.add("border-danger");
     document.querySelector(`#campo-${id} .entrada > .mensaje`).classList.add("mensaje-imprimir");
 }
-
 
 
 function MostrarBarrios(s = null){
@@ -337,6 +335,7 @@ function seleccionarBarrio(){
                 }
             }
            
+            verificarBotonesBarrios();
         }else if(sector === "btn-norte-quito"){
             if(document.querySelector(`.${id}`).classList.contains("btn_close")){
                 document.querySelector(`.${id}`).classList.remove("btn_close");
@@ -366,6 +365,8 @@ function seleccionarBarrio(){
                     document.querySelector("#input_sectorBarrio").value = barrio[0];
                 }
             }
+
+            verificarBotonesBarrios()
         }
     }
 
@@ -376,4 +377,30 @@ function seleccionarBarrio(){
             btn.addEventListener("click", VerificarBotonBarrio);
         });
     }
+}
+
+
+
+//esta funcion va a escuchar por los 2 botones ('confirmar seleccion' y 'cancelar') el cual se muestran cuando el usuario
+//selecciona en el input<type=radio> 'norte de quito' y 'centro-norte de quito' ...
+function verificarBotonesBarrios(){
+
+    const EscucharBotonConfirmar = (event) => {
+
+    }
+
+    const EscucharBotonCancelar = (event) => {
+        if(document.getElementById('desplegar-listado')){
+            document.getElementById('desplegar-listado').classList.remove('mostrarPanel');
+            document.getElementById('desplegar-listado').id = 'ocultarPanel';
+            document.getElementById('sector1').checked = true;
+            window.location.href='#regresar';
+        }
+    }
+
+    let btnConfirmar = document.getElementById('btnConfirmar');
+    let btnCancelar = document.getElementById('btnCancelar');
+
+    btnConfirmar.addEventListener("click", EscucharBotonConfirmar);
+    btnCancelar.addEventListener("click", EscucharBotonCancelar);
 }
