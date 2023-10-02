@@ -1,27 +1,22 @@
 const barrios = {
     "0" : 'Pomasqui',
-    "1" : 'El Quinche', 
-    "2" : 'Guápulo',
-    "3"  : 'Quito Tenis',
-    "4"  : 'Iñaquito', 
-    "5"  : 'La Mariscal', 
-    "6"  : 'Mena del Hierro', 
-    "7"  : 'El Condado',
-    "8"  : 'Comité del Pueblo',
-    "9"  : 'La Bota', 
-    "10"  : 'Ponceano',  
-    "11"  : 'Manuela Canizares', 
-    "12"  : 'La Colon', 
+    "1" : 'El Batán',
+    "2"  : 'Las Casas',
+    "3"  : 'Iñaquito Alto', 
+    "4"  : 'El Bosque', 
+    "5"  : 'Norte de Quito', 
+    "6"  : 'San Carlos', 
+    "7"  : 'Ponceano',  
+    "8"  : 'La Luz',
+    "9"  : 'Carcelén', 
 };
 
 const barrios_centroNorte = {
-    "0" : "Calderón",
-    "1" : "Quito Tenis",
-    "2" : "Bellavista", 
-    "3" : "Centro Norte",
-    "4" : "Sangolqui", 
+    "0" : "Bellavista",
+    "1" : "La Carolina", 
+    "2" : "González Suárez",
+    "3" : "Quito Tenis", 
 }
-
 
 let barrio = [];
 
