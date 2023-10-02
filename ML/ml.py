@@ -109,34 +109,21 @@ def modelo():
     data.area = pd.to_numeric(data.area, downcast='integer')
     data.habitaciones = pd.to_numeric(data.habitaciones, downcast='integer')
     data.banos = pd.to_numeric(data.banos, downcast='integer')
+
+    data.drop_duplicates(inplace=True, ignore_index=True) # !evitar valores duplicadores.
+
     
     respuesta = data.loc[:, 'sector'] == informacion['sector']
     data = data.loc[respuesta]
+
+    resultado = data.loc[:, 'area'] > 118
+    data = data.loc[resultado]
     #----------------------------------
     #Clasificacion de la informacion....
     precio = data['precio']
     caracteristica = data.drop(['precio', 'sector', 'ciudad', 'fecha', 'nombre'], axis = 1)
 
-    precio_minimo = np.amin(precio)
-    precio_maximo = np.amax(precio)
-    precio_promedio = np.mean(precio)
-    precio_medio = np.median(precio)
-    precio_std = np.std(precio)
 
-    # Show the calculated statistics
-    print("Estadisticas del dataset terrenos:\n")
-    print("Precio Minimo: ${}".format(precio_minimo)) 
-    print("Precio Maximo: ${}".format(precio_maximo))
-    print("Precio Promedio: ${}".format(precio_promedio))
-    print("Precio Medio ${}".format(precio_medio))
-    print("Desviacion Estandar del precio: ${}".format(precio_std))
-
-    resultado_final['Estadistica'][0]['Precio-Minimo'] = str(precio_minimo)
-    resultado_final['Estadistica'][0]['Precio-Maximo'] = str(precio_maximo)
-    resultado_final['Estadistica'][0]['Precio-Promedio'] = str(precio_promedio)
-    resultado_final['Estadistica'][0]['Precio-Medio'] = str(precio_medio)
-    resultado_final['Estadistica'][0]['Desviacion'] = str(precio_std)
-    
     resultado_final['InformacionCliente'][0]['habitaciones'] = informacion['habitaciones']
     resultado_final['InformacionCliente'][0]['parqueadero'] = informacion['parqueadero']
 
@@ -162,16 +149,17 @@ def modelo():
     #Recolectamos los datos de nuestros clietes....
     #area - habitaciones
     for k,v in data['area'].items():
-        infoCasa = {"nombre" : '', "precioBase" : '', "sector" : '', "ciudad" : '', "PrecioPredecido" : '', "area" : '', "habitaciones" : '', "parqueaderos" : '' }
+        infoCasa = {"nombre" : '', "precioBase" : '', "sector" : '', "ciudad" : '', "PrecioPredecido" : '', "area" : '', "habitaciones" : '', "parqueaderos" : '', "idRegistro" : '' }
 
         infoCasa['nombre'] = data['nombre'][k]
-        infoCasa['precioBase'] = str(data['precio'][k])
+        infoCasa['precioBase'] = "${:,.0f}".format(data['precio'][k])
         infoCasa['sector'] = data['sector'][k]
         infoCasa['ciudad'] = data['ciudad'][k]
         infoCasa['PrecioPredecido'] = ''
         infoCasa['area'] = data['area'][k]
         infoCasa['habitaciones'] = data['habitaciones'][k]
         infoCasa['parqueaderos'] = str(int(data['parqueadero'][k]))
+        infoCasa['idRegistro'] = k
 
         d = []
         d.append(v)
@@ -184,14 +172,26 @@ def modelo():
     
     # client_data = [[1200, 2, 5, 300]]  # Client 3
     # # Show predictions
+    preciosPredecidos = []
     for i, price in enumerate(reg.predict(client_data)):
         c[i]['PrecioPredecido'] = "${:,.0f}".format(price)
-        print("El ML predijo la terreno-{} con un precio estimado de: ${:,.0f}".format(i+1, price))
+        # print("El ML predijo la terreno-{} con un precio estimado de: ${:,.0f}".format(i+1, price))
         resultado_final['InformacionCasas'].append(c[i])
+        preciosPredecidos.append(price)
 
+    data['preciosPredecidos'] = preciosPredecidos
+    
+    dataFrameNew = extractDF(data)
+
+    print(dataFrameNew)
+
+    resultado_final['Estadistica'][0]['Precio-Minimo']   =  "${:,.3f}".format(dataFrameNew['min'][0])
+    resultado_final['Estadistica'][0]['Precio-Maximo']   =  "${:,.3f}".format(dataFrameNew['max'][0])
+    resultado_final['Estadistica'][0]['Precio-Promedio'] =  "${:,.3f}".format(dataFrameNew['mean'][0])
+    resultado_final['Estadistica'][0]['Precio-Medio']    =  "${:,.3f}".format(dataFrameNew['50%'][0])
+    resultado_final['Estadistica'][0]['Desviacion']      =  "${:,.3f}".format(dataFrameNew['std'][0])
 
     resultado = PredictTrials(caracteristica, precio, fit_model, client_data)
-    print(resultado)
     resultado_final['InformacionCliente'][0]['PrecioRango'] = resultado
 
     return resultado_final
@@ -226,6 +226,11 @@ def PredictTrials(X, y, fitter, data):
     # print("\nRango de Precio: ${:,.2f}".format(max(prices) - min(prices)))
 
     return  "{:,.2f}".format((max(prices) - min(prices)))
+
+
+def extractDF( dfVentaFilter ):
+    dfVentaSummary = dfVentaFilter.groupby('sector')['preciosPredecidos'].describe(percentiles=[]).reset_index()
+    return dfVentaSummary
 
 
 def entradas(entradas = []):

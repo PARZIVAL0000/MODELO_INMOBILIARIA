@@ -24,6 +24,9 @@ td{
     box-shadow: -1px 1px 30px rgb(0 0 0 / 0.6);
     max-height: 10rem;
     border-radius: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .barra_info > ul{
@@ -36,10 +39,16 @@ td{
     padding:.4rem;
 }
 
+.barra_info > ul:nth-child(1){
+    border-bottom: 1px solid rgba( 0 0 0 / .2);
+    margin: 0rem;
+}
+
 .barra_info > ul > li > p{
     display: flex;
     margin:0rem;
     gap:2rem;
+    font-size:1.5rem;
 }
 
 .barra_info > ul > li > p > span{

@@ -42,6 +42,21 @@
                         <p>Sector: <span id="getSector">{{ info['contenido']['InformacionCliente'][0].Sector }}</span></p>
                     </li>
                 </ul>
+                <ul style="list-style-type: none;">
+                    <li>
+                        <p>Precio Mínimo: <span>{{ info['contenido']['Estadistica'][0]['Precio-Minimo']}}</span></p>
+                    </li>
+                    <li>
+                        <p>Precio Máximo: <span>{{ info['contenido']['Estadistica'][0]['Precio-Maximo']  }}</span></p>
+                    </li>
+                    <li>
+                        <p>Precio Promedio: <span>{{ info['contenido']['Estadistica'][0]['Precio-Promedio'] }}</span></p>
+                    </li>
+                    <li>
+                        <p>Precio Medio (50%): <span>{{ info['contenido']['Estadistica'][0]['Precio-Medio'] }}</span></p>
+                    </li>
+                    
+                </ul>
                 {% endif %}
             </div>
 
@@ -125,34 +140,6 @@
             </footer>
         </div>
         
-        <script>
-            const precios = document.querySelectorAll(".precios");
-            precios.forEach(precio => {
-                let resultado = "$";
-                let p = precio.textContent.split("$")[1];
-                
-                if(p.length >= 4 && p.length <= 6){
-                    let e = p.slice(-3,);
-                    p = p.replace(e, '');
-                    p += ".";
-                    p += e;
-                }else if(p.length > 6){
-                    let e = p.slice(-6,)
-                    p = p.replace(e, '')
-                    p += ".";
-                    p += e;
-
-                    e = p.slice(-3,);
-                    p = p.replace(e, '');
-                    p += ".";
-                    p += e;
-                }
-
-                resultado += p;
-                precio.textContent = resultado;
-            });
-        </script>
-
         <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
         <script src="static/scripts/letter.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

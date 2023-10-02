@@ -231,7 +231,6 @@ button.accordion-button{
 }
 
 
-
 .cabecera .bg-image .cabecera_heading .cabecera_texto{
     font-weight: lighter;
     font-size: 2.5rem;
@@ -900,5 +899,6 @@ a#boton_barrio{
     border-radius: 100%;
     font-size: 1.9rem;
     display: inline-block;
+    position: inherit;
 }
 
