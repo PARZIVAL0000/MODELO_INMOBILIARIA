@@ -112,7 +112,6 @@ def modelo():
 
     data.drop_duplicates(inplace=True, ignore_index=True) # !evitar valores duplicadores.
 
-    
     respuesta = data.loc[:, 'sector'] == informacion['sector']
     data = data.loc[respuesta]
 
