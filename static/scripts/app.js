@@ -61,7 +61,6 @@ function ValidarFormulario(){
                     document.querySelector("#habitaciones").classList.remove("border-danger");
 
                     document.querySelector("#campo-2 .entrada > .mensaje").classList.remove("mensaje-imprimir");
-
                     campos.habitaciones = true;
                 }
 

@@ -11,11 +11,14 @@
         <title>Inmobiliaria - Buscador Inteligente</title>
     </head>
     <body>
-        <div class="contenedor buscar">
+        <div class="contenedor buscar" id="{{ info['contenido']['InformacionCliente'][0].tipoSector }}">
             <div class="bg-primary cabecera">
                 <div class="bg bg-image">
                     <h1 class="cabecera_heading">En Inmobiliaria Encuentra <span class="typed"></span></h1>
                     <div class="sombreado">
+                        <nav class="navegacion">
+                            <a href="/">Inicio</a>
+                        </nav>
                     </div>
                 </div>
                 <header class="cabecera_titulo">
@@ -36,7 +39,7 @@
                         <p>Tipo Acabados: <span>{{ info['contenido']['InformacionCliente'][0].tipoAcabados }}</span></p>
                     </li>
                     <li>
-                        <p>Sector: <span>{{ info['contenido']['InformacionCliente'][0].Sector }}</span></p>
+                        <p>Sector: <span id="getSector">{{ info['contenido']['InformacionCliente'][0].Sector }}</span></p>
                     </li>
                 </ul>
                 {% endif %}
@@ -65,10 +68,10 @@
                                                 <p>Area: <span>{{ info['contenido'].InformacionCasas[i].area }} </span></p>
                                             </li>
                                             <li>
-                                                <p>Habitaciones: <span>2</span></p>
+                                                <p>Habitaciones: <span>{{ info['contenido'].InformacionCasas[i].habitaciones }}</span></p>
                                             </li>
                                             <li>
-                                                <p>Parqueaderos: <span>1</span></p>
+                                                <p>Parqueaderos: <span>{{ info['contenido'].InformacionCasas[i].parqueaderos }}</span></p>
                                             </li>
                                             <li>
                                                 <p>Sector: <span>{{ info['contenido'].InformacionCasas[i].sector }}</span></p>

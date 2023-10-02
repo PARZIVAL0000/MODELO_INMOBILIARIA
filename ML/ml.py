@@ -14,6 +14,7 @@ informacion = {
     'parqueadero' : '',
     'tipoAcabados' : '',
     'sector' : '',
+    'tipoSector' : ''
 }
 
 resultado_final = {
@@ -25,7 +26,7 @@ resultado_final = {
     ],
 
     "InformacionCliente" : [
-        {"habitaciones" : '', "parqueadero" : '', "tipoAcabados" : '', "PrecioRango" : '', "Sector" : ''}
+        {"habitaciones" : '', "parqueadero" : '', "tipoAcabados" : '', "PrecioRango" : '', "Sector" : '', "tipoSector" : ''}
     ]
 }
 
@@ -138,8 +139,18 @@ def modelo():
     
     resultado_final['InformacionCliente'][0]['habitaciones'] = informacion['habitaciones']
     resultado_final['InformacionCliente'][0]['parqueadero'] = informacion['parqueadero']
-    resultado_final['InformacionCliente'][0]['tipoAcabados'] = informacion['tipoAcabados']
+
+    acabados = ''
+    if(informacion['tipoAcabados'] == '800'):
+        acabados = 'Gama Alta'
+    elif(informacion['tipoAcabados'] == '400'):
+        acabados = 'Gama Media'
+    elif(informacion['tipoAcabados'] == '300'):
+        acabados = 'Económico'
+
+    resultado_final['InformacionCliente'][0]['tipoAcabados'] = acabados
     resultado_final['InformacionCliente'][0]['Sector'] = informacion['sector']
+    resultado_final['InformacionCliente'][0]['tipoSector'] = informacion['tipoSector']
   
     X_train, X_test, y_train, y_test = train_test_split(caracteristica, precio, test_size=0.2, random_state = 42)
 
@@ -151,7 +162,7 @@ def modelo():
     #Recolectamos los datos de nuestros clietes....
     #area - habitaciones
     for k,v in data['area'].items():
-        infoCasa = {"nombre" : '', "precioBase" : '', "sector" : '', "ciudad" : '', "PrecioPredecido" : '', "area" : ''}
+        infoCasa = {"nombre" : '', "precioBase" : '', "sector" : '', "ciudad" : '', "PrecioPredecido" : '', "area" : '', "habitaciones" : '', "parqueaderos" : '' }
 
         infoCasa['nombre'] = data['nombre'][k]
         infoCasa['precioBase'] = str(data['precio'][k])
@@ -159,6 +170,8 @@ def modelo():
         infoCasa['ciudad'] = data['ciudad'][k]
         infoCasa['PrecioPredecido'] = ''
         infoCasa['area'] = data['area'][k]
+        infoCasa['habitaciones'] = data['habitaciones'][k]
+        infoCasa['parqueaderos'] = str(int(data['parqueadero'][k]))
 
         d = []
         d.append(v)
@@ -221,6 +234,7 @@ def entradas(entradas = []):
         informacion['parqueadero'] = entradas[0]['Parqueadero']
         informacion['tipoAcabados'] = entradas[0]['TipoAcabados']
         informacion['sector'] = entradas[0]['Sector']
+        informacion['tipoSector'] = entradas[0]['TipoSector']
         return True 
     else:
         return False 

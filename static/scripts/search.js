@@ -48,33 +48,31 @@
 
     function Buscar(){
         document.addEventListener("DOMContentLoaded", () => {
-            BotonMapa();
-        });
-    }
-
-    function BotonMapa(){
-        const botones = document.querySelectorAll(".boton-mapa");
-        botones.forEach(boton => {
-            boton.addEventListener("click", (event) => {
-                let id = event.target.id; 
-                
-            });
+            CargarMapa();
         });
     }
 
 
     function CargarMapa(){
-        const contenedor = document.getElementsByClassName("seccion-1")[0];
-        const tipo = contenedor.children[0].id;
+        const contenedor = document.querySelector('.mapa_casas_info');
+        let tipo = document.getElementById('getSector').textContent.toLowerCase();
 
-        if(tipo.trim().toLowerCase() === "cumbayá"){
-            contenedor.children[0].innerHTML = iframesHTML.CUMBAYA;
-        }else if(tipo.trim().toLowerCase() === "puembo"){
-            contenedor.children[0].innerHTML = iframesHTML.PUEMBO;
-        }else if(tipo.trim().toLowerCase() === "centroNorte-quito"){
-            contenedor.children[0].innerHTML = iframesHTML["CENTRONORTE-QUITO"];
-        }else if(tipo.trim().toLowerCase() === "norte-quito"){
-            contenedor.children[0].innerHTML = iframesHTML["NORTE-QUITO"];
+        
+
+        if(tipo === "cumbayá"){
+            contenedor.innerHTML = iframesHTML.CUMBAYA;
+        }else if(tipo === "puembo"){
+            contenedor.innerHTML = iframesHTML.PUEMBO;
+        }else{
+            tipo = document.querySelector(".buscar").id;
+
+            console.log(tipo);
+            
+            if(tipo === "centroNorte-quito"){
+                contenedor.innerHTML = iframesHTML["CENTRONORTE-QUITO"];
+            }else if(tipo === "norte-quito"){
+                contenedor.innerHTML = iframesHTML["NORTE-QUITO"];
+            }
         }
     }
 })();

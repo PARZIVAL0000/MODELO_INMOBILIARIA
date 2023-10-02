@@ -12,6 +12,16 @@ body{
     box-sizing: inherit;
 }
 
+a {
+    text-decoration: none;
+    color: rgb( 255, 255, 255);
+    font-weight: 300;
+    font-size: 2.5rem;
+    position: absolute;
+    right: 3%;
+    padding-top: .9rem;
+}
+
 .contenedor{
     max-width: 120rem;
     width: 100%;
@@ -231,6 +241,10 @@ button.accordion-button{
 .cabecera .bg-image .sombreado{
     background-color: rgb(0 0 0 / .4);
     height: 100%;
+}
+
+.cabecera .bg-image .sombreado .navegacion{
+
 }
 
 .cabecera .cabecera_titulo .cabecera_titulo--home{

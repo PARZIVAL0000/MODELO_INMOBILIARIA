@@ -23,6 +23,7 @@ def buscar():
         tipoAcabados = request.form['TipoAcabados']
         sector = request.form['Sector']
         barrio = request.form['barrio']
+        copiaSector = sector
 
         if(habitaciones != "" and parqueadero != "" and tipoAcabados != ""):
             if(sector != ""):
@@ -43,6 +44,7 @@ def buscar():
                         'Parqueadero' : parqueadero,
                         'TipoAcabados' : tipoAcabados,
                         'Sector' : sector,
+                        'TipoSector' : copiaSector
                     }
                 ])
 
